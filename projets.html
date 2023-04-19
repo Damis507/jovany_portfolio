@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>Mes Projets</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="Shortcut Icon" type="image/png" href="img/JF.png"> 
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="projets.css" />
+    </head>
+    <body>
+
+
+
+        <div class="cursor">
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text"><span>JF</span></div>
+        </div>
+
+        <script>
+            let timeout;
+
+            document.addEventListener("mousemove", e => {
+                gsap.to(".text", {
+                    x: e.clientX,
+                    y: e.clientY,
+                    stagger: -0.06
+                });
+
+                // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
+                clearTimeout(timeout);
+
+                // Définir un délai de 2 secondes avant de réduire l'opacité
+                timeout = setTimeout(() => {
+                    gsap.to(".cursor", { opacity: 0.5 });
+                }, 2000);
+            });
+
+            // Réinitialiser l'opacité lorsque la souris arrête de bouger
+            document.addEventListener("mouseout", e => {
+                clearTimeout(timeout);
+                gsap.to(".cursor", { opacity: 1 });
+            });      
+       </script>
+
+                <button class="retour">
+                    <a href="index.html">
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                    </a>
+                </button>
+                <div class="navbar">
+                        <div class="icon">
+                            <ion-icon name="arrow-down"></ion-icon>    
+                        </div> 
+
+                        <p>Slide</p>
+                        <h1>Mes Projets</h1>
+                </div>
+
+                <div class="container" >
+                    <button class="block block-1" type="submit" onclick="openPopup('popup')">
+                        <h1>.PPe1</h1>
+                    </button>
+                    <button class="block block-2" type="button" onclick="openPopup('popup1')">
+                        <h1>.PPe2</h1>
+                    </button>
+                    <button class="block block-3" type="button" onclick="openPopup('popup2')">
+                        <h1>.Expé</h1>
+                    </button>
+                    <button class="block block-4" type="submit" onclick="openPopup('popup3')">
+                        <h1>.Stage2</h1>
+                    </button>
+                    <button class="block block-5" type="submit" onclick="openPopup('popup4')">
+                        <h1>.Stage1</h1>
+                    </button>
+                    
+                    <!-- pop up --->
+                    
+                    <div class="popup" id="popup">
+                        <h2>Projets covoiturage</h2>
+                        <h3>cadre scolaire</h3>
+                        <h4>Projet destinée aux employés d'une entreprise fictive, <br>
+                             leurs permettants d'aider leurs collègues, <br>
+                             dans un cadre de covoiturage, pour ceux qui ont des soucis  </h4>
+                        <button class="bouton" type="submit" onclick="closePopup('popup')">OK</button>
+                    </div>
+                    
+                    <div class="popup1" id="popup1">
+                        <h2>Projet école de musique</h2>
+                        <h3>cadre scolaire</h3>
+                        
+                        <h4>Le projet consiste à moderniser les outils informatiques <br>
+                            de l'école de musique municipale de la ville de D.(fictif),<br>
+                            qui sont actuellement jugés peu efficaces. <br>
+                            Pour cela, une étude est menée par la DSI de la mairie. <br>
+                            En tant que salarié-e de la DSI, il faut participer à cette étude et <br>
+                             aux différentes missions qui la composent, <br>
+                            dans le but de proposer des solutions adaptées à l'école de musique <br>
+                            pour une meilleure gestion de ses activités.</h4>
+                        <button class="bouton" type="submit" onclick="closePopup('popup1')">OK</button>
+                    </div>
+                    
+                    <div class="popup2" id="popup2">
+                        <h2>Projets hackatons</h2>
+                        <h3>cadre personnel</h3>
+                        <div class="photoex">
+                          <img src="img/descriptive/logo-h.png" alt="" width="20%">
+                          
+                          <img src="img/descriptive/img4.png" alt="" width="50%">
+                        </div>
+                        <h4>J'ai eu l'opportunité de participer à un hackathon organisé à Sainte-Rose, <br>
+                            au cours où j'ai pu amasser une précieuse expérience et rencontrer des professionnels dans le domaine. <br>
+                            Au sein de mon groupe, nous avons eu pour mission de proposer un prototype innovant destiné à aider les étudiants. <br>
+                             Ce challenge m'a permis de développer mes compétences en travail d'équipe, <br>
+                            en communication et en créativité, <br>
+                            tout en me donnant l'occasion de réfléchir à des solutions concrètes pour résoudre des problématiques actuelles. </h4>
+                        <button class="bouton" type="submit" onclick="closePopup('popup2')">OK</button>
+                    </div>
+
+                    <div class="popup3" id="popup3">
+                        <h2>Stage école</h2>
+                        <h3>cadre professionnelle</h3>
+                        <div class="photoex">
+                          <img src="img/descriptive/logo-p.jpg" alt="" width="20%">
+                         
+                          <img src="img/descriptive/img2.png" alt="" width="50%">
+                        </div>
+                        <h4>Durant ma deuxième année de BTS, j'ai réalisé un stage d'un mois au <br>
+                            cours auquel j'ai été chargé de migrer un site de suivi individualisé  <br>
+                            d'élèves de PHP 5 à PHP 8. <br>
+                            <br>
+                            La migration de ce projet de PHP 5 vers PHP 8 m'a permis de développer<br>
+                             mes compétences en programmation et de mieux comprendre les enjeux <br>
+                            de la mise à jour des technologies ainsi augmentant ma sensibilité <br>
+                            à la veille technologique.
+                            </h4>
+                        <button class="bouton" type="submit" onclick="closePopup('popup3')">OK</button>
+                    </div>
+                    
+                    <div class="popup4" id="popup4">
+                        <h2>Stage centre de formation</h2>
+                        <h3>cadre professionnelle</h3>
+                        <div class="photoex">
+                            <img src="img/descriptive/logo-c.png" alt="" width="22%">
+                            
+                          </div>
+                       
+                        <h4>Le stage que j'ai réalisé à ma première année de BTS m'a permis de <br>
+                            découvrir le monde professionnel et d'acquérir des compétences techniques en développement web. <br>
+                            Travaillant au sein de Concept X Formation(basse-terre), j'ai apporter mon aide en <br>
+                            PHP, HTML et CSS pour aider les nouveaux arrivants à utiliser efficacement leur intranet. <br>
+                            Permettant aussi de dévelloppé mes compétences en pédagogie, <br>
+                            en expliquant de manière claire et concise les fonctionnalités de l'intranet <br>
+                            aux nouveaux utilisateurs.</h4>
+                        <button class="bouton" type="submit" onclick="closePopup('popup4')">OK</button>
+                    </div>
+
+                    <script>
+                        function openPopup(id){
+                            let popup = document.getElementById(id);
+                            popup.classList.add("open-popup");
+                        }
+                    
+                        function closePopup(id){
+                            let popup = document.getElementById(id);
+                            popup.classList.remove("open-popup");
+                        }
+                    </script>
+
+
+
+                <script src="projets.js"></script>
+                <script>
+                    var blocks = document.getElementsByClassName("block");
+                    var container = document.getElementsByClassName("container");
+                    var hs = new HorizontalScroll.default({
+                        blocks: blocks,
+                        container: container,
+                        isAnimated: true,
+                        springEffect: 0.8,
+                    });
+                </script>
+            
+    </body>
+</html>

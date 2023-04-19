@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moi</title>
+    <link rel="stylesheet" href="stylemoi.css" />
+    <link rel="Shortcut Icon" type="image/png" href="img/JF.png"> 
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+        <div class="cursor">
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text">JF</div>
+            <div class="text"><span>JF</span></div>
+        </div>
+
+
+        <button class="retour">
+                    <a href="index.html">
+                    <ion-icon class="rt" name="arrow-undo-outline"></ion-icon>
+                    </a>
+                </button>
+
+                <script>
+                    let timeout;
+        
+                    document.addEventListener("mousemove", e => {
+                        gsap.to(".text", {
+                            x: e.clientX,
+                            y: e.clientY,
+                            stagger: -0.06
+                        });
+        
+                        // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
+                        clearTimeout(timeout);
+        
+                        // Définir un délai de 2 secondes avant de réduire l'opacité
+                        timeout = setTimeout(() => {
+                            gsap.to(".cursor", { opacity: 0.5 });
+                        }, 2000);
+                    });
+        
+                    // Réinitialiser l'opacité lorsque la souris arrête de bouger
+                    document.addEventListener("mouseout", e => {
+                        clearTimeout(timeout);
+                        gsap.to(".cursor", { opacity: 1 });
+                    });      
+               </script>
+
+
+        <div class="container1">                                    
+            <img src="img/Groupe4.png" alt="" width="70%">
+            <button class="download" type="button">
+                <a href="img/g1.png"> Télecharger mon fichier</a>
+                <ion-icon name="download-outline"></ion-icon>
+            </button>
+
+        </div>
+
+        <div class="container2">
+            <img src="img/Groupe5.png" alt="" width="80%">
+            
+        </div>
+    
+    
+</body>
+</html>
