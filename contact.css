@@ -94,3 +94,9 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
+.container2 img{
+    position: absolute;
+    left: 74%;
+    top: 3%;
+}
