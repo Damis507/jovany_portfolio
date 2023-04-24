@@ -287,6 +287,38 @@ h3{
     grid-gap: 20px;*/
 }
 
+.popup5{
+
+    width: 50%;
+    height: 500px;
+    background: black;
+    position: absolute;
+    margin-bottom: 20%;
+    left: 15%;
+    transform: scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    top: 0;
+    visibility: hidden;
+    transition: scale 2s;
+}
+
+
+.popup5 .bouton{
+    position: relative;
+    top: -39%;
+    left: 50%;
+}
+
+.popup5 h4{
+    color: white;
+    margin-top: 0%;
+    font-size: 90%;  
+    font-weight: 200;
+}
+
+
+
 .open-popup{
     visibility: visible;
     top: 20%;
@@ -340,6 +372,12 @@ h1 {
     border-style : none;
 }
 
+.block-6 {
+    background: url(img/g3.png) no-repeat 50% 50%;
+    background-size: cover;
+    border-style : none;
+}
+
 .container {
     margin-top: 200px;
     margin-left: 200px;
@@ -382,6 +420,14 @@ h1 {
  {
     bottom: 190px;
     right: -110px;
+    color: white;
+}
+
+.block-6 h1
+ {
+    bottom: -160px;
+    right: -110px;
+    border: 0px;
     color: white;
 }
 
