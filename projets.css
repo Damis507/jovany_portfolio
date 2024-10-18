@@ -1,5 +1,6 @@
 html,
 body {
+   
     margin: 0;
     padding: 0;
     width: 100%;
@@ -37,6 +38,7 @@ body {
 
 .retour {
     position: absolute;
+    color: #fff;
    
     border-style: none;
     text-decoration: none;
@@ -317,6 +319,35 @@ h3{
     font-weight: 200;
 }
 
+.popup5{
+
+    width: 50%;
+    height: 500px;
+    background: black;
+    position: absolute;
+    margin-bottom: 20%;
+    left: 15%;
+    transform: scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    top: 0;
+    visibility: hidden;
+    transition: scale 2s;
+}
+
+
+.popup6 .bouton{
+    position: relative;
+    top: -39%;
+    left: 50%;
+}
+
+.popup6 h4{
+    color: white;
+    margin-top: 0%;
+    font-size: 90%;  
+    font-weight: 200;
+}
 
 
 .open-popup{
@@ -343,43 +374,43 @@ h1 {
 }
 
 .block-1 {
-    background: url(img/g1.png) no-repeat 50% 50%;
+    background: url(img/g1.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .block-2 {
-    background: url(img/g2.png) no-repeat 50% 50%;
+    background: url(img/g2.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .block-3 {
-    background: url(img/g3.png) no-repeat 50% 50%;
+    background: url(img/g3.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .block-4 {
-    background: url(img/g1.png) no-repeat 50% 50%;
+    background: url(img/g1.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .block-5 {
-    background: url(img/g2.png) no-repeat 50% 50%;
+    background: url(img/g2.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .block-6 {
-    background: url(img/g3.png) no-repeat 50% 50%;
+    background: url(img/g3.webp) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
 }
 
 .container {
-    margin-top: 200px;
+    margin-top: 20px;
     margin-left: 200px;
     
     
@@ -448,3 +479,20 @@ h1 {
     opacity: 1;
   }
   
+  @media (max-width: 768px) {
+    .navbar h1 {
+        font-size: 100px;
+        left: 10px;
+    }
+    
+    .block {
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 80px;
+        bottom: -120px;
+    }
+}

@@ -34,9 +34,7 @@ body {
 }
 
 
-.font {
-    
-}
+
 
 h1 {
     position: absolute;
@@ -64,13 +62,7 @@ h1 {
 
 .photo{
     z-index: 0;
-    transition-duration: 1s;
-    transition-property: border-radius;
     
-}
-
-.photo:hover {
-    border-radius: 10%;
 }
 
 @-webkit-keyframes rotating {
@@ -86,7 +78,7 @@ h1 {
     z-index: 1;
     margin-left: -180px;
     position: absolute;
-    margin-top: 20%;
+    margin-top: 10%;
     -webkit-animation: rotating 20s linear infinite;
 }
 
@@ -138,4 +130,35 @@ a:hover {
     cursor: none;
     
     
+}
+
+@media (max-width: 768px) {
+    .body{
+        margin: 15px;
+    }
+    .container-img {
+        margin-left: 25%;
+        margin-top: 45%;
+        margin-right: 0%;
+        width: 50%;
+    }
+    .name{
+        display: none;
+    }
+    .text{
+        display: none;
+    }
+    .menu {
+        bottom: 100px;
+        margin: 10px;
+    }
+    
+    .menu-item {
+        font-size: 100px;
+    }
+    .font {
+        position: relative;
+        display: flex;
+        justify-content: center;                           
+    }
 }
