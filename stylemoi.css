@@ -46,46 +46,70 @@ li {
     
 }
 
-
+.content {
+    display: flex;
+    flex-direction: row-reverse;
+}
 
 
 
 .container1 {
     z-index: 2;
-    position: absolute;
+    position: relative;
     margin-left: 40%;
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-gap: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-bottom: 20px;
+
     
 }
 
-.container1 img {
+.container1 a {
+
+    margin-top: 40px;
+    width: 50px;
+    height: 50px;
     
-    margin-left: 20%;
     
+}
+
+.container1 button{
+    width: 50px;
+    height: 50px;
 }
 
 .container1 .download{
-  margin-left: 52%;
-  margin-right: 42%;
   border: none;
   background-color: rgb(255, 37, 37);
-    
-
 }
 
-.container1 .download a{
-    font-size:10%;
-    padding: 20px;
-    color: #e0a920;
-  }
+.icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
 
 .container2 {
     z-index: 0;
-    position: absolute;
-    margin-top: 100px;
-    top: 30%;
+    position: relative;
+    margin-bottom: 500px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
+
+.maitrise ul {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+
+}
+
+.maitrise ul img {
+    margin-right: 2px;
+}
+
 
