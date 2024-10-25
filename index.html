@@ -14,72 +14,87 @@
             <div class="overlay">
                 <!--pour forcer la page fixe-->
 
-            <div class="cursor">
-                <div class="text">JF</div>
-                <div class="text">JF</div>
-                <div class="text">JF</div>
-                <div class="text">JF</div>
-                <div class="text">JF</div>
-                <div class="text">JF</div>
-                <div class="text"><span>JF</span></div>
-            </div>
-            <script>
-                let timeout;
-    
-                document.addEventListener("mousemove", e => {
-                    gsap.to(".text", {
-                        x: e.clientX,
-                        y: e.clientY,
-                        stagger: -0.06
-                    });
-    
-                    // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
-                    clearTimeout(timeout);
-    
-                    // Définir un délai de 2 secondes avant de réduire l'opacité
-                    timeout = setTimeout(() => {
-                        gsap.to(".cursor", { opacity: 0.5 });
-                    }, 2000);
-                });
-    
-                // Réinitialiser l'opacité lorsque la souris arrête de bouger
-                document.addEventListener("mouseout", e => {
-                    clearTimeout(timeout);
-                    gsap.to(".cursor", { opacity: 1 });
-                });      
-           </script>
+                    <div class="cursor">
+                        <div class="text">JF</div>
+                        <div class="text">JF</div>
+                        <div class="text">JF</div>
+                        <div class="text">JF</div>
+                        <div class="text">JF</div>
+                        <div class="text">JF</div>
+                        <div class="text"><span>JF</span></div>
+                    </div>
+
+                    <script>
+                        let timeout;
+            
+                        document.addEventListener("mousemove", e => {
+                            gsap.to(".text", {
+                                x: e.clientX,
+                                y: e.clientY,
+                                stagger: -0.06
+                            });
+            
+                            // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
+                            clearTimeout(timeout);
+            
+                            // Définir un délai de 2 secondes avant de réduire l'opacité
+                            timeout = setTimeout(() => {
+                                gsap.to(".cursor", { opacity: 0.5 });
+                            }, 2000);
+                        });
+            
+                        // Réinitialiser l'opacité lorsque la souris arrête de bouger
+                        document.addEventListener("mouseout", e => {
+                            clearTimeout(timeout);
+                            gsap.to(".cursor", { opacity: 1 });
+                        });      
+                </script>
+
                <div class="font">
                   <h1>Dévellopeur web junior</h1>
                </div>
+               
                 <div class="container-img">
                     <img class="photo" src="img/typo.webp" alt="" width="100%">
                     <img class="name" src="img/name.png" alt="" width="20%">
                 </div>
-                <div class="menu">
-                    <div class="menu-item-container">
-                        <div class="menu-item">
-                            <div class="menu-item-wrapper">
-                                <div class="menu-arrow">
-                                    <ion-icon name="person-circle-outline"></ion-icon>
-                                </div>
-                                <div class="menu-text">
-                                    <a href="moi.html">Moi</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-wrapper">
-                                <div class="menu-arrow">
-                                    <ion-icon name="code-slash-outline"></ion-icon>
-                                </div>
-                                <div class="menu-text">
-                                    <a href="projets.html">Projets</a>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
+
+                <div class="container2-img">
+                     <img src="img/Pallette.png" class="imgc" width="100%">
                 </div>
+                
+
+                 
+                    
+
+                    <div class="menu">
+                        <div class="menu-item-container">
+                            <div class="menu-item">
+                                <div class="menu-item-wrapper">
+                                    <div class="menu-arrow">
+                                        <ion-icon name="person-circle-outline"></ion-icon>
+                                    </div>
+                                    <div class="menu-text">
+                                        <a href="moi.html">Moi</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-wrapper">
+                                    <div class="menu-arrow">
+                                        <ion-icon name="code-slash-outline"></ion-icon>
+                                    </div>
+                                    <div class="menu-text">
+                                        <a href="projets.html">Projets</a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                
+
+
             </div>
         </div>
     </body>
