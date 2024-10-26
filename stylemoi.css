@@ -94,23 +94,44 @@ li {
 .container2 {
     z-index: 0;
     position: relative;
-    margin-bottom: 100px;
-    margin-left: 30px;
+    top: 30px;
+    margin-left: 100px;
     width: 30%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .maitrise ul {
     display: flex;
     flex-direction: row;
-    width: 25%;
+    width: 100%;
+    list-style-type: none; /* Enlève les puces */
+    padding: 0; /* Enlève le padding par défaut */
+    gap: 20px; /* Espace entre les icônes */
+}
 
+.maitrise li {
+    width: 50px; /* Définit une largeur fixe pour les conteneurs d'icônes */
+    height: 50px; /* Définit une hauteur fixe pour les conteneurs d'icônes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.maitrise li img {
+    width: 100%; /* L'image prendra 100% de son conteneur li */
+    height: auto; /* Garde le ratio de l'image */
+    object-fit: contain; /* Assure que l'image s'adapte bien dans son conteneur */
 }
 
 .maitrise ul img {
     margin-right: 2px;
+}
+
+.maitrise li{
 }
 
 

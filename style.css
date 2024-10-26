@@ -83,13 +83,15 @@ h1 {
 }
 
 .container2-img{
-    width: 20%;
-    margin-bottom: 500px;
+    position: absolute; /* Position absolue par rapport au parent */
+    top: 60px; /* Distance du haut */
+    left: 20px; /* Distance de la gauche */
+    width: 10%;
     z-index: 10;
 }
 
 .imgc{
-    margin-bottom: 1000px;
+    
 }
 
 .menu {
