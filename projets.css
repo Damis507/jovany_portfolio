@@ -91,13 +91,15 @@ ion-icon {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
-    height: 500px; /* Taille fixe */
+    height: 500px; 
     background-color: rgb(0, 0, 0);
     border: 1px solid #ccc;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 99;
-    overflow: hidden; /* Masquer le contenu qui déborde */
+    overflow: hidden; 
   }
+
+  
 
   .popup-content {
     position: relative;
@@ -303,10 +305,16 @@ h1 {
     opacity: 1;
   }
 
+  .container-mobile{
+    display: none;
+  }
+
 @media (max-width: 768px) {
 
     body{
-        height: 50%;
+        
+        overflow-y: auto;
+        overflow: none;
     }
     
     .text{
@@ -333,27 +341,100 @@ h1 {
         width: 1000px;
         display: flex;
         flex-direction: column;
+       /* display: none;*/
     }
 
-    /* Style des blocks pour qu'ils s'empilent */
-    .block {
-        margin: 50px auto; /* Centre les blocks et ajoute de l'espace entre eux */
-        margin-right: 30px;
-        width: 40% ; /* Force la largeur */
-        height: 500px ; /* Hauteur fixe */
-        position: static !important; /* Réinitialise le positionnement */
-        transform: none !important; /* Supprime toutes les transformations */
+    .block{
+        display: none !important;
+    }
+
+    .navbar p{
+        display: none;
+    }
+
+    .icon{
+        display: none;
+    }
+
+    .container-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 70px;
         
+      }
+
+    .container-mobile h1{
+        margin-bottom: 100px;
+        color: #fff;
+        font-size: 60px;
     }
 
-    /* Ajustement des titres dans les blocks */
-    .block h1 {
-        position: relative;
-        font-size: 50px;
-        right: auto;
-        bottom: auto;
-        text-align: center;
-        margin: 0;
-        padding: 20px;
+    .blockm1 {
+        background: url(img/g1.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
     }
+    
+    .blockm2 {
+        background: url(img/g1.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+    }
+    
+    .blockm3 {
+        background: url(img/g2.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+    }
+    
+    .blockm4 {
+        background: url(img/g3.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+        margin-left: 30px;
+    }
+    
+    .blockm5 {
+        background: url(img/g1.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+    }
+    
+    .blockm6 {
+        background: url(img/g2.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+    }
+    
+    .blockm7 {
+        background: url(img/g3.webp) no-repeat 50% 50%;
+        background-size: cover;
+        border-style : none;
+        margin-left: 30px;
+    }
+
+    [class^="blockm"] {
+        width: 70%;
+        height: 300px;     /* Hauteur fixe pour chaque block */
+        margin-bottom: 50px;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .popup-content {
+        padding: 5px;
+      }
+    
+    .popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7 {
+        width: 370px;
+        height: 500px; 
+    }
+
+    h4{
+        font-size: 13px;
+    }
+
+    
 }
