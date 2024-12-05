@@ -8,6 +8,9 @@
         <link rel="Shortcut Icon" type="image/png" href="img/JF.png"> 
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="projets.css" />
     </head>
     <body>
@@ -29,21 +32,18 @@
 
             document.addEventListener("mousemove", e => {
                 gsap.to(".text", {
-                    x: e.clientX,
-                    y: e.clientY,
+                    x: e.pageX,
+                    y: e.pageY,
                     stagger: -0.06
                 });
 
-                // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
                 clearTimeout(timeout);
 
-                // Définir un délai de 2 secondes avant de réduire l'opacité
                 timeout = setTimeout(() => {
                     gsap.to(".cursor", { opacity: 0.5 });
                 }, 2000);
             });
 
-            // Réinitialiser l'opacité lorsque la souris arrête de bouger
             document.addEventListener("mouseout", e => {
                 clearTimeout(timeout);
                 gsap.to(".cursor", { opacity: 1 });
@@ -52,81 +52,79 @@
 
                 <button class="retour">
                     <a href="index.html">
-                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                    <ion-icon id="icon1" name="arrow-undo-outline" size="medium"></ion-icon>
                     </a>
                 </button>
                 <div class="navbar">
-                        <div class="icon">
-                            <ion-icon name="arrow-down"></ion-icon>    
-                        </div> 
+                        <ion-icon class="icon" name="arrow-down"></ion-icon>    
+                         
 
                         <p>Scroll</p>
-                        <h1>Mes Projets</h1>
+                        <h1 class="titre">Mes Projets</h1>
+                </div>
+
+                <div class="fullscreen-overlay" id="fullscreenOverlay"></div>
+
+                
+                    <div>
+                        <div class="filter-container">
+                            <button class="filter-btn active" data-filter="all">Tous</button>
+                            <button class="filter-btn" data-filter="tp">TP</button>
+                            <button class="filter-btn" data-filter="personnel">personnel</button>
+                            <button class="filter-btn" data-filter="stage">Stage</button>
+                            <button class="filter-btn" data-filter="communication">Communication</button>
+                            <button class="filter-btn" data-filter="Web">Web</button>
+                            <button class="filter-btn" data-filter="Autre">Autre</button>
+                        </div>
                 </div>
                 
-                <div class="container-mobile">
-                    <button class="blockm1" type="submit" onclick="openPopup('popup1')">
-                        <h1>.Tp design</h1>
-                    </button>
-                    <button class="blockm2" type="submit" onclick="openPopup('popup2')">
-                        <h1>.PPe1</h1>
-                    </button>
-                    <button class="blockm3" type="button" onclick="openPopup('popup3')">
-                        <h1>.PPe2</h1>
-                    </button>
-                    <button class="blockm4" type="button" onclick="openPopup('popup4')">
-                        <h1>.Expé</h1>
-                    </button>
-                    <button class="blockm5" type="submit" onclick="openPopup('popup5')">
-                        <h1>.Stage2</h1>
-                    </button>
-                    <button class="blockm6" type="submit" onclick="openPopup('popup6')">
-                        <h1>.Stage1</h1>
-                    </button>
-                    <button class="blockm7" type="submit" onclick="openPopup('popup7')">
-                        <h1>.Td</h1>
-                    </button>
+                <div class="container-wrapper">
+                    <div class="container">
+                        
+                        <button id="B" class="block block-1" type="submit" data-category="tp,communication" onclick="openPopup('popup1')">
+                            <h1>.Tp</h1>
+                        </button>
+                        <button id="B" class="block block-2" type="submit" data-category="Autre" onclick="openPopup('popup2')">
+                            <h1>.PPe1</h1>
+                        </button>
+                        <button id="B" class="block block-3" type="button" data-category="Web" onclick="openPopup('popup3')">
+                            <h1>.PPe2</h1>
+                        </button>
+                        <button id="B" class="block block-4" type="button" data-category="Autre,personnel" onclick="openPopup('popup4')">
+                            <h1>.Expé</h1>
+                        </button>
+                        <button id="B" class="block block-5" type="submit" data-category="stage,Web" onclick="openPopup('popup5')">
+                            <h1>.Stage2</h1>
+                        </button>
+                        <button id="B" class="block block-6" type="submit" data-category="stage,Web" onclick="openPopup('popup6')">
+                            <h1>.Stage1</h1>
+                        </button>
+                        <button id="B" class="block block-7" type="submit" data-category="Autre" onclick="openPopup('popup7')">
+                            <h1>.Td</h1>
+                        </button>
+                    </div>
                 </div>
-                <div class="container" >
-                    
-                    <button id="B" class="block block-1" type="submit" onclick="openPopup('popup1')">
-                        <h1>.Tp design</h1>
-                    </button>
-                    <button id="B" class="block block-2" type="submit" onclick="openPopup('popup2')">
-                        <h1>.PPe1</h1>
-                    </button>
-                    <button id="B" class="block block-3" type="button" onclick="openPopup('popup3')">
-                        <h1>.PPe2</h1>
-                    </button>
-                    <button id="B" class="block block-4" type="button" onclick="openPopup('popup4')">
-                        <h1>.Expé</h1>
-                    </button>
-                    <button id="B" class="block block-5" type="submit" onclick="openPopup('popup5')">
-                        <h1>.Stage2</h1>
-                    </button>
-                    <button id="B" class="block block-6" type="submit" onclick="openPopup('popup6')">
-                        <h1>.Stage1</h1>
-                    </button>
-                    <button id="B" class="block block-7" type="submit" onclick="openPopup('popup7')">
-                        <h1>.Td</h1>
-                    </button>
-                    <!-- pop up --->
 
 
                     <div class="popup1" id="popup1">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup1')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Projets Capvert</h2>
                             <h3>cadre scolaire</h3>
                             <h4>Création d'une charte graphique d'une entreprise fictive, <br>
                                 ayant pour but la vente de fruit et légumes bio, <br>
                                 <br>
-                                Outils et technologies : adobe xd, after effect <br>
+                                <div id="marquage">Outils et technologies :</div> adobe xd, after effect <br>
                                 <br><br>
-                                <a href="pdf/CharteGraphique.pdf">Charte graphique</a>
+                                <a href="pdf/CharteGraphique.pdf">Charte graphique pdf</a>
                             </h4>
-                            <img src="img/fiche1.png" alt="" width="50%">
-                            
-                            <img src="img/fiche2.png" alt="" width="50%">
+                            <div class="col2">
+                                <img src="img/fiche1.png" alt="" width="50%">
+                                
+                                <img src="img/fiche2.png" alt="" width="50%">
+                            </div>
                             <button class="bouton" type="submit" onclick="closePopup('popup1')">OK</button>
                         </div>
                     </div>
@@ -134,6 +132,9 @@
                     
                     <div class="popup2" id="popup2">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup2')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Projets covoiturage</h2>
                             <h3>cadre scolaire</h3>
                             <h4>Projet destinée aux employés d'une entreprise fictive, <br>
@@ -144,9 +145,9 @@
                                 <br>
                                 Réalisation de l'Application en cours <br>
                                 <br>
-                                Outils et technologies : java, postgresql pour la base de donnée <br>
-                                Mon rôle : conception et réalisation de la base de donnée<br>   
-                                Méthodologie : Méthode Waterfall <br>
+                                <div id="marquage">Outils et technologies :</div> java, postgresql pour la base de donnée <br>
+                                <div id="marquage">Mon rôle :</div> conception et réalisation de la base de donnée<br>   
+                                <div id="marquage">Méthodologie :</div> Méthode Waterfall <br>
                                 <br><br>
                                 <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio.git">lien github</a> </h4>
                             <button class="bouton" type="submit" onclick="closePopup('popup2')">OK</button>
@@ -155,6 +156,9 @@
                     
                     <div class="popup3" id="popup3">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup3')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Projet école de musique</h2>
                             <h3>cadre scolaire</h3>
                             
@@ -169,11 +173,11 @@
                                 <br>
                                 Réalisation du site en cours <br>
                                 <br>
-                                Outils et technologies : php, postgresql pour la base de donnée <br>
+                                <div id="marquage">Outils et technologies :</div> php, postgresql pour la base de donnée <br>
                                 et bootstrap en front-end <br>
-                                Mon rôle : Polyvalent, conception et réalisation de la base de donnée,<br> 
+                                <div id="marquage">Mon rôle :</div> Polyvalent, conception et réalisation de la base de donnée,<br> 
                                 gestion de la partie back-end <br> 
-                                Méthodologie : Méthode Waterfall <br>
+                                <div id="marquage">Méthodologie :</div> Méthode Waterfall <br>
                                 <br>
                                 <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio2.git">lien github</a> </h4>
 
@@ -183,6 +187,9 @@
                     
                     <div class="popup4" id="popup4">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup4')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Projets hackatons</h2>
                             <h3>cadre personnel</h3>
                             <div class="photoex">
@@ -202,6 +209,9 @@
 
                     <div class="popup5" id="popup5">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup5')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Stage école</h2>
                             <h3>cadre professionnelle</h3>
                             <div class="photoex">
@@ -224,6 +234,9 @@
                     
                     <div class="popup6" id="popup6">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup6')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Stage centre de formation</h2>
                             <h3>cadre professionnelle</h3>
                             <div class="photoex">
@@ -244,6 +257,9 @@
 
                     <div class="popup7" id="popup7">
                         <div class="popup-content">
+                            <div class="cross">
+                                <a href="#" onclick="closePopup('popup7')"><ion-icon id="icon2" name="close-circle-outline"></ion-icon></a>  
+                            </div>
                             <h2>Td démenageur</h2>
                             <h3>cadre scolaire</h3>                       
                             <h4>La société DÉMGUIV(fictive), spécialisée dans le déménagement, a fait appel à LOGIMOUVE, <br>
@@ -253,79 +269,53 @@
                                 depuis toutes les agences de DÉMGUIV. <br>
                                 <br>
                                 
-                                Outils et technologies : php et java, postgresql pour la base de donnée <br> </h4>
+                                <div id="marquage">Outils et technologies :</div> php et java, postgresql pour la base de donnée <br> </h4>
                             <button class="bouton" type="submit" onclick="closePopup('popup7')">OK</button>
                         </div>
                     </div>
 
                     <script>
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        
+                        btn.classList.add('active');
+                        
+                        const filter = btn.getAttribute('data-filter');
+                        
+                        const blocks = document.querySelectorAll('.block');
+                        
+                        blocks.forEach(block => {
+                            const blockCategories = block.getAttribute('data-category').split(',');
+                            
+                            if (filter === 'all' || blockCategories.includes(filter)) {
+                                block.style.display = 'flex';
+                            } else {
+                                block.style.display = 'none';
+                            }
+                                    });
+                                });
+                            });
+                    
+                    </script>
+
+                    <script>
                         function openPopup(id){
                             let popup = document.getElementById(id);
+                            let overlay = document.getElementById('fullscreenOverlay');
+
+                            overlay.classList.add('active');
                             popup.classList.add("open-popup");
                         }
                     
                         function closePopup(id){
                             let popup = document.getElementById(id);
+                            let overlay = document.getElementById('fullscreenOverlay');
+
+                            overlay.classList.remove('active');
                             popup.classList.remove("open-popup");
                         }
                     </script>
 
-                    <!--<script>
-                        function openPopup(id) {
-                            let popup = document.getElementById(id);
-                            popup.classList.add("open-popup");
-                            popup.style.visibility = "visible"; // Affiche la popup
-                            popup.style.opacity = "1"; // Rend la popup visible
-                        }
-
-                        function closePopup(id) {
-                            let popup = document.getElementById(id);
-                            popup.classList.remove("open-popup");
-                            popup.style.visibility = "hidden"; // Cache la popup
-                            popup.style.opacity = "0"; // Rend la popup invisible
-                        }
-
-                    </script>-->
-
-
-
-                <script src="projets.js"></script>
-                <script>
-                    var blocks = document.getElementsByClassName("block");
-                    var container = document.getElementsByClassName("container");
-                    var hs = new HorizontalScroll.default({
-                        blocks: blocks,
-                        container: container,
-                        isAnimated: true,
-                        springEffect: 0.8,
-                    });
-
-                    
-                </script>
-
-
-                <script>
-
-                    var blocks = document.getElementsByClassName("block");
-                    var container = document.getElementsByClassName("container");
-
-                    // Désactiver GSAP et scroll horizontal sur mobile
-                    function isMobile() {
-                        return window.innerWidth <= 768;
-                    }
-
-                    function disableHorizontalScroll() {
-                        if (isMobile()) {
-                            for (let i = 0; i < container.length; i++) {
-                                container[i].style.transform = 'none';
-                                container[i].style.position = 'static';
-                            }
-                        }
-                    }
-
-                    window.addEventListener('resize', disableHorizontalScroll);
-                    window.addEventListener('load', disableHorizontalScroll);
-                </script>
-            
     </body>
 </html>

@@ -4,7 +4,6 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background: #e4a614;
     user-select: none;
     cursor: none;
 }
@@ -13,7 +12,7 @@ body {
 .overlay {
     width: 100%;
     height: 100vh;
-    background: rgb(228, 166, 20);
+    background: linear-gradient(to right,#fb9797, #f5f2ea) ;
     color: #000000;
     position: fixed;
 }
@@ -22,36 +21,38 @@ body {
     z-index: 3;
     position: absolute;
     pointer-events: none;
-    font-size: 4em;
-    -webkit-text-stroke: 1.6px #ff0000;
+    font-size: 2em;
+    -webkit-text-stroke: 1.6px #e100ff33;
     font-weight: 400;
     text-transform: uppercase;
-    color: #e0a920;
+    color: #ffffffc4;
 }
 
 .text span {
-    color: rgb(255, 0, 0);
+    color: #c94bff;
 }
 
-
-
-
-h1 {
+.font {
     position: absolute;
-    font-size: 1em;
-    right: 45%;
-    font-family: "Monument Extended";
-    text-transform: capitalize;
-    font-weight: lighter;
-    background-color: rgb(225, 184, 37);
-    opacity: 50%;
-    padding-right: 3px;
-    padding-left: 3px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    
-    
-    opacity: 80%;                                    
+    top: 2rem;
+    padding-bottom: 17rem;
+    display: flex;
+    flex-direction: column;  
+    color: rgba(255, 255, 255, 0.581);     
+    z-index: 20;
+    rotate: -90deg;           
+}
+
+.citation{
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    font-size: 9px;
+}
+
+.namec{
+    padding-left: 7rem;
+    margin-top: 0;
+    font-size: 12px;
 }
 
 .container-img{
@@ -64,6 +65,27 @@ h1 {
     z-index: 0;
     
 }
+
+.textd{
+    position: relative; 
+    display: flex;
+
+    top: 60px; 
+    width: 30rem;
+    z-index: 1;
+    color: rgb(0, 0, 0);
+}
+
+.text1{
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.text2{
+    font-size: 1rem;
+    padding-left: 5rem;
+}
+
 
 @-webkit-keyframes rotating {
     from{
@@ -82,22 +104,21 @@ h1 {
     -webkit-animation: rotating 20s linear infinite;
 }
 
-.container2-img{
-    position: absolute; /* Position absolue par rapport au parent */
-    top: 60px; /* Distance du haut */
-    left: 20px; /* Distance de la gauche */
-    width: 10%;
-    z-index: 10;
-}
-
-.imgc{
-    
-}
-
 .menu {
     position: absolute;
     bottom: 0;
     margin: 20px;
+    z-index: 2;
+}
+
+.et{
+    font-size: 10em;
+    font: bolder;
+    color: rgba(255, 255, 255, 0.322);
+    background:none;
+    margin-top: -25%;
+    margin-left: 20%;
+    
 }
 
 .menu-item {
@@ -130,7 +151,6 @@ a {
     color: #000000;
     font-family: "Helvetica";
     font-weight: 300;
-    /*transition-delay: 0.5s;*/
     transition-timing-function: ease-in-out;
     transition-duration: 1s;
     transition-property: color, text-decoration;
@@ -138,22 +158,33 @@ a {
 
 a:hover {
     
-    color: rgb(248, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: none;
     
     
 }
 
+footer{
+    display: none;
+}
+
 @media (max-width: 768px) {
     .body{
         margin: 15px;
+        cursor: auto;
     }
+    .photo{
+        width: 40%;
+    }
+
     .container-img {
-        margin-left: 25%;
-        margin-top: 45%;
-        margin-right: 0%;
-        width: 50%;
+        display: flex;
+        margin-left: 0%;
+        margin-top: 10%;
+        margin-right:0%;
+        z-index: 0;
     }
+    
     .name{
         display: none;
     }
@@ -168,9 +199,84 @@ a:hover {
     .menu-item {
         font-size: 100px;
     }
-    .font {
-        position: relative;
-        display: flex;
-        justify-content: center;                           
+
+    .font{
+        display: none;
     }
+
+    .text2{
+        display: none;
+    }
+
+    
+    .menu {
+        position: relative;
+        bottom: 1em;
+        top: 45%;
+        left: 25%;
+        transform: translateX(-25%) translateY(-25%);
+        margin: 20px;
+        width: fit-content;
+        height: fit-content;
+        z-index: 1;
+    }
+
+    .menu-arrow {
+        display: none;
+    }
+
+    .menu-item-container{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    
+    .menu-item {
+        font-size: 90px;
+        margin: 4px;
+        margin-top: -10px;
+    }
+    
+    
+    .menu-item-wrapper {
+        display: flex;
+        position: relative;
+        left: 0%;
+        transition: all 0.2s ease-out;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000;
+        font-family: "Helvetica";
+        font: bold;
+    }
+
+    .overlay{
+        background: linear-gradient(to top,#fb9797, #f5f2ea) ;
+    }
+
+    footer{
+        display: relative;
+        
+        text-align: center;
+        width: 100%;
+        color: rgb(0, 0, 0);
+        background-color: #ffffff;
+        font-size: 15px;
+        z-index: 0;
+    }
+
+    .font{
+        display: none;
+    }
+
+    .et{
+        font-size: 9em;
+        margin-top: -45%;
+        margin-left: 50%;
+        
+    }
+
 }

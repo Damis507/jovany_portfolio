@@ -1,0 +1,17 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: #e0a920;
+    overflow: hidden;
+    cursor: none;
+}
+
+h1{
+    font-size: larger;
+    font-size: 100px;
+    padding-left: 30px;
+}

@@ -9,6 +9,10 @@
     <link rel="Shortcut Icon" type="image/png" href="img/JF.png"> 
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -39,16 +43,14 @@
                             stagger: -0.06
                         });
         
-                        // Si la souris bouge pendant la période de délai de 2 secondes, annuler le délai
                         clearTimeout(timeout);
         
-                        // Définir un délai de 2 secondes avant de réduire l'opacité
+                        
                         timeout = setTimeout(() => {
                             gsap.to(".cursor", { opacity: 0.5 });
                         }, 2000);
                     });
-        
-                    // Réinitialiser l'opacité lorsque la souris arrête de bouger
+
                     document.addEventListener("mouseout", e => {
                         clearTimeout(timeout);
                         gsap.to(".cursor", { opacity: 1 });
@@ -93,14 +95,18 @@
 
                 <div class="compétence">
                     <h1>Compétences</h1>
-                    <ul>
-                        <li>création de site web dynamique</li>
-                        <li>creation de maquettes et de prototypes</li>
-                        <li>création et gestion d'une base de donné</li>
-                        <li>gestion d'un mvc en php et aussi en java</li>
-                        <li>creation d'élément graphique pour le le design</li>
-                        <li>migration de version d'un site web (php)</li>
-                    </ul>
+                    <div class="liste">
+                        <ul>
+                            <li>création de site web dynamique</li>
+                            <li>creation de maquettes et de prototypes</li>
+                            <li>création et gestion d'une base de donné</li>
+                        </ul>
+                        <ul>
+                            <li>gestion d'un mvc en php et aussi en java</li>
+                            <li>creation d'élément graphique pour le le design</li>
+                            <li>migration de version d'un site web (php)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="maitrise">
