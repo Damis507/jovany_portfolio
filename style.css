@@ -1,69 +1,122 @@
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
-    user-select: none;
-    cursor: none;
+    height: 100%;
+    color: #fff;
+    background-color:hsla(0,0%,95%,1);
+    background-image:
+    radial-gradient(at 40% 20%, hsla(185,100%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(211,100%,72%,1) 0px, transparent 50%),
+    radial-gradient(at 14% 18%, hsla(220,100%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, #6b66ff 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,0%,1) 0px, transparent 50%);
+    
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden; 
+
+    cursor: none; 
 }
+
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    backdrop-filter: blur(50px);
+}
+
+.background-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    background-image: url('/img/noise.jpg'); 
+    opacity: 0.5; 
+    pointer-events: none; 
+    mix-blend-mode: screen; 
+}
+
+.liter-regular {
+    font-family: "Liter", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.liter-bold {
+    font-family: "Liter", serif;
+    font-weight: bold;
+    font-style: normal;
+  }
   
 
-.overlay {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to right,#fb9797, #f5f2ea) ;
-    color: #000000;
-    position: fixed;
-}
 
 .text {
     z-index: 3;
     position: absolute;
     pointer-events: none;
     font-size: 2em;
-    -webkit-text-stroke: 1.6px #e100ff33;
+    -webkit-text-stroke: 1.6px #ff000033;
     font-weight: 400;
     text-transform: uppercase;
     color: #ffffffc4;
 }
 
 .text span {
-    color: #c94bff;
+    color: #000000;
 }
 
-.font {
-    position: absolute;
-    top: 2rem;
-    padding-bottom: 17rem;
+
+.info{
     display: flex;
-    flex-direction: column;  
-    color: rgba(255, 255, 255, 0.581);     
-    z-index: 20;
-    rotate: -90deg;           
+    align-items: center;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    user-select: none;
+    z-index: 2;
+
 }
 
-.citation{
-    letter-spacing: 2px;
-    margin-bottom: 0;
-    font-size: 9px;
+.info p{
+    color: #000000;
+    font-size: 13px;
+    width: 350px;
+    margin-top: 1rem;
+    font-weight: bold;
+    opacity: 40%;
+    
 }
 
-.namec{
-    padding-left: 7rem;
-    margin-top: 0;
-    font-size: 12px;
+.info svg{
+    padding: 0;
+    margin: 0;
+    margin-right: 1rem;
+    opacity: 0.8;
 }
+
 
 .container-img{
+    position: relative;
     margin-left: 60%;
     margin-top: 10%;
     margin-right: 10%;
+    z-index: 3;
 }
 
-.photo{
-    z-index: 0;
-    
+.headline{
+    display: none;
+    font-size: 2px;
 }
 
 .textd{
@@ -97,10 +150,10 @@ body {
   }
 
 .name{
-    z-index: 1;
-    margin-left: -180px;
+    margin-left: -12rem;
     position: absolute;
-    margin-top: 10%;
+    margin-top: 25%;
+    max-width: 200px;
     -webkit-animation: rotating 20s linear infinite;
 }
 
@@ -136,10 +189,15 @@ body {
     transition: all 0.2s ease-out;
 }
 
-ion-icon {
-    position: relative;
+i {
     top: 8px;
-    margin-right: 10px;
+    margin-right: 1rem;
+    color: #000000;
+    font-size: 6rem;
+}
+
+.profil{
+    margin-left: 2rem;
 }
 
 .menu-item:hover .menu-item-wrapper {
@@ -158,7 +216,7 @@ a {
 
 a:hover {
     
-    color: rgb(255, 255, 255);
+    color: #6b66ff;
     cursor: none;
     
     
@@ -169,55 +227,81 @@ footer{
 }
 
 @media (max-width: 768px) {
-    .body{
-        margin: 15px;
+    body, html{
+        background-image:
+        radial-gradient(at 40% 20%, hsla(185,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(211,100%,72%,1) 0px, transparent 50%),
+        radial-gradient(at 14% 18%, hsla(220,100%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, #ff668a 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,0%,1) 0px, transparent 50%);
+
+        overflow-y: auto;
+        overflow-x: none;
         cursor: auto;
     }
-    .photo{
-        width: 40%;
-    }
 
-    .container-img {
+    .photo{
+        width: 50%;
+    }
+    
+    .textd{
         display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container-img {
+        background-image: url(/img/deco-back3.png);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-left: 0%;
-        margin-top: 10%;
+        margin-top: 0%;
         margin-right:0%;
-        z-index: 0;
+        width: auto;
+        height: 25rem;
+        z-index: 3;
     }
     
     .name{
         display: none;
     }
-    .text{
-        display: none;
-    }
-    .menu {
-        bottom: 100px;
-        margin: 10px;
+    .text1{
+        font-size: 10px;
     }
     
+    .text2{
+        font-size: 10px;
+    }
     .menu-item {
         font-size: 100px;
     }
 
-    .font{
-        display: none;
-    }
 
-    .text2{
-        display: none;
+    .info{
+        position: relative;
+        margin-top: 0rem;
+        margin-right: 0rem;
+        justify-content: center;
+        text-align: center;
+        background-color: #f5f2ea;
     }
 
     
     .menu {
         position: relative;
-        bottom: 1em;
-        top: 45%;
+        top: 16%;
         left: 25%;
         transform: translateX(-25%) translateY(-25%);
         margin: 20px;
         width: fit-content;
         height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0%;
         z-index: 1;
     }
 
@@ -249,32 +333,11 @@ footer{
     a {
         text-decoration: none;
         color: #000000;
-        font-family: "Helvetica";
-        font: bold;
-    }
-
-    .overlay{
-        background: linear-gradient(to top,#fb9797, #f5f2ea) ;
-    }
-
-    footer{
-        display: relative;
-        
-        text-align: center;
-        width: 100%;
-        color: rgb(0, 0, 0);
-        background-color: #ffffff;
-        font-size: 15px;
-        z-index: 0;
-    }
-
-    .font{
-        display: none;
     }
 
     .et{
         font-size: 9em;
-        margin-top: -45%;
+        margin-top: -25rem;
         margin-left: 50%;
         
     }

@@ -1,0 +1,15 @@
+<svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="13" width="86" height="124" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
+      <text id="j" transform="translate(7008 9343)" fill="red" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+      <text id="f" transform="translate(7008 9311)" fill="#08456b" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+      <path id="Tracé_6" data-name="Tracé 6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#08456b"/>
+      <path id="Tracé_7" data-name="Tracé 7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="red"/>
+    </g>
+  </g>
+</svg>

@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="développement web, web design, communication digitale, portfolio, Jovany Feltre, développeur" />
+    <meta name="language" content="fr" />
+
     <title>Moi</title>
-    <link rel="stylesheet" href="stylemoi.css" />
-    <link rel="Shortcut Icon" type="image/png" href="img/JF.png"> 
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+
+    <link rel="Shortcut Icon" type="image/png" href="img/logojf.svg"> 
+    <link rel="icon" type="image/png" sizes="96x96" href="img/logojf.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Lato&family=Liter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylemoi.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+
 </head>
 <body>
+
+    <div class="background-blur"></div>
+    <div class="background-noise"></div>
     
         <div class="cursor">
             <div class="text">JF</div>
@@ -26,14 +38,7 @@
             <div class="text"><span>JF</span></div>
         </div>
 
-
-        <button class="retour">
-                    <a href="index.html">
-                    <ion-icon class="rt" name="arrow-undo-outline"></ion-icon>
-                    </a>
-                </button>
-
-                <script>
+        <script>
                     let timeout;
         
                     document.addEventListener("mousemove", e => {
@@ -55,74 +60,145 @@
                         clearTimeout(timeout);
                         gsap.to(".cursor", { opacity: 1 });
                     });      
-               </script>
+        </script>
 
-        <div class="content">
-            <div class="container1">                                    
-                <img src="img/cv.png" alt="" width="30%">
-
-            
-                <a href="pdf/cv.pdf">
-                    <button class="download" type="button">
-                    <ion-icon class="icon" name="download-outline"></ion-icon>
-                    </button>
-                </a>
-            
-
-            </div>
-
-            <div class="container2">
-                
-                <div class="formation">
-                    <h1>Formation en cours</h1>
-                    
-                    <p>licence professionnel intégration web <br> et desing (EISINE)</p>
-                </div>
-                
-                <div class="language">
-                    <h1>languages maitrisé</h1>
-                    <ul>
-                        <li>javascript</li>
-                        <li>html</li>
-                        <li>css</li>
-                        <li>php</li>
-                        <li>bootstrap</li>
-                        <li>sql</li>
-                        <li>postgresql</li>
-                        
-                    </ul>
-                </div>
-
-                <div class="compétence">
-                    <h1>Compétences</h1>
-                    <div class="liste">
-                        <ul>
-                            <li>création de site web dynamique</li>
-                            <li>creation de maquettes et de prototypes</li>
-                            <li>création et gestion d'une base de donné</li>
-                        </ul>
-                        <ul>
-                            <li>gestion d'un mvc en php et aussi en java</li>
-                            <li>creation d'élément graphique pour le le design</li>
-                            <li>migration de version d'un site web (php)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="maitrise">
-                    <h1>Logiciels utilisés</h1>
-                    <div class="logiciel">
-                        <ul>
-                            <li><img src="img/icon/vscode.png" alt="" width="100%"></li>
-                            <li><img src="img/icon/xd.png" alt="" width="100%"></li>
-                            <li><img src="img/icon/photoshop.png" alt="" width="100%"></li>
-                            <li><img src="img/icon/after.png" alt="" width="100%"></li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
+        <div class="logo">
+            <a href="index.html">
+                <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+                    <defs>
+                    <clipPath id="clip-path">
+                        <rect y="13" width="86" height="124" fill="none"/>
+                    </clipPath>
+                    </defs>
+                    <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
+                    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
+                        <text id="j" transform="translate(7008 9343)" fill="red" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                        <text id="f" transform="translate(7008 9311)" fill="#08456b" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                        <path id="Tracé_6" data-name="Tracé 6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#08456b"/>
+                        <path id="Tracé_7" data-name="Tracé 7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="red"/>
+                    </g>
+                    </g>
+                </svg>
+            </a>
         </div>
+
+        <div class="info">    
+            
+            <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="64" viewBox="0 0 86 124">
+                <defs>
+                    <clipPath id="clip-path">
+                        <rect y="13" width="86" height="124" fill="none"/>
+                    </clipPath>
+                </defs>
+                <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
+                    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
+                        <text id="j" transform="translate(7008 9343)" fill="hite" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                        <text id="f" transform="translate(7008 9311)" fill="gray" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                    </g>
+                </g>
+            </svg>
+            <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés. <br>Portfolio développé et designé par JF Jovany Feltre.</p>
+          
+        </div>
+
+        
+
+        <div class="ensemble">
+            <div class="cont1">
+    
+                <div class="container">
+                    <div class="slider1">
+                        <div class="presentation">
+                            <div>
+                                <h1 class="liter-bold">MOI.</h1>
+                                <P class="liter-regular">Bonjour je suis Jovany Feltre passionné et étudiant en développement web front-end
+                                <br> <br>actuellement en Licence professionnel à l'<a class="liter-bold" href="https://www.univ-reims.fr/eisine/"><b>EISINE</b> </a></P>
+                                <br><br>
+    
+                                <p class="liter-regular">Que vous soyez une entreprise cherchant à développer sa présence en ligne ou un particulier avec un projet unique,
+                                    je mets mes compétences et mon enthousiasme au service de votre réussite.  
+                                    Construisons ensemble l'avenir digital que vous imaginez.</p>
+                            </div>
+        
+                            <img src="" alt="">
+                        </div>
+                        <h1 class="titre liter-bold">DEV WEB</h1>
+                    </div>
+                    <div class="slider2">
+                        <div class="presentation2">
+                            <h1 class="liter-bold">.EXP</h1>
+                            <div class="grille">
+                                <div class="langage">
+                                    <img src="/img/icon/html.webp" alt="Logo HTML">
+                                    <img src="/img/icon/css.webp" alt="Logo CSS">
+                                    <img src="/img/icon/javascript.webp" alt="Logo JavaScript">
+                                    <img src="/img/icon/php.webp" alt="Logo PHP">
+                                    <img src="/img/icon/sass.webp" alt="Logo Sass">
+                                    <img src="/img/icon/postgresql.webp" alt="Logo PostgreSQL">
+                                    <img src="/img/icon/bootstrap.webp" alt="Logo Bootstrap">
+                                    <img src="/img/icon/tailwind.webp" alt="Logo Tailwind CSS">
+                                    <img src="/img/icon/wordpress.webp" alt="Logo WordPress">
+
+                                </div>
+                                <div class="logiciel">
+                                    <img src="/img/icon/figma.webp" alt="Logo Figma">
+                                    <img src="/img/icon/adobe xd.webp" alt="Logo Adobe XD">
+                                    <img src="/img/icon/blender.webp" alt="Logo Blender">
+                                    <img src="/img/icon/photoshop.webp" alt="Logo Adobe Photoshop">
+                                    <img src="/img/icon/davinci resolve.webp" alt="Logo DaVinci Resolve">
+                                    <img src="/img/icon/github.webp" alt="Logo GitHub">
+
+                                </div>
+                                <div class="projet">
+                                    <a href="./projets.html">
+                                        <button class="b1-1">
+                                            <img src="/img/logojf.svg" alt="" width="10%">
+                                            <p class="liter-regular">Voir mes projets</p>
+                                        </button>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boutons">
+                <div class="liens">
+                    <a href="mailto:jovanyfeltre@gmail.com">
+                        <button class="b1">
+                            <i class="fa-solid fa-envelope" style="color: #c68d47;"></i>
+                            <p class="liter-regular">Mail</p>
+                        </button>
+                    </a>
+
+                    <a href="https://github.com/Damis507">
+                        <button class="b2">
+                            <i class="fa-brands fa-github" style="color: #49b03b;"></i>
+                            <p class="liter-regular">Github</p>
+                        </button>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jovany-feltre-247a7028a/">
+                        <button class="b3">
+                            <i class="fa-brands fa-linkedin" style="color: #3b9eb0;"></i>
+                            <p class="liter-regular">Linkedin</p>
+                        </button>
+                    </a>
+
+                    <a href="/pdf/cv.pdf">
+                        <button class="b4">
+                            <i class="fa-solid fa-download" style="color: #c74266;"></i>
+                            <p class="liter-regular">Curriculum Vitae</p>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        
         
     </body>
     </html>

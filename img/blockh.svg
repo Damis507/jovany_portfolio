@@ -1,0 +1,30 @@
+<svg id="blockh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2542" height="2542" viewBox="0 0 2542 2542">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.344" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="1" stop-color="#545454"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect x="525" y="460" width="2155" height="2242" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="1.168" y1="0.772" x2="0.125" y2="0.369" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#c4f7fe"/>
+      <stop offset="1" stop-color="#f1daff"/>
+    </linearGradient>
+  </defs>
+  <g id="blockg">
+    <g id="Composant_8_1" data-name="Composant 8 – 1">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="2542" height="2542" rx="384" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="mask">
+      <g id="Groupe_défilant_3" data-name="Groupe défilant 3" transform="translate(-525 -460)" clip-path="url(#clip-path)" style="isolation: isolate">
+        <path id="Tracé_2" data-name="Tracé 2" d="M1318,0c399.623,0,579.874,464.915,999.345,458.644,198.63,230.814,343.629,531.069,343.629,859.356,0,877.48-615.062,1318-1342.974,1318S0,2045.911,0,1318C0,940.942-29.166,698.553,224.3,458.644,814.239,383.2,967.147,0,1318,0Z" fill="url(#linear-gradient-2)"/>
+      </g>
+    </g>
+  </g>
+  <g id="masque-img">
+    <g id="Groupe_défilant_4" data-name="Groupe défilant 4" transform="translate(-525 -460)" clip-path="url(#clip-path)" style="isolation: isolate">
+      <path id="Tracé_5" data-name="Tracé 5" d="M1318,0c399.623,0,579.874,464.915,999.345,458.644,198.63,230.814,343.629,531.069,343.629,859.356,0,877.48-615.062,1318-1342.974,1318S0,2045.911,0,1318C0,940.942-29.166,698.553,224.3,458.644,814.239,383.2,967.147,0,1318,0Z" fill="url(#linear-gradient-2)"/>
+    </g>
+  </g>
+</svg>
