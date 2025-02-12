@@ -241,6 +241,22 @@ footer{
         cursor: auto;
     }
 
+    .liter-regular {
+        font-family: "Liter", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    
+    .liter-bold {
+        font-family: "Liter", serif;
+        font-weight: bold;
+        font-style: normal;
+      }
+
+    .text{
+        display: none;
+    }
+
     .photo{
         width: 50%;
     }
@@ -252,7 +268,7 @@ footer{
     }
     
     .container-img {
-        background-image: url(/img/deco-back3.png);
+        background-image: url(img/deco-back3.png);
         display: flex;
         flex-direction: column;
         justify-content: center;
