@@ -255,6 +255,18 @@ button{
     background-color: #c74266 ;
 }
 
+.b6{   
+    transition: all 1s ease;
+}
+
+.b6:hover{
+    background-color: #c7aa42;
+}
+
+.b5{
+    display: none;
+}
+
 
 button p{
     margin-left: 10px;
