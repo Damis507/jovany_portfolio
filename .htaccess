@@ -1,5 +1,27 @@
+RewriteEngine On
+
+# Redirection de index.html vers /home
+RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
+RewriteRule ^index\.html$ /home [R=301,L]
+
+# Redirection de moi.html vers /moi
+RewriteCond %{THE_REQUEST} /moi\.html[\s?] [NC]
+RewriteRule ^moi\.html$ /moi [R=301,L]
+
+# Redirection de projets.html vers /projets
+RewriteCond %{THE_REQUEST} /projets\.html[\s?] [NC]
+RewriteRule ^projets\.html$ /projets [R=301,L]
+
+# Redirections internes (URL propres vers fichiers)
+RewriteRule ^home/?$ index.html [L]
+RewriteRule ^moi/?$ moi.html [L]
+RewriteRule ^projets/?$ projets.html [L]
+
+# Redirection de la racine vers /home
+RewriteRule ^$ /home [R=301,L]
+
 DirectoryIndex index.php index.html index.htm index2.html
 
-ErrorDocument 403 https://errors.infinityfree.net/errors/403/
+ErrorDocument 403 /errors/403.html
 ErrorDocument 404 /errors/404.html
-ErrorDocument 500 https://errors.infinityfree.net/errors/500/
+ErrorDocument 500 /errors/500.html
