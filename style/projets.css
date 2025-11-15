@@ -28,6 +28,18 @@ html, body {
     font-style: normal;
   }
 
+@font-face {
+    font-family: 'kon';
+    src: url('../font/KONKHMERSLEOKCHHER-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.texte-khmer {
+    font-family: 'kon', sans-serif;
+    text-decoration: none;
+}
+
 
 .background-blur {
     position: fixed;
@@ -274,7 +286,7 @@ i:hover{
 }
 
 
-.popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7 {
+.popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7, .popup8, .popup9 {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s ease;
@@ -389,6 +401,10 @@ h3{
     height: auto;
   }
 
+  video {
+    width: 10rem;
+    
+}
 .col2 {
     display: flex;
     flex-wrap: wrap;
@@ -406,6 +422,19 @@ h3{
     margin-right: 5px;
 }
 
+.col3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.col4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 
 .open-popup{
@@ -444,7 +473,7 @@ h1 {
 }
 
 
-.block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7  {
+.block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7, .block-8, .block-9  {
     background: url(../img/blockh.svg) no-repeat 50% 50%;
     background-size: cover;
     border-style : none;
@@ -456,7 +485,7 @@ h1 {
     transition: 0.4s ease-out;
 }
 
-.block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover  {
+.block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover, .block-8:hover, .block-9:hover  {
     width: 40rem;
     height: 40rem;
 
@@ -534,7 +563,7 @@ h1 {
     }
     
     
-    .block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7  {
+    .block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7, .block-8, .block-9  {
         
         margin-bottom: 40px;
         margin-right:5rem ;
@@ -544,7 +573,7 @@ h1 {
         z-index: 1;
     }
 
-    .block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover  {
+    .block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover, .block-8:hover, .block-9:hover  {
         width: 23rem;
         height: 23rem;
     
@@ -563,7 +592,7 @@ h1 {
         padding: 5px;
     }
     
-    .popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7 {
+    .popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7, .popup8, .popup9 {
         width: 370px;
         height: 500px; 
     }
@@ -678,7 +707,7 @@ h1 {
         height: 94px;
     }
 
-    .block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7  {
+    .block-1, .block-2, .block-3, .block-4, .block-5, .block-6, .block-7, .block-8, .block-9   {
         margin-bottom: 20px;
         width: 19em;
         height: 19em;
@@ -686,7 +715,7 @@ h1 {
         z-index: 1;
     }
 
-    .block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover  {
+    .block-1:hover, .block-2:hover, .block-3:hover, .block-4:hover, .block-5:hover, .block-6:hover, .block-7:hover, .block-8:hover, .block-9:hover  {
         width: 19em;
         height: 19em;
         z-index: 2;
@@ -705,7 +734,7 @@ h1 {
         padding: 5px;
       }
     
-    .popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7 {
+    .popup1, .popup2, .popup3, .popup4, .popup5, .popup6, .popup7, .popup8, .popup9 {
         width: 300px;
         height: 500px; 
     }

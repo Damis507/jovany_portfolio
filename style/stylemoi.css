@@ -29,6 +29,18 @@ html, body {
     font-style: normal;
   }
 
+@font-face {
+    font-family: 'kon';
+    src: url('../font/KONKHMERSLEOKCHHER-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.texte-khmer {
+    font-family: 'kon', sans-serif;
+    text-decoration: none;
+}
+
 .background-blur {
     position: fixed;
     top: 0;
@@ -216,6 +228,7 @@ button{
     border-radius: none;
     border: none;
     width: 150px;
+    max-height: 55px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -296,7 +309,7 @@ button i{
 .slider1 {
     height: 35rem;
     position: sticky;
-    margin-bottom: 50vh; 
+    margin-bottom: 0vh; 
     top: 0;
     background-color: #166877;
     width: 100%;
@@ -339,11 +352,15 @@ button i{
     user-select: none;
 }
 
+.exp{
+    color: #166877;
+}
+
 .slider2 {
     position: sticky;
     height: 35rem;
     top: 0;
-    background-color: #c24a4a;
+    background-color: #ffffff;
     width: 100%;
     z-index: 6;
 }
@@ -452,7 +469,8 @@ button i{
     .boutons{
         display: flex;
         align-items: center;
-        margin-left: 5rem;
+        margin-top: 1rem;
+        margin-left: -5rem;
         z-index: 4;
     }
 
@@ -468,12 +486,14 @@ button i{
         margin: auto;
         margin-left: -12rem;
         margin-top: 6rem;
+
     }
     
     .liens a {
         flex: 1 1 calc(50% - 0.5rem);
         display: flex;
-        justify-content: center;
+        align-items: center; 
+        min-height: 30px;
     }
 
     .cont1{
@@ -522,6 +542,7 @@ button i{
 
     .slider2 {
         height: 35rem;
+        background-color: white;
         position: relative;
         margin-bottom: 0vh; 
     }
@@ -529,7 +550,7 @@ button i{
     .presentation2 h1{
         font-size: 5rem;
         margin-top: 0rem;
-        margin-left: 13rem;
+        margin-left: 19rem;
     }
     
     .langage{

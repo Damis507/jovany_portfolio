@@ -28,6 +28,25 @@ html, body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'kon';
+    src: url('../font/KONKHMERSLEOKCHHER-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.texte-khmer {
+    font-family: 'kon', sans-serif;
+    text-decoration: none;
+    line-height: 0%;
+    color: #752e82;
+}
+
+.texte-khmer1 {
+    font-family: 'kon', sans-serif;
+    text-decoration: none;
+}
+
 
 .background-blur {
     position: fixed;
@@ -63,6 +82,8 @@ html, body {
     font-weight: bold;
     font-style: normal;
   }
+
+
   
 
 .text {
@@ -115,7 +136,7 @@ html, body {
 .container-img{
     position: relative;
     margin-left: 60%;
-    margin-top: 10%;
+    margin-top: 13%;
     margin-right: 10%;
     z-index: 3;
 }
@@ -212,8 +233,7 @@ i {
 
 a {
     text-decoration: none;
-    color: #000000;
-    font-family: "Helvetica";
+    font-family: "kon";
     font-weight: 300;
     transition-timing-function: ease-in-out;
     transition-duration: 1s;
@@ -274,7 +294,6 @@ footer{
     }
     
     .container-img {
-        background-image: url(../img/deco-back3.png);
         display: flex;
         flex-direction: column;
         justify-content: center;
