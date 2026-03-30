@@ -2,224 +2,299 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <meta name="language" content="fr" />
-
-    <!-- Open Graph Meta -->
-    <meta property="og:title" content="Jovany Feltre" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profil de Jovany Feltre — Développeur web full stack & communication digitale, Master 1 TI-PSM, recherche alternance." />
+    <meta property="og:title" content="Jovany Feltre — Profil" />
     <meta property="og:description" content="Développement | Web design | Communication Digitale" />
     <meta property="og:image" content="img/logo3.png" />
-    <meta property="og:url" content="https://jovanyfeltre.fr" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Jovany Feltre" />
+    <meta property="og:url" content="https://jovanyfeltre.fr/moi.html" />
 
-    <title>Moi</title>
+    <title>Profil — Jovany Feltre</title>
 
-    <link rel="Shortcut Icon" type="image/png" href="img/logojf.svg"> 
+    <link rel="shortcut icon" type="image/png" href="img/logojf.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="img/logojf.svg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Lato&family=Liter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/stylemoi.css" />
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
-
 </head>
 <body>
 
-    <div class="background-blur"></div>
     <div class="background-noise"></div>
-    
-        <div class="cursor">
-            <div class="text">JF</div>
-            <div class="text">JF</div>
-            <div class="text">JF</div>
-            <div class="text">JF</div>
-            <div class="text">JF</div>
-            <div class="text">JF</div>
-            <div class="text"><span>JF</span></div>
-        </div>
 
-        <script>  
-                    let timeout;
-        
-                    document.addEventListener("mousemove", e => {
-                        gsap.to(".text", {
-                            x: e.clientX,
-                            y: e.clientY,
-                            stagger: -0.06
-                        });
-        
-                        clearTimeout(timeout);
-        
-                        
-                        timeout = setTimeout(() => {
-                            gsap.to(".cursor", { opacity: 0.5 });
-                        }, 2000);
-                    });
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true">
+        <div class="text">JF</div>
+        <div class="text">JF</div>
+        <div class="text">JF</div>
+        <div class="text">JF</div>
+        <div class="text">JF</div>
+        <div class="text">JF</div>
+        <div class="text"><span>JF</span></div>
+    </div>
+    <script>
+        const dot = document.querySelector(".cursor-dot");
+        let timeout;
+        document.addEventListener("mousemove", e => {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            gsap.to(".text", { x: e.clientX, y: e.clientY, stagger: -0.06 });
+            clearTimeout(timeout);
+            timeout = setTimeout(() => { gsap.to(".cursor", { opacity: 0.4 }); }, 2000);
+        });
+        document.addEventListener("mouseout", e => {
+            clearTimeout(timeout);
+            gsap.to(".cursor", { opacity: 1 });
+        });
+        document.addEventListener("mouseleave", () => dot.style.opacity = "0");
+        document.addEventListener("mouseenter", () => dot.style.opacity = "1");
+    </script>
 
-                    document.addEventListener("mouseout", e => {
-                        clearTimeout(timeout);
-                        gsap.to(".cursor", { opacity: 1 });
-                    });      
-        </script>
-
-        <div class="logo">
-            <a href="index.html">
-                <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
-                    <defs>
-                    <clipPath id="clip-path">
-                        <rect y="13" width="86" height="124" fill="none"/>
-                    </clipPath>
-                    </defs>
-                    <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
-                        <text id="j" transform="translate(7008 9343)" fill="red" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                        <text id="f" transform="translate(7008 9311)" fill="#08456b" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
-                        <path id="Tracé_6" data-name="Tracé 6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#08456b"/>
-                        <path id="Tracé_7" data-name="Tracé 7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="red"/>
-                    </g>
-                    </g>
-                </svg>
-            </a>
-        </div>
-
-        <div class="info">    
-            
-            <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="64" viewBox="0 0 86 124">
-                <defs>
-                    <clipPath id="clip-path">
-                        <rect y="13" width="86" height="124" fill="none"/>
-                    </clipPath>
-                </defs>
-                <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
-                        <text id="j" transform="translate(7008 9343)" fill="hite" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                        <text id="f" transform="translate(7008 9311)" fill="gray" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+    <div class="logo">
+        <a href="index.html">
+            <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+                <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
+                <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
+                    <g transform="translate(-7008 -9208)">
+                        <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                        <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                        <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
+                        <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
                     </g>
                 </g>
             </svg>
-            <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés. <br>Portfolio développé et designé par JF Jovany Feltre.</p>
-          
+        </a>
+    </div>
+
+    <div class="info">
+        <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés.</p>
+    </div>
+
+    <div class="page-wrap">
+
+        <div class="portrait-col">
+            <img src="img/Portrait.png" alt="Jovany Feltre portrait">
+            <div class="portrait-label">
+                <span class="liter-regular">JOVANY FELTRE</span>
+                <span class="liter-regular available">DISPONIBLE</span>
+            </div>
         </div>
 
-        
+        <div class="content-col">
 
-        <div class="ensemble">
-            <div class="cont1">
-    
-                <div class="container">
-                    <div class="slider1">
-                        <div class="presentation">
-                            <div>
-                                <h1 class="liter-bold">MOI.</h1>
-                                <P class="liter-regular">Bonjour je suis Jovany Feltre passionné et étudiant en développement web full stack.
-                                <br> <br>Actuellement en Master 1 à l' <a class="liter-bold" href="https://stgi.umlp.fr/"><b>UFR STGI.</b> </a></P>
-                                <br><br>
-    
-                                <p class="liter-regular">Que vous soyez une entreprise cherchant à développer sa présence en ligne ou un particulier avec un projet unique,
-                                    je mets mes compétences et mon enthousiasme au service de votre réussite.  
-                                    Construisons ensemble l'avenir digital que vous imaginez.</p>
-                            </div>
-        
-                            <img src="" alt="">
+            <!-- 01 — IDENTITÉ -->
+            <section class="section">
+                <span class="s-num" aria-hidden="true">01</span>
+                <div class="s-head">
+                    <span class="s-label liter-regular">IDENTITÉ</span>
+                    <h1 class="s-title liter-bold">MOI.</h1>
+                </div>
+
+                <p class="bio liter-regular">
+                    Développeur web full stack & communication digitale, basé à Montbéliard.
+                    Je conçois des expériences numériques — du design à la mise en production.
+                    <br><br>
+                    Actuellement en <a href="https://stgi.umlp.fr/">Master 1 TI-PSM à l'UFR STGI</a>,
+                    je recherche une <strong>alternance</strong> pour mettre mes compétences au service d'un projet ambitieux.
+                </p>
+
+                <div class="chips">
+                    <span class="chip chip-green">Alternance</span>
+                    <span class="chip">Montbéliard — 25200</span>
+                    <span class="chip">22 ans</span>
+                    <span class="chip">Permis B</span>
+                    <span class="chip">Anglais B1</span>
+                </div>
+
+                <span class="sub-label liter-regular">EXPÉRIENCES</span>
+                <div class="xp-list">
+                    <div class="xp-item">
+                        <div class="xp-meta">
+                            <span class="xp-year liter-regular">2025</span>
+                            <span class="xp-duration liter-regular">6 mois</span>
                         </div>
-                        <h1 class="titre liter-bold">DEV WEB</h1>
+                        <div class="xp-body">
+                            <div class="xp-role liter-bold">Chargé comm / Intégrateur web</div>
+                            <div class="xp-company liter-regular">Uhouse — Charleville-Mézières</div>
+                            <p class="xp-desc liter-regular">Gestion du site WordPress, création de flyers, photographie en conférence, motion design, publications LinkedIn.</p>
+                        </div>
                     </div>
-                    <div class="slider2">
-                        <div class="presentation2">
-                            <h1 class="liter-bold exp">.EXP</h1>
-                            <div class="grille">
-                                <div class="langage">
-                                    <img src="img/icon/html.webp" alt="Logo HTML">
-                                    <img src="img/icon/css.webp" alt="Logo CSS">
-                                    <img src="img/icon/javascript.webp" alt="Logo JavaScript">
-                                    <img src="img/icon/php.webp" alt="Logo PHP">
-                                    <img src="img/icon/sass.webp" alt="Logo Sass">
-                                    <img src="img/icon/postgresql.webp" alt="Logo PostgreSQL">
-                                    <img src="img/icon/bootstrap.webp" alt="Logo Bootstrap">
-                                    <img src="img/icon/tailwind.webp" alt="Logo Tailwind CSS">
-                                    <img src="img/icon/wordpress.webp" alt="Logo WordPress">
-
-                                </div>
-                                <div class="logiciel">
-                                    <img src="img/icon/figma.webp" alt="Logo Figma">
-                                    <img src="img/icon/adobe xd.webp" alt="Logo Adobe XD">
-                                    <img src="img/icon/blender.webp" alt="Logo Blender">
-                                    <img src="img/icon/photoshop.webp" alt="Logo Adobe Photoshop">
-                                    <img src="img/icon/davinci resolve.webp" alt="Logo DaVinci Resolve">
-                                    <img src="img/icon/github.webp" alt="Logo GitHub">
-
-                                </div>
-                                <div class="projet">
-                                    <a href="projets.html">
-                                        <button class="b1-1">
-                                            <img src="img/logojf.svg" alt="" width="10%">
-                                            <p class="liter-regular">Voir mes projets</p>
-                                        </button>
-                                    </a>
-
-                                </div>
-                            </div>
+                    <div class="xp-item">
+                        <div class="xp-meta">
+                            <span class="xp-year liter-regular">2023</span>
+                            <span class="xp-duration liter-regular">3 mois</span>
+                        </div>
+                        <div class="xp-body">
+                            <div class="xp-role liter-bold">Stagiaire Développeur Web</div>
+                            <div class="xp-company liter-regular">Les persévérants — Guadeloupe</div>
+                            <p class="xp-desc liter-regular">Migration PHP 5 → PHP 8, refactorisation du code legacy. Amélioration des performances de <span class="highlight">+40%</span>.</p>
+                        </div>
+                    </div>
+                    <div class="xp-item">
+                        <div class="xp-meta">
+                            <span class="xp-year liter-regular">2022</span>
+                            <span class="xp-duration liter-regular">3 mois</span>
+                        </div>
+                        <div class="xp-body">
+                            <div class="xp-role liter-bold">Stagiaire Intégrateur Web</div>
+                            <div class="xp-company liter-regular">Concept X Formation — Guadeloupe</div>
+                            <p class="xp-desc liter-regular">Intégration de pages d'aide dans un intranet. Interfaces HTML5/CSS3, fonctionnalités PHP, MySQL.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="boutons">
-                <div class="liens">
-                    <a href="mailto:jovanyfeltre@gmail.com">
-                        <button class="b1">
-                            <i class="fa-solid fa-envelope" style="color: #c68d47;"></i>
-                            <p class="liter-regular">Mail</p>
-                        </button>
+            <!-- 02 — STACK -->
+            <section class="section">
+                <span class="s-num" aria-hidden="true">02</span>
+                <div class="s-head">
+                    <span class="s-label liter-regular">COMPÉTENCES</span>
+                    <h1 class="s-title liter-bold">.EXP</h1>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">FRONT-END</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">HTML5</span>
+                            <span class="stag liter-regular">CSS3</span>
+                            <span class="stag liter-regular">JavaScript</span>
+                            <span class="stag liter-regular">Next.js</span>
+                            <span class="stag liter-regular">Nuxt</span>
+                            <span class="stag liter-regular">Bootstrap</span>
+                            <span class="stag liter-regular">Tailwind</span>
+                            <span class="stag liter-regular">Sass</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">BACK-END</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">PHP</span>
+                            <span class="stag liter-regular">MySQL</span>
+                            <span class="stag liter-regular">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">DESIGN & UX</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">Figma</span>
+                            <span class="stag liter-regular">Adobe XD</span>
+                            <span class="stag liter-regular">Photoshop</span>
+                            <span class="stag liter-regular">Affinity</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">OUTILS</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">Git</span>
+                            <span class="stag liter-regular">GitHub</span>
+                            <span class="stag liter-regular">Docker</span>
+                            <span class="stag liter-regular">WordPress</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">CRÉATIF & VIDÉO</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">After Effects</span>
+                            <span class="stag liter-regular">DaVinci Resolve</span>
+                            <span class="stag liter-regular">Blender</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <span class="skill-group-label liter-regular">MOBILE</span>
+                        <div class="skill-tags">
+                            <span class="stag liter-regular">Dart</span>
+                            <span class="stag liter-regular">Flutter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="projets.html" class="voir-projets liter-regular">
+                    <span>VOIR MES PROJETS</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <!-- 03 — FORMATIONS -->
+            <section class="section">
+                <span class="s-num" aria-hidden="true">03</span>
+                <div class="s-head">
+                    <span class="s-label liter-regular">FORMATIONS</span>
+                    <h1 class="s-title liter-bold">.ETUDE</h1>
+                </div>
+
+                <div class="xp-list">
+                    <div class="xp-item">
+                        <div class="xp-meta">
+                            <span class="xp-year liter-regular">2024</span>
+                            <span class="xp-duration liter-regular">2025</span>
+                        </div>
+                        <div class="xp-body">
+                            <div class="xp-role liter-bold">Master 1 TI-PSM</div>
+                            <div class="xp-company liter-regular">UFR STGI, Montbéliard</div>
+                            <p class="xp-desc liter-regular">Technologie de l'information, Produits et Services Multimédia. Développement fullstack, mobile, UI/UX, 3D, montage vidéo.</p>
+                        </div>
+                    </div>
+                    <div class="xp-item">
+                        <div class="xp-meta">
+                            <span class="xp-year liter-regular">2023</span>
+                            <span class="xp-duration liter-regular">2024</span>
+                        </div>
+                        <div class="xp-body">
+                            <div class="xp-role liter-bold">Licence Pro CRRW</div>
+                            <div class="xp-company liter-regular">Urca Elsine — Charleville-Mézières</div>
+                            <p class="xp-desc liter-regular">Conception, Rédaction et Réalisation Web, parcours Intégration et Webdesign. Stage professionnel 4 mois.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 04 — CONTACT -->
+            <section class="section">
+                <span class="s-num" aria-hidden="true">04</span>
+                <div class="s-head">
+                    <span class="s-label liter-regular">CONTACT</span>
+                    <h1 class="s-title liter-bold">.SAY</h1>
+                </div>
+
+                <div class="contact-list">
+                    <a class="contact-link" href="mailto:Jovanyfeltre971@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="liter-regular">MAIL</span>
+                        <small class="liter-regular">Jovanyfeltre971@gmail.com</small>
                     </a>
-
-                    <a href="https://github.com/Damis507">
-                        <button class="b2">
-                            <i class="fa-brands fa-github" style="color: #49b03b;"></i>
-                            <p class="liter-regular">Github</p>
-                        </button>
+                    <a class="contact-link" href="tel:+33613041123">
+                        <i class="fa-solid fa-phone"></i>
+                        <span class="liter-regular">TÉLÉPHONE</span>
+                        <small class="liter-regular">+33 06 13 04 11 23</small>
                     </a>
-
-                    <a href="https://www.linkedin.com/in/jovany-feltre-247a7028a/">
-                        <button class="b3">
-                            <i class="fa-brands fa-linkedin" style="color: #3b9eb0;"></i>
-                            <p class="liter-regular">Linkedin</p>
-                        </button>
+                    <a class="contact-link" href="https://www.linkedin.com/in/jovany-feltre-247a7028a/" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span class="liter-regular">LINKEDIN</span>
+                        <small class="liter-regular">/in/jovany-feltre</small>
                     </a>
-
-                    <a href="pdf/cv_compressed.pdf">
-                        <button class="b4">
-                            <i class="fa-solid fa-download" style="color: #c74266;"></i>
-                            <p class="liter-regular">Curriculum Vitae</p>
-                        </button>
+                    <a class="contact-link" href="https://github.com/Damis507" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i>
+                        <span class="liter-regular">GITHUB</span>
+                        <small class="liter-regular">/Damis507</small>
                     </a>
-
-                    <a href="./formulaire.html">
-                        <button class="b5">
-                            <i class="fa-regular fa-face-smile" style="color: #c7aa42;"></i>
-                            <p class="liter-regular">formulaire</p>
-                        </button>
+                    <a class="contact-link" href="pdf/cv_compressed.pdf" download>
+                        <i class="fa-solid fa-download"></i>
+                        <span class="liter-regular">CURRICULUM VITAE</span>
+                        <small class="liter-regular">Télécharger PDF</small>
                     </a>
-
-                    <a href="./pdf/Portfolio.pdf">
-                        <button class="b6">
-                            <i class="fa-regular fa-face-smile" style="color: #c7aa42;"></i>
-                            <p class="liter-regular">Portfolio design</p>
-                        </button>
+                    <a class="contact-link" href="pdf/Portfolio.pdf" download>
+                        <i class="fa-regular fa-file"></i>
+                        <span class="liter-regular">PORTFOLIO DESIGN</span>
+                        <small class="liter-regular">Télécharger PDF</small>
                     </a>
                 </div>
-            </div>
+            </section>
 
         </div>
+    </div>
 
-        
-        
-    </body>
-    </html>
+</body>
+</html>

@@ -1,466 +1,1004 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Projets de Jovany Feltre — Développeur web, web designer. Stages, PPE, communication digitale et projets personnels." />
+    <meta property="og:title" content="Projets — Jovany Feltre" />
+    <meta property="og:description" content="Développement | Web design | Communication Digitale" />
+    <meta property="og:url" content="https://jovanyfeltre.fr/projets.html" />
 
-        <!-- Open Graph Meta -->
-        <meta property="og:title" content="Jovany Feltre" />
-        <meta property="og:description" content="Développement | Web design | Communication Digitale" />
-        <meta property="og:image" content="img/logo3.png" />
-        <meta property="og:url" content="https://jovanyfeltre.fr/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Jovany Feltre" />
+    <title>Projets — Jovany Feltre</title>
 
+    <link rel="shortcut icon" type="image/png" href="img/logojf.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/logojf.svg">
 
-        <title>Mes Projets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Liter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/projets.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
+</head>
+<body>
 
-        <link rel="Shortcut Icon" type="image/png" href="img/logojf.svg"> 
-        <link rel="icon" type="image/png" sizes="96x96" href="img/logojf.svg">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Lato&family=Liter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style/projets.css" />
+    <div class="background-noise"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ==" crossorigin="anonymous"></script>
-    </head>
-    <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true">
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular">JF</div>
+        <div class="text liter-regular"><span>JF</span></div>
+    </div>
+    <script>
+        const dot = document.querySelector(".cursor-dot");
+        let timeout;
+        document.addEventListener("mousemove", e => {
+            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            gsap.to(".text", { x: e.clientX, y: e.clientY, stagger: -0.06 });
+            clearTimeout(timeout);
+            timeout = setTimeout(() => gsap.to(".cursor", { opacity: 0.4 }), 2000);
+        });
+        document.addEventListener("mouseout", () => {
+            clearTimeout(timeout);
+            gsap.to(".cursor", { opacity: 1 });
+        });
+        document.addEventListener("mouseleave", () => dot.style.opacity = "0");
+        document.addEventListener("mouseenter", () => dot.style.opacity = "1");
+    </script>
 
-        <div class="background-blur"></div>
-        <div class="background-noise"></div>
-        
-        <div class="cursor">
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular">JF</div>
-            <div class="text liter-regular"><span>JF</span></div>
-        </div>
-
-        <script>
-            let timeout;
-
-            document.addEventListener("mousemove", e => {
-                gsap.to(".text", {
-                    x: e.pageX,
-                    y: e.pageY,
-                    stagger: -0.06
-                });
-
-                clearTimeout(timeout);
-
-                timeout = setTimeout(() => {
-                    gsap.to(".cursor", { opacity: 0.5 });
-                }, 2000);
-            });
-
-            document.addEventListener("mouseout", e => {
-                clearTimeout(timeout);
-                gsap.to(".cursor", { opacity: 1 });
-            });      
-        </script>
-
-        <div class="logo">
-            <a href="index.html">
-                <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
-                    <defs>
-                      <clipPath id="clip-path">
-                        <rect y="13" width="86" height="124" fill="none"/>
-                      </clipPath>
-                    </defs>
-                    <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                      <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
-                        <text id="j" transform="translate(7008 9343)" fill="red" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                        <text id="f" transform="translate(7008 9311)" fill="#08456b" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
-                        <path id="Tracé_6" data-name="Tracé 6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#08456b"/>
-                        <path id="Tracé_7" data-name="Tracé 7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="red"/>
-                      </g>
-                    </g>
-                  </svg>
-            </a>
-        </div>
-
-        <div class="info">    
-            
-            <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="64" viewBox="0 0 86 124">
-                <defs>
-                    <clipPath id="clip-path">
-                        <rect y="13" width="86" height="124" fill="none"/>
-                    </clipPath>
-                </defs>
-                <g id="Groupe_défilant_6" data-name="Groupe défilant 6" transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                    <g id="Groupe_4" data-name="Groupe 4" transform="translate(-7008 -9208)">
-                        <text id="j" transform="translate(7008 9343)" fill="hite" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                        <text id="f" transform="translate(7008 9311)" fill="gray" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+    <div class="logo">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+                <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
+                <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation:isolate">
+                    <g transform="translate(-7008 -9208)">
+                        <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                        <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                        <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
+                        <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
                     </g>
                 </g>
             </svg>
-            <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés. <br>Portfolio développé et designé par JF Jovany Feltre.</p>
-          
-        </div>
-
-        <div class="fullscreen-overlay" id="fullscreenOverlay"></div>
-
-        
-        <a id="topnav_hamburger_icon" href="javascript:void(0);" onclick="showResponsiveMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
         </a>
+    </div>
 
-            <div class="cont">
+    <div class="projects-page">
 
-                <button class="hamburger-btn" aria-label="Ouvrir le menu">
-                    &#9776; 
-                </button>
-                <div class="menu-container">
-                    <div class="filter-container">
-                        <button class="filter-btn active liter-regular color6" data-filter="all">Tous</button>
-                        <button class="filter-btn liter-regular color1" data-filter="tp">TP</button>
-                        <button class="filter-btn liter-regular color2" data-filter="personnel">personnel</button>
-                        <button class="filter-btn liter-regular color3" data-filter="stage">Stage</button>
-                        <button class="filter-btn liter-regular color4" data-filter="communication">Communication</button>
-                        <button class="filter-btn liter-regular color6" data-filter="Web">Web</button>
-                        <button class="filter-btn liter-regular color1" data-filter="Autre">Autre</button>
+        <header class="projects-header">
+            <div class="header-top">
+                <h1 class="page-title liter-bold">.PROJETS</h1>
+                <div class="header-right">
+                    <button class="sort-btn liter-regular" id="sort-btn" data-order="desc">
+                        <i class="fa-solid fa-arrow-down-wide-short"></i>
+                        <span>RÉCENT</span>
+                    </button>
+                    <span class="project-count liter-regular" id="project-count"></span>
+                </div>
+            </div>
+            <div class="filters-bar">
+                <button class="filter-btn active liter-regular" data-filter="all">TOUS <span class="fc"></span></button>
+                <button class="filter-btn liter-regular" data-filter="web">WEB <span class="fc"></span></button>
+                <button class="filter-btn liter-regular" data-filter="stage">STAGE <span class="fc"></span></button>
+                <button class="filter-btn liter-regular" data-filter="communication">COMM <span class="fc"></span></button>
+                <button class="filter-btn liter-regular" data-filter="developpement">DEV <span class="fc"></span></button>
+                
+            </div>
+        </header>
+
+        <div class="projects-body" id="projects-body">
+
+            <div class="proj-list" id="proj-list">
+
+                <!-- 01 — Surl -->
+                <div class="proj-row" data-accent="blue" data-popup="popup1" data-category="developpement,web" data-year="2026"
+                     data-stack="FLUTTER · DART · FIREBASE · FIGMA">
+                    <span class="proj-num liter-regular">01</span>
+                    <span class="proj-code liter-bold">.APP</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Surl</span>
+                        <span class="proj-sub liter-regular">App mobile de suivi sportif</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">Flutter</span>
+                        <span class="rtag liter-regular">Firebase</span>
+                        <span class="rtag liter-regular">Figma</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PERSONNEL · 2026</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 02 — Ubarda -->
+                <div class="proj-row" data-accent="amber" data-popup="popup2" data-category="web,communication" data-year="2026"
+                     data-stack="HTML · CSS · JAVASCRIPT · AFTER EFFECTS · BLENDER · PHOTOSHOP">
+                    <span class="proj-num liter-regular">02</span>
+                    <span class="proj-code liter-bold">.UBD</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Ubarda</span>
+                        <span class="proj-sub liter-regular">Service de livraison sécurisé</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">HTML/CSS/JS</span>
+                        <span class="rtag liter-regular">After Effects</span>
+                        <span class="rtag liter-regular">Blender</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PERSONNEL · 2025-26</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 03 — Inventor Race Comm -->
+                <div class="proj-row" data-accent="amber" data-popup="popup3" data-category="communication" data-year="2023"
+                     data-preview="img/Pb1.png" data-stack="AFTER EFFECTS · BLENDER · PHOTOSHOP">
+                    <span class="proj-num liter-regular">03</span>
+                    <span class="proj-code liter-bold">.COM</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Inventor Race</span>
+                        <span class="proj-sub liter-regular">Communication & Motion Design</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">After Effects</span>
+                        <span class="rtag liter-regular">Blender</span>
+                        <span class="rtag liter-regular">Photoshop</span>
+                    </div>
+                    <span class="proj-meta liter-regular">SCOLAIRE · 2025</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 04 — Inventor Race Jeu -->
+                <div class="proj-row" data-accent="purple" data-popup="popup4" data-category="web,communication" data-year="2023"
+                     data-preview="img/element.png" data-stack="HTML · CSS · JAVASCRIPT · ADOBE XD">
+                    <span class="proj-num liter-regular">04</span>
+                    <span class="proj-code liter-bold">.JEU</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Inventor Race</span>
+                        <span class="proj-sub liter-regular">Jeu — Design & Dev Web</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">HTML</span>
+                        <span class="rtag liter-regular">CSS</span>
+                        <span class="rtag liter-regular">JavaScript</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PROJ. TUTEURÉ · 2025</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 05 — Capvert -->
+                <div class="proj-row" data-accent="amber" data-popup="popup5" data-category="communication" data-year="2022"
+                     data-preview="img/fiche1.png" data-stack="ADOBE XD · AFTER EFFECTS">
+                    <span class="proj-num liter-regular">05</span>
+                    <span class="proj-code liter-bold">.CAP</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Capvert</span>
+                        <span class="proj-sub liter-regular">Charte graphique & Identité visuelle</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">Adobe XD</span>
+                        <span class="rtag liter-regular">After Effects</span>
+                    </div>
+                    <span class="proj-meta liter-regular">SCOLAIRE · 2024</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 06 — Covoiturage PPE1 -->
+                <div class="proj-row" data-accent="blue" data-popup="popup6" data-category="developpement" data-year="2023"
+                     data-stack="JAVA · POSTGRESQL · WATERFALL">
+                    <span class="proj-num liter-regular">06</span>
+                    <span class="proj-code liter-bold">.PPE1</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Covoiturage</span>
+                        <span class="proj-sub liter-regular">Application de gestion interne</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">Java</span>
+                        <span class="rtag liter-regular">PostgreSQL</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PPE BTS · 2023–24</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 07 — École de musique PPE2 -->
+                <div class="proj-row" data-accent="purple" data-popup="popup7" data-category="web,developpement" data-year="2024"
+                     data-stack="PHP · POSTGRESQL · BOOTSTRAP">
+                    <span class="proj-num liter-regular">07</span>
+                    <span class="proj-code liter-bold">.PPE2</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">École de musique</span>
+                        <span class="proj-sub liter-regular">Application web fullstack</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">PHP</span>
+                        <span class="rtag liter-regular">PostgreSQL</span>
+                        <span class="rtag liter-regular">Bootstrap</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PPE BTS · 2023–24</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 08 — Hackathon -->
+                <div class="proj-row" data-accent="pink" data-popup="popup8" data-category="experience" data-year="2023"
+                     data-preview="img/descriptive/img4.png" data-stack="INNOVATION · PROTOTYPAGE · TEAMWORK">
+                    <span class="proj-num liter-regular">08</span>
+                    <span class="proj-code liter-bold">.HCK</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Hackathon</span>
+                        <span class="proj-sub liter-regular">Sainte-Rose, Guadeloupe</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">Innovation</span>
+                        <span class="rtag liter-regular">Prototype</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PERSONNEL · 2023</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 09 — Stage PHP -->
+                <div class="proj-row" data-accent="green" data-popup="popup9" data-category="web,stage" data-year="2023"
+                     data-preview="img/descriptive/img2.png" data-stack="PHP 8 · GIT · HTML · CSS">
+                    <span class="proj-num liter-regular">09</span>
+                    <span class="proj-code liter-bold">.STG2</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Migration PHP</span>
+                        <span class="proj-sub liter-regular">Les persévérants — Guadeloupe</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">PHP 8</span>
+                        <span class="rtag liter-regular">Git</span>
+                        <span class="rtag rtag--highlight liter-regular">+40%</span>
+                    </div>
+                    <span class="proj-meta liter-regular">STAGE · 2023</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 10 — Stage Concept X -->
+                <div class="proj-row" data-accent="green" data-popup="popup10" data-category="web,stage" data-year="2022"
+                     data-preview="img/descriptive/logo-c.png" data-preview-contain="true" data-stack="PHP · HTML5 · CSS3 · MYSQL">
+                    <span class="proj-num liter-regular">10</span>
+                    <span class="proj-code liter-bold">.STG1</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Intranet</span>
+                        <span class="proj-sub liter-regular">Concept X Formation — Guadeloupe</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">PHP</span>
+                        <span class="rtag liter-regular">HTML</span>
+                        <span class="rtag liter-regular">MySQL</span>
+                    </div>
+                    <span class="proj-meta liter-regular">STAGE · 2022</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 11 — TD Déménageur -->
+                <div class="proj-row" data-accent="blue" data-popup="popup11" data-category="developpement" data-year="2023"
+                     data-stack="PHP · JAVA · POSTGRESQL">
+                    <span class="proj-num liter-regular">11</span>
+                    <span class="proj-code liter-bold">.DEM</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">PSDEM</span>
+                        <span class="proj-sub liter-regular">Logiciel de gestion des déménagements</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">PHP</span>
+                        <span class="rtag liter-regular">Java</span>
+                        <span class="rtag liter-regular">PostgreSQL</span>
+                    </div>
+                    <span class="proj-meta liter-regular">TRAV. DIRIGÉS · 2023</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- No results -->
+                <div class="no-results liter-regular" id="no-results" style="display:none">
+                    Aucun projet dans cette catégorie.
+                </div>
+
+            </div>
+
+            <div class="preview-panel" id="preview-panel">
+                <img src="" alt="" class="preview-img" id="preview-img">
+                <div class="preview-overlay" id="preview-overlay">
+                    <span class="preview-code liter-bold" id="preview-code"></span>
+                    <span class="preview-name liter-regular" id="preview-name"></span>
+                </div>
+                <div class="preview-pattern" id="preview-pattern" style="display:none">
+                    <span class="preview-pattern-code liter-bold" id="preview-pattern-code"></span>
+                    <span class="preview-pattern-stack liter-regular" id="preview-pattern-stack"></span>
+                </div>
+                <div class="preview-default" id="preview-default">
+                    <span class="preview-hint liter-regular">— SURVOL —</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         LIGHTBOX — clic image plein écran
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         POPUPS
+    ═══════════════════════════════════════════════════════════ -->
+
+    <!-- POPUP 1 — Surl -->
+    <div class="popup-overlay" id="popup1">
+        <div class="popup-panel" data-accent="blue">
+            <button class="popup-close" onclick="closePopup('popup1')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--pattern">
+                <div class="pattern-content">
+                    <span class="pattern-code liter-bold">.APP</span>
+                    <div class="pattern-stack liter-regular">FLUTTER · DART · FIREBASE</div>
+                    <div class="pattern-modules liter-regular">SÉANCES · POIDS · OBJECTIFS</div>
+                </div>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2026</span>
+                    <span class="popup-context liter-regular">Master 1 PSM · UFR STGI</span>
+                </div>
+                <h2 class="popup-title liter-bold">Surl</h2>
+                <p class="popup-subtitle liter-regular">Application mobile de suivi sportif personnel</p>
+                <p class="popup-desc liter-regular">
+                    Surl répond à un problème concret : maintenir une pratique sportive régulière sans accompagnement. L'app offre un suivi personnalisé pour tout type de sport — course, boxe, musculation, natation, tennis, etc.
+                    <br><br>
+                    <span class="popup-role">Fonctionnalités :</span> Authentification, saisie poids avec calcul IMC automatique, déclaration et historique des séances, objectifs hebdomadaires avec barre de progression (reset chaque lundi), graphiques d'évolution.
+                    <br><br>
+                    <span class="popup-role">Architecture :</span> Pattern MVC adapté Flutter. Collections Firestore : users, workouts, weightEntries, goals. State management via Riverpod, graphiques fl_chart.
+                    <br><br>
+                    <span class="popup-role">Rôle :</span> Conception complète — cahier des charges, maquettes Figma, développement Flutter, intégration Firebase.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Flutter</span>
+                        <span class="ptag liter-regular">Dart</span>
+                        <span class="ptag liter-regular">Firebase</span>
+                        <span class="ptag liter-regular">Firestore</span>
+                        <span class="ptag liter-regular">Riverpod</span>
+                        <span class="ptag liter-regular">fl_chart</span>
+                        <span class="ptag liter-regular">Figma</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://github.com/Damis507/Surl-App" target="_blank" rel="noopener" class="popup-link popup-link--gh liter-regular">
+                        <i class="fa-brands fa-github"></i> VOIR SUR GITHUB <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="pdf/CahierDesCharges_Surl.pdf" target="_blank" class="popup-link liter-regular">
+                        <i class="fa-regular fa-file-pdf"></i> CAHIER DES CHARGES <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP 2 — Ubarda -->
+    <div class="popup-overlay" id="popup2">
+        <div class="popup-panel" data-accent="amber">
+            <button class="popup-close" onclick="closePopup('popup2')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--drive">
+                <iframe
+                    src="https://drive.google.com/file/d/1WTVVDEvCTAI4SJmIJ-b05iM78BXybMfv/preview"
+                    allow="autoplay"
+                    allowfullscreen
+                    title="Présentation Ubarda">
+                </iframe>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2025–26</span>
+                    <span class="popup-context liter-regular">Master 1 TI-PSM · Université de Franche-Comté</span>
+                </div>
+                <h2 class="popup-title liter-bold">Ubarda</h2>
+                <p class="popup-subtitle liter-regular">Service de transport de biens sécurisé — "Voyager léger"</p>
+                <p class="popup-desc liter-regular">
+                    Ubarda est un service de livraison immédiate de biens personnels (bagages, colis), sécurisé par un cadenas NFC connecté. Le client déverrouille son colis via l'application — seul lui y a accès. En cas d'ouverture non autorisée, une notification est envoyée en temps réel.
+                    <br><br>
+                    <span class="popup-role">App mobile :</span> Vue.js + Supabase (OAuth), suivi GPS temps réel, réceptionneurs multiples, messagerie intégrée chauffeur/client. Maquette Figma complète.
+                    <br><br>
+                    <span class="popup-role">Cadenas prototype :</span> Arduino ESP32, module NFC PN532, GPS NEO-6M, batterie LiPo, actionneur serrure électronique.
+                    <br><br>
+                    <span class="popup-role">Communication :</span> site vitrine HTML/CSS/JS + chatbot, vidéo promo (After Effects + DaVinci Resolve), charte graphique complète.
+                    <br><br>
+                    <span class="popup-role">Équipe :</span> Maëlle Falch · Dalil Hammachi · Jovany Feltre
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Vue.js</span>
+                        <span class="ptag liter-regular">Supabase</span>
+                        <span class="ptag liter-regular">HTML/CSS/JS</span>
+                        <span class="ptag liter-regular">Figma</span>
+                        <span class="ptag liter-regular">After Effects</span>
+                        <span class="ptag liter-regular">DaVinci Resolve</span>
+                        <span class="ptag liter-regular">Blender</span>
+                        <span class="ptag liter-regular">Arduino</span>
+                        <span class="ptag liter-regular">NFC</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://github.com/Damis507/vitrine-Ubarda" target="_blank" rel="noopener" class="popup-link popup-link--gh liter-regular">
+                        <i class="fa-brands fa-github"></i> VOIR SUR GITHUB <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="/pdf/Ubarda.pdf" target="_blank" class="popup-link liter-regular">
+                        <i class="fa-regular fa-file-pdf"></i> RAPPORT PDF <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP 3 — Inventor Race Comm -->
+    <div class="popup-overlay" id="popup3">
+        <div class="popup-panel" data-accent="amber">
+            <button class="popup-close" onclick="closePopup('popup3')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media">
+                <video autoplay muted loop playsinline>
+                    <source src="video/smartphone2_REENC2.webm" type="video/webm">
+                </video>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2023</span>
+                    <span class="popup-context liter-regular">Projet scolaire · Communication</span>
+                </div>
+                <h2 class="popup-title liter-bold">Inventor Race</h2>
+                <p class="popup-subtitle liter-regular">Communication & Motion Design</p>
+                <p class="popup-desc liter-regular">
+                    Création de plusieurs designs graphiques pour la promotion du jeu avec une vidéo motion design dans un modèle 3D. Le modèle du smartphone a été customisé sur Blender, puis animé dans After Effects. Simulation d'une vraie campagne de communication.
+                </p>
+                <div class="popup-gallery">
+                    <img src="img/Pb1.png" alt="Poster 1" class="lightbox-trigger">
+                    <img src="img/Pb2.png" alt="Poster 2" class="lightbox-trigger">
+                    <img src="img/ce1.png" alt="Communication 1" class="lightbox-trigger">
+                    <img src="img/ce2.png" alt="Communication 2" class="lightbox-trigger">
+                </div>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Adobe XD</span>
+                        <span class="ptag liter-regular">Photoshop</span>
+                        <span class="ptag liter-regular">After Effects</span>
+                        <span class="ptag liter-regular">Blender</span>
                     </div>
                 </div>
             </div>
-
-        
-    
-    
-        <div class="container1">
-
-            <div class="container">
-                
-                
-                <button id="B" class="block block-1" type="submit" data-category="communication" onclick="openPopup('popup1')">
-                    <h1 class="liter-bold pre">.Com</h1>
-                </button>
-                <button id="B" class="block block-2" type="submit" data-category="tp,communication" onclick="openPopup('popup2')">
-                    <h1 class="liter-bold pre">.Jeu</h1>
-                </button>
-                <button id="B" class="block block-3" type="submit" data-category="web,tp,communication,autre" onclick="openPopup('popup3')">
-                    <h1 class="liter-bold pre">.Tp</h1>
-                </button>
-                <button id="B" class="block block-4" type="submit" data-category="Autre" onclick="openPopup('popup4')">
-                    <h1 class="liter-bold pre">.PPe1</h1>
-                </button>
-                <button id="B" class="block block-5" type="button" data-category="Web" onclick="openPopup('popup5')">
-                    <h1 class="liter-bold pre">.PPe2</h1>
-                </button>
-                <button id="B" class="block block-6" type="button" data-category="Autre,personnel" onclick="openPopup('popup6')">
-                    <h1 class="liter-bold pre">.Expé</h1>
-                </button>
-                <button id="B" class="block block-7" type="submit" data-category="stage,Web" onclick="openPopup('popup7')">
-                    <h1 class="liter-bold pre">.Stage2</h1>
-                </button>
-                <button id="B" class="block block-8" type="submit" data-category="stage,Web" onclick="openPopup('popup8')">
-                    <h1 class="liter-bold pre">.Stage1</h1>
-                </button>
-                <button id="B" class="block block-9" type="submit" data-category="Autre" onclick="openPopup('popup9')">
-                    <h1 class="liter-bold pre">.Td</h1>
-                </button>
-            </div>
         </div>
-    
+    </div>
 
-
-        <div class="popup1" id="popup1">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup1')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    <!-- POPUP 4 — Inventor Race Jeu -->
+    <div class="popup-overlay" id="popup4">
+        <div class="popup-panel" data-accent="purple">
+            <button class="popup-close" onclick="closePopup('popup4')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--img">
+                <img src="img/element.png" alt="Éléments graphiques Inventor Race" class="gallery-active lightbox-trigger">
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2024–25</span>
+                    <span class="popup-context liter-regular">Projet tuteuré · UFR STGI Franche-Comté</span>
                 </div>
-                <h2>Inventor race (communication) </h2>
-                <h3>cadre scolaire</h3>
-                
-                <h4 class="liter-regular">Création de plusieurs design graphiques pour la promotion du jeux <br>
-                    avec une vidéo motion design dans un model 3d : La vidéos à été réaliser avec after effect, le model <br>
-                    du smartphone à été customisé sur blender, ensuiste passer sur after effect pour jouer avec l'animation <br>
-                    le tout en utilisant le plugin élementor.
-                    (simulation) 
-                    <br>
-                    <div id="marquage">Outils et technologies :</div> adobe xd, photoshop, after effect, blender <br>
+                <h2 class="popup-title liter-bold">Inventor Race</h2>
+                <p class="popup-subtitle liter-regular">Adaptation web d'un jeu de société — inventeurs & inventions</p>
+                <p class="popup-desc liter-regular">
+                    Adaptation numérique du jeu de plateau Hole Runner (EiSINe, Charleville-Mézières). Jeu 2–4 joueurs : chaque joueur doit atteindre le trou central en répondant à des questions sur les inventeurs. Deux modes de réponse — CASH (sans indice, +2 cases) et TRIO (avec 3 choix, +1 case ou barrière).
                     <br><br>
-                </h4>
-
-                <video id="mVideo" autoplay muted playsinline loop>
-                        <source src="/video/smartphone2_REENC2.webm" type="video/webm">
-                        Votre navigateur ne supporte pas les vidéos WebM avec transparence.
-                </video>
-
-                <div class="col2">
-                    <img src="img/Pb1.png" alt="" width="10%">
-                    
-                    <img src="img/Pb2.png" alt="" width="10%">
-
-                    <img src="img/Pb3.png" alt="" width="10%">
-
-                    <img src="img/Pb4.png" alt="" width="10%">
-
-                    <img src="img/Pb5.png" alt="" width="10%">
-
-                    
-                    
-                </div>
-                
-                <div class="col3">
-                    <img src="img/ce1.png" alt="" width="50%">
-    
-                    <img src="img/ce2.png" alt="" width="50%">
-
-                    
-
-                </div>
-            </div>
-        </div>
-
-        <div class="popup2" id="popup2">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup2')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
-                </div>
-                <h2>Inventor race</h2>
-                <h3>cadre scolaire</h3>
-                <a href="https://github.com/corentinrbz/jeu_projet_tuteure_ribezzo_feltre">Projet du jeux</a>
-                <h4 class="liter-regular">Création des éléments graphiques du jeux et ses fonctionnalités. <br>
-                    règles de jeux basé sur le jeu de l'oie, avec un système de carte avec des question à répondre. <br>
-                    <div id="marquage">Outils et technologies :</div> adobe xd, html, css, javascript <br>
+                    <span class="popup-role">Défis techniques :</span> Algorithme de pathfinding pour garantir qu'une barrière ne bloque jamais totalement un joueur. Gestion d'état partagé entre joueurs sans rechargement. Base de 60 questions structurées en JSON (2 niveaux, 2 modes).
                     <br><br>
-                </h4>
-                <div class="col4">
-                    <img src="img/element.png" alt="" width="50%">
-                </div>
-            </div>
-        </div>
-
-        <div class="popup3" id="popup3">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup3')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
-                </div>
-                <h2>Projets Capvert</h2>
-                <h3>cadre scolaire</h3>
-                <a href="pdf/CharteGraphique.pdf">Charte graphique pdf</a>
-                <h4 class="liter-regular">Création d'une charte graphique d'une entreprise fictive, 
-                    ayant pour but la vente de fruit et légumes bio, 
-                    <br>
-                    <div id="marquage">Outils et technologies :</div> adobe xd, after effect <br>
+                    <span class="popup-role">Stack choisi :</span> Web natif sans framework — contrôle total sur le rendu et la logique. Identité visuelle sombre/dorée, curseur engrenage animé en CSS.
                     <br><br>
-                </h4>
-                <div class="col2">
-                    <img src="img/fiche1.png" alt="" width="10%">
-                    
-                    <img src="img/fiche2.png" alt="" width="10%">
+                    <span class="popup-role">Équipe :</span> Jovany Feltre · Correntin Ribezzo
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">HTML5</span>
+                        <span class="ptag liter-regular">CSS3</span>
+                        <span class="ptag liter-regular">JavaScript ES6+</span>
+                        <span class="ptag liter-regular">JSON</span>
+                        <span class="ptag liter-regular">Adobe XD</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://github.com/corentinrbz/jeu_projet_tuteure_ribezzo_feltre" target="_blank" rel="noopener" class="popup-link popup-link--gh liter-regular">
+                        <i class="fa-brands fa-github"></i> VOIR SUR GITHUB <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="pdf/inventor_race_rapport.pdf" target="_blank" class="popup-link liter-regular">
+                        <i class="fa-regular fa-file-pdf"></i> RAPPORT DE PROJET <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
-        
-        <div class="popup4" id="popup4">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup4')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    <!-- POPUP 5 — Capvert -->
+    <div class="popup-overlay" id="popup5">
+        <div class="popup-panel" data-accent="amber">
+            <button class="popup-close" onclick="closePopup('popup5')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--img popup-media--gallery" id="gallery5">
+                <img src="img/fiche1.png" alt="Charte graphique Capvert — page 1" class="gallery-active lightbox-trigger">
+                <img src="img/fiche2.png" alt="Charte graphique Capvert — page 2" class="lightbox-trigger">
+                <div class="gallery-nav">
+                    <button onclick="prevImg('gallery5')" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span class="gallery-count liter-regular">1 / 2</span>
+                    <button onclick="nextImg('gallery5')" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-                <h2>Projets covoiturage</h2>
-                <h3>cadre scolaire</h3>
-                <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio.git">lien github</a> </h4>
-                <h4 class="liter-regular">Projet destinée aux employés d'une entreprise fictive, <br>
-                    leurs permettants d'aider leurs collègues, <br>
-                    dans un cadre de covoiturage,<br>
-                    pour ceux qui ont des soucis de déplacement,<br> 
-                    pour venir au travail ou retourner chez eux <br>
-                    <br>
-                    Réalisation de l'Application en cours <br>
-                    <br>
-                    <div id="marquage">Outils et technologies :</div> java, postgresql pour la base de donnée <br>
-                    <div id="marquage">Mon rôle :</div> conception et réalisation de la base de donnée<br>   
-                    <div id="marquage">Méthodologie :</div> Méthode Waterfall <br>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2022</span>
+                    <span class="popup-context liter-regular">Projet scolaire · Communication</span>
+                </div>
+                <h2 class="popup-title liter-bold">Capvert</h2>
+                <p class="popup-subtitle liter-regular">Charte graphique & Identité visuelle</p>
+                <p class="popup-desc liter-regular">
+                    Conception de l'identité visuelle complète d'une entreprise fictive spécialisée dans la vente de fruits et légumes bio. Charte graphique intégrale : logo, typographie, palette, supports de communication.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Adobe XD</span>
+                        <span class="ptag liter-regular">After Effects</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="pdf/CharteGraphique.pdf" target="_blank" class="popup-link liter-regular">
+                        <i class="fa-solid fa-file-pdf"></i> CHARTE GRAPHIQUE PDF <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP 6 — Covoiturage PPE1 -->
+    <div class="popup-overlay" id="popup6">
+        <div class="popup-panel" data-accent="blue">
+            <button class="popup-close" onclick="closePopup('popup6')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--pattern">
+                <div class="pattern-content">
+                    <span class="pattern-code liter-bold">.PPE1</span>
+                    <div class="pattern-stack liter-regular">JAVA · POSTGRESQL · WATERFALL</div>
+                </div>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2022–2023</span>
+                    <span class="popup-context liter-regular">PPE BTS SIO · Développement</span>
+                </div>
+                <h2 class="popup-title liter-bold">Covoiturage</h2>
+                <p class="popup-subtitle liter-regular">Application de gestion interne</p>
+                <p class="popup-desc liter-regular">
+                    Application destinée aux employés d'une entreprise fictive pour organiser leur covoiturage. Permet aux collègues de proposer ou trouver des trajets partagés pour se rendre au travail.
                     <br><br>
+                    <span class="popup-role">Mon rôle :</span> Conception et réalisation de la base de données.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Java</span>
+                        <span class="ptag liter-regular">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">MÉTHODE</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Waterfall</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio.git" target="_blank" rel="noopener" class="popup-link popup-link--gh liter-regular">
+                        <i class="fa-brands fa-github"></i> VOIR SUR GITHUB <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        
-        <div class="popup5" id="popup5">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup5')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    </div>
+
+    <!-- POPUP 7 — École de musique PPE2 -->
+    <div class="popup-overlay" id="popup7">
+        <div class="popup-panel" data-accent="purple">
+            <button class="popup-close" onclick="closePopup('popup7')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--pattern">
+                <div class="pattern-content">
+                    <span class="pattern-code liter-bold">.PPE2</span>
+                    <div class="pattern-stack liter-regular">PHP · POSTGRESQL · BOOTSTRAP</div>
                 </div>
-                <h2>Projet école de musique</h2>
-                <h3>cadre scolaire</h3>
-                <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio2.git">lien github</a> </h4>
-                
-                <h4 class="liter-regular">Le projet consiste à moderniser les outils informatiques <br>
-                    de l'école de musique municipale de la ville de D.(fictif),<br>
-                    qui sont actuellement jugés peu efficaces. <br>
-                    Pour cela, une étude est menée par la DSI de la mairie. <br>
-                    En tant que salarié-e de la DSI, <br>il faut participer à cette étude et <br>
-                    aux différentes missions qui la composent, <br>
-                    dans le but de proposer des solutions adaptées <br> à l'école de musique <br>
-                    pour une meilleure gestion de ses activités. <br>
-                    <br>
-                    Réalisation du site en cours <br>
-                    <br>
-                    <div id="marquage">Outils et technologies :</div> php, postgresql pour la base de donnée <br>
-                    et bootstrap en front-end <br>
-                    <div id="marquage">Mon rôle :</div> Polyvalent, conception et réalisation de la base de donnée,<br> 
-                    gestion de la partie back-end <br> 
-                    <div id="marquage">Méthodologie :</div> Méthode Waterfall <br>
-                    <br>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2023–2024</span>
+                    <span class="popup-context liter-regular">PPE BTS SIO · Web & Dev</span>
+                </div>
+                <h2 class="popup-title liter-bold">École de musique</h2>
+                <p class="popup-subtitle liter-regular">Modernisation des outils numériques</p>
+                <p class="popup-desc liter-regular">
+                    Modernisation des outils informatiques d'une école de musique municipale pour la ville de D. (fictif). Étude menée par la DSI pour proposer des solutions de gestion adaptées.
+                    <br><br>
+                    <span class="popup-role">Mon rôle :</span> Polyvalent — conception BDD, back-end PHP, interfaces Bootstrap.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">PHP</span>
+                        <span class="ptag liter-regular">PostgreSQL</span>
+                        <span class="ptag liter-regular">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">MÉTHODE</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Waterfall</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://github.com/Damis507/travail_de_groupe_Bts_sio2.git" target="_blank" rel="noopener" class="popup-link popup-link--gh liter-regular">
+                        <i class="fa-brands fa-github"></i> VOIR SUR GITHUB <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        
-        <div class="popup6" id="popup6">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup6')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    </div>
+
+    <!-- POPUP 8 — Hackathon -->
+    <div class="popup-overlay" id="popup8">
+        <div class="popup-panel" data-accent="pink">
+            <button class="popup-close" onclick="closePopup('popup8')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--img popup-media--gallery" id="gallery8">
+                <img src="img/descriptive/logo-h.png" alt="Logo Hackathon" class="gallery-active popup-img-contain lightbox-trigger">
+                <img src="img/descriptive/img4.png" alt="Hackathon Sainte-Rose" class="lightbox-trigger">
+                <div class="gallery-nav">
+                    <button onclick="prevImg('gallery8')" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span class="gallery-count liter-regular">1 / 2</span>
+                    <button onclick="nextImg('gallery8')" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-                <h2>Projets hackatons</h2>
-                <h3>cadre personnel</h3>
-                <div class="photoex">
-                    <img src="img/descriptive/logo-h.png" alt="" width="20%">
-                    
-                    <img src="img/descriptive/img4.png" alt="" width="50%">
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2023</span>
+                    <span class="popup-context liter-regular">Personnel · Expérience</span>
                 </div>
-                <h4 class="liter-regular">J'ai eu l'opportunité de participer à <br>un hackathon organisé à Sainte-Rose, <br>
-                    au cours où j'ai pu amasser une précieuse expérience <br> et rencontrer des professionnels dans le domaine. <br>
-                    Au sein de mon groupe, <br> nous avons eu pour mission de proposer un prototype innovant destiné à aider les étudiants. <br>
-                    Ce challenge m'a permis de développer mes compétences en travail d'équipe, <br>
-                    en communication et en créativité, <br>
-                    tout en me donnant l'occasion de réfléchir à des solutions concrètes pour résoudre des problématiques actuelles. </h4>
+                <h2 class="popup-title liter-bold">Hackathon</h2>
+                <p class="popup-subtitle liter-regular">Sainte-Rose, Guadeloupe</p>
+                <p class="popup-desc liter-regular">
+                    Participation à un hackathon organisé à Sainte-Rose. Mission : concevoir un prototype innovant destiné à aider les étudiants dans leur quotidien.
+                    <br><br>
+                    Une expérience de travail en équipe intensive, de rencontres avec des professionnels du secteur et de réflexion créative sous contrainte de temps.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">COMPÉTENCES</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Créativité</span>
+                        <span class="ptag liter-regular">Travail d'équipe</span>
+                        <span class="ptag liter-regular">Présentation</span>
+                        <span class="ptag liter-regular">Prototypage</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="popup7" id="popup7">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup7')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    <!-- POPUP 9 — Stage PHP (Les persévérants) -->
+    <div class="popup-overlay" id="popup9">
+        <div class="popup-panel" data-accent="green">
+            <button class="popup-close" onclick="closePopup('popup9')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--img popup-media--gallery" id="gallery9">
+                <img src="img/descriptive/logo-p.jpg" alt="Logo Les persévérants" class="gallery-active popup-img-contain lightbox-trigger">
+                <img src="img/descriptive/img2.png" alt="Stage migration PHP" class="lightbox-trigger">
+                <div class="gallery-nav">
+                    <button onclick="prevImg('gallery9')" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span class="gallery-count liter-regular">1 / 2</span>
+                    <button onclick="nextImg('gallery9')" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-                <h2>Stage école</h2>
-                <h3>cadre professionnelle</h3>
-                <div class="photoex">
-                <img src="img/descriptive/logo-p.jpg" alt="" width="20%">
-                
-                <img src="img/descriptive/img2.png" alt="" width="50%">
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2023 · 3 mois</span>
+                    <span class="popup-context liter-regular">Stage professionnel · Web</span>
                 </div>
-                <h4 class="liter-regular">Durant ma deuxième année de BTS,<br> j'ai réalisé un stage d'un mois au <br>
-                    cours auquel j'ai été chargé de migrer un site de suivi individualisé  <br>
-                    d'élèves de PHP 5 à PHP 8. <br>
-                    <br>
-                    La migration de ce projet <br>de PHP 5 vers PHP 8 m'a permis de développer<br>
-                    mes compétences en programmation <br> et de mieux comprendre les enjeux <br>
-                    de la mise à jour des technologies ainsi augmentant ma sensibilité <br>
-                    à la veille technologique.
-                    </h4>
+                <h2 class="popup-title liter-bold">Migration PHP</h2>
+                <p class="popup-subtitle liter-regular">Les persévérants — Guadeloupe</p>
+                <p class="popup-desc liter-regular">
+                    Migration d'une application web de suivi individualisé d'élèves de PHP 5 vers PHP 8. Analyse des incompatibilités, refactorisation du code legacy, mise à niveau des dépendances et implémentation des nouvelles fonctionnalités.
+                </p>
+                <div class="popup-highlight">
+                    <span class="popup-highlight-num liter-bold">+40%</span>
+                    <span class="popup-highlight-label liter-regular">d'amélioration des performances</span>
+                </div>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">PHP 8</span>
+                        <span class="ptag liter-regular">Git</span>
+                        <span class="ptag liter-regular">HTML</span>
+                        <span class="ptag liter-regular">CSS</span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="popup8" id="popup8">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup8')"><i class="fa-solid fa-xmark"></i></a>  
+    </div>
+
+    <!-- POPUP 10 — Stage Concept X -->
+    <div class="popup-overlay" id="popup10">
+        <div class="popup-panel" data-accent="green">
+            <button class="popup-close" onclick="closePopup('popup10')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--img">
+                <img src="img/descriptive/logo-c.png" alt="Logo Concept X Formation" class="gallery-active popup-img-contain lightbox-trigger">
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2022 · 3 mois</span>
+                    <span class="popup-context liter-regular">Stage professionnel · Web</span>
                 </div>
-                <h2>Stage centre de formation</h2>
-                <h3>cadre professionnelle</h3>
-                <div class="photoex">
-                    <img src="img/descriptive/logo-c.png" alt="" width="22%">
-                    
+                <h2 class="popup-title liter-bold">Intranet</h2>
+                <p class="popup-subtitle liter-regular">Concept X Formation — Guadeloupe</p>
+                <p class="popup-desc liter-regular">
+                    Développement et intégration de pages d'aide dynamiques dans l'intranet d'entreprise. Conception d'interfaces utilisateur intuitives et formation des nouveaux arrivants à l'utilisation de l'outil.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">PHP</span>
+                        <span class="ptag liter-regular">HTML5</span>
+                        <span class="ptag liter-regular">CSS3</span>
+                        <span class="ptag liter-regular">MySQL</span>
+                    </div>
                 </div>
-            
-                <h4 class="liter-regular">Le stage que j'ai réalisé à ma <br>première année de BTS m'a permis de <br>
-                    découvrir le monde professionnel et d'acquérir des compétences techniques en développement web. <br>
-                    Travaillant au sein de Concept X Formation(basse-terre), j'ai apporter mon aide en <br>
-                    PHP, HTML et CSS pour aider les nouveaux arrivants à utiliser efficacement leur intranet. <br>
-                    Permettant aussi de dévelloppé mes compétences en pédagogie, <br>
-                    en expliquant de manière claire et concise les fonctionnalités de l'intranet <br>
-                    aux nouveaux utilisateurs.</h4>
             </div>
         </div>
+    </div>
 
-        <div class="popup9" id="popup9">
-            <div class="popup-content">
-                <div class="cross">
-                    <a href="#" onclick="closePopup('popup9')"><i class="fa-solid fa-xmark"></i></ion-icon></a>  
+    <!-- POPUP 11 — TD Déménageur -->
+    <div class="popup-overlay" id="popup11">
+        <div class="popup-panel" data-accent="blue">
+            <button class="popup-close" onclick="closePopup('popup11')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--pattern">
+                <div class="pattern-content">
+                    <span class="pattern-code liter-bold">.DEM</span>
+                    <div class="pattern-stack liter-regular">PHP · JAVA · POSTGRESQL</div>
+                    <div class="pattern-modules liter-regular">SUIVI_DEM · PLAN_DEM · GEST_ABS</div>
                 </div>
-                <h2>Td démenageur</h2>
-                <h3>cadre scolaire</h3>                       
-                <h4 class="liter-regular">La société DÉMGUIV(fictive), spécialisée dans le déménagement, a fait appel à LOGIMOUVE, <br>
-                    une entreprise de services du numérique, pour développer un logiciel de gestion des déménagements. <br>
-                    Le logiciel, appelé PSDEM, est développé en langage Java (et une version en php) et est composé de trois modules : <br>
-                    SUIVI_DEM, PLAN_DEM et GEST_ABS. La base de données Postgresql est située à Quimper et accessible <br>
-                    depuis toutes les agences de DÉMGUIV. <br>
-                    <br>
-                    
-                    <div id="marquage">Outils et technologies :</div> php et java, postgresql pour la base de donnée <br> </h4>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2023</span>
+                    <span class="popup-context liter-regular">Travaux dirigés · Développement</span>
+                </div>
+                <h2 class="popup-title liter-bold">PSDEM</h2>
+                <p class="popup-subtitle liter-regular">Logiciel de gestion des déménagements</p>
+                <p class="popup-desc liter-regular">
+                    Développement d'un logiciel de gestion pour DÉMGUIV (fictif), société de déménagement. Trois modules : <strong>SUIVI_DEM</strong> (suivi des déménagements), <strong>PLAN_DEM</strong> (planification) et <strong>GEST_ABS</strong> (gestion des absences). Base de données PostgreSQL centralisée.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">PHP</span>
+                        <span class="ptag liter-regular">Java</span>
+                        <span class="ptag liter-regular">PostgreSQL</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- ═══════════════════════════════════════════════════════════
+         SCRIPTS
+    ═══════════════════════════════════════════════════════════ -->
+    <script>
+        // ── Popups ────────────────────────────────────────────
+        function openPopup(id) {
+            if (!id) return;
+            document.getElementById(id).classList.add('open');
+            document.getElementById('projects-body').classList.add('locked');
+        }
 
+        function closePopup(id) {
+            document.getElementById(id).classList.remove('open');
+            document.getElementById('projects-body').classList.remove('locked');
+            const vid = document.querySelector('#' + id + ' video');
+            if (vid) vid.pause();
+        }
 
-        <script>
-            document.getElementById('#icon2').onmouseover = function() {
-                this.removeAttribute('close-circle-outline');
-            };
-        </script>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                        const hamburgerBtn = document.querySelector('.hamburger-btn');
-                        const menuContainer = document.querySelector('.menu-container');
+        document.querySelectorAll('.popup-overlay').forEach(overlay => {
+            overlay.addEventListener('click', e => {
+                if (e.target === overlay) closePopup(overlay.id);
+            });
+        });
 
-                        hamburgerBtn.addEventListener('click', function () {
-                            menuContainer.classList.toggle('active');
-                        });
-                    });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                // Ferme le lightbox en priorité
+                if (document.getElementById('lightbox').classList.contains('open')) {
+                    closeLightbox();
+                } else {
+                    document.querySelectorAll('.popup-overlay.open').forEach(p => closePopup(p.id));
+                }
+            }
+        });
 
+        // Clic sur une ligne
+        document.querySelectorAll('.proj-row').forEach(row => {
+            row.addEventListener('click', () => openPopup(row.dataset.popup));
+        });
 
-                    document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                        
-                        btn.classList.add('active');
-                        
-                        const filter = btn.getAttribute('data-filter');
-                        
-                        const blocks = document.querySelectorAll('.block');
-                        
-                        blocks.forEach(block => {
-                            const blockCategories = block.getAttribute('data-category').split(',');
-                            
-                            if (filter === 'all' || blockCategories.includes(filter)) {
-                                block.style.display = 'flex';
-                            } else {
-                                block.style.display = 'none';
-                            }
-                                    });
-                                });
-                            });
+        // ── Galerie ───────────────────────────────────────────
+        function getGalleryState(id) {
+            const el = document.getElementById(id);
+            const imgs = el.querySelectorAll('img');
+            const countEl = el.querySelector('.gallery-count');
+            let current = [...imgs].findIndex(img => img.classList.contains('gallery-active'));
+            return { el, imgs, countEl, current };
+        }
 
-                    
-                    </script>
+        function setGalleryIndex(id, idx) {
+            const { imgs, countEl } = getGalleryState(id);
+            imgs.forEach(img => img.classList.remove('gallery-active'));
+            imgs[idx].classList.add('gallery-active');
+            countEl.textContent = `${idx + 1} / ${imgs.length}`;
+        }
 
-                    <script>
-                        function openPopup(id){
-                            let popup = document.getElementById(id);
-                            let overlay = document.getElementById('fullscreenOverlay');
+        function prevImg(id) {
+            const { imgs, current } = getGalleryState(id);
+            setGalleryIndex(id, (current - 1 + imgs.length) % imgs.length);
+            event.stopPropagation();
+        }
 
-                            overlay.classList.add('active');
-                            popup.classList.add("open-popup");
-                        }
-                    
-                        function closePopup(id){
-                            let popup = document.getElementById(id);
-                            let overlay = document.getElementById('fullscreenOverlay');
+        function nextImg(id) {
+            const { imgs, current } = getGalleryState(id);
+            setGalleryIndex(id, (current + 1) % imgs.length);
+            event.stopPropagation();
+        }
 
-                            overlay.classList.remove('active');
-                            popup.classList.remove("open-popup");
-                        }
-                    </script>
+        // ── Lightbox ──────────────────────────────────────────
+        const lightbox     = document.getElementById('lightbox');
+        const lightboxImg  = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
 
-    </body>
+        function openLightbox(src, alt) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || '';
+            lightbox.classList.add('open');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightboxImg.src = '';
+        }
+
+        // Délégation sur tout le document pour les .lightbox-trigger
+        document.addEventListener('click', e => {
+            const trigger = e.target.closest('.lightbox-trigger');
+            if (trigger) {
+                e.stopPropagation();
+                openLightbox(trigger.src, trigger.alt);
+            }
+        });
+
+        lightboxClose.addEventListener('click', e => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ── Preview panel ─────────────────────────────────────
+        const previewImg      = document.getElementById('preview-img');
+        const previewOverlay  = document.getElementById('preview-overlay');
+        const previewCode     = document.getElementById('preview-code');
+        const previewName     = document.getElementById('preview-name');
+        const previewPattern  = document.getElementById('preview-pattern');
+        const previewPatCode  = document.getElementById('preview-pattern-code');
+        const previewPatStack = document.getElementById('preview-pattern-stack');
+        const previewDefault  = document.getElementById('preview-default');
+        const previewPanel    = document.getElementById('preview-panel');
+
+        document.querySelectorAll('.proj-row').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                const src     = row.dataset.preview;
+                const contain = row.dataset.previewContain === 'true';
+                const code    = row.querySelector('.proj-code').textContent;
+                const name    = row.querySelector('.proj-name').textContent;
+                const stack   = row.dataset.stack || '';
+
+                previewDefault.style.display = 'none';
+
+                if (src) {
+                    previewImg.src = src;
+                    previewImg.style.objectFit  = contain ? 'contain' : 'cover';
+                    previewImg.style.padding    = contain ? '1.5rem' : '0';
+                    previewImg.style.background = contain ? '#0a0a0a' : 'none';
+                    previewImg.classList.add('active');
+                    previewCode.textContent = code;
+                    previewName.textContent = name;
+                    previewOverlay.style.opacity = '1';
+                    previewPattern.style.display = 'none';
+                    previewPanel.classList.add('has-img');
+                } else {
+                    previewImg.classList.remove('active');
+                    previewOverlay.style.opacity = '0';
+                    previewPanel.classList.remove('has-img');
+                    previewPatCode.textContent  = code;
+                    previewPatStack.textContent = stack;
+                    previewPattern.style.display = 'flex';
+                }
+            });
+
+            row.addEventListener('mouseleave', () => {
+                previewImg.classList.remove('active');
+                previewPanel.classList.remove('has-img');
+                previewPattern.style.display = 'none';
+                previewDefault.style.display = 'block';
+            });
+        });
+
+        // ── Filtres ───────────────────────────────────────────
+        const allRows = document.querySelectorAll('.proj-row');
+        let currentFilter = 'all';
+        let currentSort   = 'desc';
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            const filter = btn.dataset.filter;
+            const fc = btn.querySelector('.fc');
+            if (filter === 'all') {
+                fc.textContent = allRows.length;
+            } else {
+                fc.textContent = [...allRows].filter(r => r.dataset.category.split(',').includes(filter)).length;
+            }
+        });
+
+        function applyFilters() {
+            let visible = 0;
+            allRows.forEach(row => {
+                const cats = row.dataset.category.split(',');
+                const show = currentFilter === 'all' || cats.includes(currentFilter);
+                row.style.display = show ? 'grid' : 'none';
+                if (show) visible++;
+            });
+            document.getElementById('project-count').textContent = `${visible} projet${visible > 1 ? 's' : ''}`;
+            document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        // ── Tri par année ──────────────────────────────────────
+        document.getElementById('sort-btn').addEventListener('click', function () {
+            currentSort = currentSort === 'desc' ? 'asc' : 'desc';
+            this.dataset.order = currentSort;
+            this.querySelector('span').textContent = currentSort === 'desc' ? 'RÉCENT' : 'ANCIEN';
+            this.querySelector('i').className = currentSort === 'desc'
+                ? 'fa-solid fa-arrow-down-wide-short'
+                : 'fa-solid fa-arrow-up-wide-short';
+
+            const list = document.getElementById('proj-list');
+            const rows = [...list.querySelectorAll('.proj-row')];
+            rows.sort((a, b) => {
+                const ya = parseInt(a.dataset.year);
+                const yb = parseInt(b.dataset.year);
+                return currentSort === 'desc' ? yb - ya : ya - yb;
+            });
+            rows.forEach(r => list.insertBefore(r, document.getElementById('no-results')));
+            // Renuméroter après tri
+            list.querySelectorAll('.proj-row').forEach((r, i) => {
+                r.querySelector('.proj-num').textContent = String(i + 1).padStart(2, '0');
+            });
+        });
+
+        // Init
+        applyFilters();
+    </script>
+
+</body>
 </html>
