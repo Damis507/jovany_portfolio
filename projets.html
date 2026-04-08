@@ -95,21 +95,39 @@
             <div class="proj-list" id="proj-list">
 
 
-                <!-- 00 — Uhouse vidéo -->
-                <div class="proj-row" data-accent="green" data-popup="popup0" data-category="developpement,web" data-year="2026"
-                     data-stack="FLUTTER · DART · FIREBASE · FIGMA">
-                    <span class="proj-num liter-regular">01</span>
-                    <span class="proj-code liter-bold">.Vid</span>
+                <!-- 00 — FRAC Franche-Comté Design System -->
+                <div class="proj-row" data-accent="pink" data-popup="popup12" data-category="web,communication" data-year="2026"
+                     data-stack="FIGMA · DESIGN SYSTEM · UI/UX">
+                    <span class="proj-num liter-regular">00</span>
+                    <span class="proj-code liter-bold">.DSY</span>
                     <div class="proj-info">
-                        <span class="proj-name liter-bold">Uhouse</span>
-                        <span class="proj-sub liter-regular">vidéos promotionelle du service Uhouse</span>
+                        <span class="proj-name liter-bold">FRAC Franche-Comté</span>
+                        <span class="proj-sub liter-regular">Design system & reconception web</span>
                     </div>
                     <div class="proj-tags">
-                        <span class="rtag liter-regular">After effect</span>
-                        <span class="rtag liter-regular">Davinci resolve</span>
+                        <span class="rtag liter-regular">Figma</span>
+                        <span class="rtag liter-regular">Design System</span>
+                        <span class="rtag liter-regular">UI/UX</span>
+                    </div>
+                    <span class="proj-meta liter-regular">PERSONNEL · 2026</span>
+                    <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+
+                <!-- 01 — Uhouse vidéo -->
+                <div class="proj-row" data-accent="green" data-popup="popup0" data-category="communication,stage" data-year="2025"
+                     data-preview="img/Uhouse.png" data-stack="AFTER EFFECTS · BLENDER · DAVINCI RESOLVE">
+                    <span class="proj-num liter-regular">00</span>
+                    <span class="proj-code liter-bold">.VID</span>
+                    <div class="proj-info">
+                        <span class="proj-name liter-bold">Uhouse</span>
+                        <span class="proj-sub liter-regular">Vidéo promotionnelle du service</span>
+                    </div>
+                    <div class="proj-tags">
+                        <span class="rtag liter-regular">After Effects</span>
+                        <span class="rtag liter-regular">DaVinci Resolve</span>
                         <span class="rtag liter-regular">Blender</span>
                     </div>
-                    <span class="proj-meta liter-regular">Stage · 2025</span>
+                    <span class="proj-meta liter-regular">STAGE · 2025</span>
                     <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
 
@@ -134,7 +152,7 @@
 
                 <!-- 02 — Ubarda -->
                 <div class="proj-row" data-accent="amber" data-popup="popup2" data-category="web,communication" data-year="2026"
-                     data-stack="HTML · CSS · JAVASCRIPT · AFTER EFFECTS · BLENDER · PHOTOSHOP">
+                     data-preview="img/Ubarda.png" data-stack="HTML · CSS · JAVASCRIPT · AFTER EFFECTS · BLENDER · PHOTOSHOP">
                     <span class="proj-num liter-regular">02</span>
                     <span class="proj-code liter-bold">.UBD</span>
                     <div class="proj-info">
@@ -267,9 +285,9 @@
                     <div class="proj-tags">
                         <span class="rtag liter-regular">PHP 8</span>
                         <span class="rtag liter-regular">Git</span>
-                        <span class="rtag rtag--highlight liter-regular">+40%</span>
+                        <span class="rtag liter-regular">+40%</span>
                     </div>
-                    <span class="proj-meta liter-regular">STAGE · 2023</span>
+                    <span class="proj-meta liter-regular">STAGE · 2022</span>
                     <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
 
@@ -291,10 +309,10 @@
                     <i class="proj-arrow fa-solid fa-arrow-up-right-from-square"></i>
                 </div>
 
-                <!-- 11 — TD Déménageur -->
+                <!-- 13 — TD Déménageur -->
                 <div class="proj-row" data-accent="blue" data-popup="popup11" data-category="developpement" data-year="2023"
                      data-stack="PHP · JAVA · POSTGRESQL">
-                    <span class="proj-num liter-regular">11</span>
+                    <span class="proj-num liter-regular">13</span>
                     <span class="proj-code liter-bold">.DEM</span>
                     <div class="proj-info">
                         <span class="proj-name liter-bold">PSDEM</span>
@@ -364,7 +382,7 @@
                     <span class="popup-year liter-regular">2025</span>
                     <span class="popup-context liter-regular">Licence professionnel CRRW · EISINE</span>
                 </div>
-                <h2 class="popup-title liter-bold">Ubarda</h2>
+                <h2 class="popup-title liter-bold">Uhouse</h2>
                 <p class="popup-subtitle liter-regular">Service de maison modulaire </p>
                 <p class="popup-desc liter-regular">
                     UHouse est une solution de maison modulaire pensée pour rendre l’habitat plus simple, plus flexible et plus durable. De la tiny house au studio en passant par l’extension, chaque projet s’adapte au terrain, aux besoins et au budget du client.
@@ -385,6 +403,41 @@
         </div>
     </div>
 
+
+    <!-- POPUP 0 — Uhouse vidéo -->
+    <div class="popup-overlay" id="popup0">
+        <div class="popup-panel" data-accent="green">
+            <button class="popup-close" onclick="closePopup('popup0')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--pattern">
+                <div class="pattern-content">
+                    <span class="pattern-code liter-bold">.VID</span>
+                    <div class="pattern-stack liter-regular">AFTER EFFECTS · BLENDER · DAVINCI</div>
+                    <div class="pattern-modules liter-regular">MOTION · 3D · MONTAGE</div>
+                </div>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2025</span>
+                    <span class="popup-context liter-regular">Stage professionnel · Motion Design</span>
+                </div>
+                <h2 class="popup-title liter-bold">Uhouse</h2>
+                <p class="popup-subtitle liter-regular">Vidéo promotionnelle du service Uhouse</p>
+                <p class="popup-desc liter-regular">
+                    Réalisation d'une vidéo promotionnelle pour le service Uhouse dans le cadre d'un stage. Modélisation 3D, animation et montage vidéo.
+                    <br><br>
+                    <span class="popup-role">Rôle :</span> Motion design, modélisation 3D (Blender), animation (After Effects), montage (DaVinci Resolve).
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">After Effects</span>
+                        <span class="ptag liter-regular">Blender</span>
+                        <span class="ptag liter-regular">DaVinci Resolve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- POPUP 1 — Surl -->
     <div class="popup-overlay" id="popup1">
@@ -845,6 +898,46 @@
         </div>
     </div>
 
+    <!-- POPUP 12 — FRAC Franche-Comté Design System -->
+    <div class="popup-overlay" id="popup12">
+        <div class="popup-panel" data-accent="pink">
+            <button class="popup-close" onclick="closePopup('popup12')" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-media popup-media--figma">
+                <iframe
+                    src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/I4tCUG0VkCr057vWZrKTOD/Untitled?node-id=0-1&t=qY5tP32LUAayPBDV-1"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="popup-info">
+                <div class="popup-meta">
+                    <span class="popup-year liter-regular">2026</span>
+                    <span class="popup-context liter-regular">Projet personnel · UI/UX Design</span>
+                </div>
+                <h2 class="popup-title liter-bold">FRAC Franche-Comté</h2>
+                <p class="popup-subtitle liter-regular">Design system & reconception web</p>
+                <p class="popup-desc liter-regular">
+                    Reconception complète du site du FRAC Franche-Comté dans le cadre d'un exercice personnel. Création d'un design system cohérent incluant typographie, couleurs, composants réutilisables et prototype navigable.
+                    <br><br>
+                    <span class="popup-role">Objectif :</span> Moderniser l'expérience utilisateur tout en conservant l'identité institutionnelle de la structure culturelle.
+                </p>
+                <div class="popup-stack">
+                    <span class="stack-label liter-regular">STACK</span>
+                    <div class="stack-tags">
+                        <span class="ptag liter-regular">Figma</span>
+                        <span class="ptag liter-regular">Design System</span>
+                        <span class="ptag liter-regular">Prototypage</span>
+                        <span class="ptag liter-regular">UI/UX</span>
+                    </div>
+                </div>
+                <div class="popup-links">
+                    <a href="https://www.figma.com/design/I4tCUG0VkCr057vWZrKTOD/Untitled?node-id=0-1&t=qY5tP32LUAayPBDV-1" target="_blank" rel="noopener" class="popup-link liter-regular" id="figma-link">
+                        <i class="fa-brands fa-figma"></i> VOIR LE PROTOTYPE FIGMA <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ═══════════════════════════════════════════════════════════
          SCRIPTS
     ═══════════════════════════════════════════════════════════ -->
@@ -1050,13 +1143,18 @@
                 return currentSort === 'desc' ? yb - ya : ya - yb;
             });
             rows.forEach(r => list.insertBefore(r, document.getElementById('no-results')));
-            // Renuméroter après tri
-            list.querySelectorAll('.proj-row').forEach((r, i) => {
-                r.querySelector('.proj-num').textContent = String(i + 1).padStart(2, '0');
-            });
+            renumberRows();
         });
 
+        // ── Renumérotation ────────────────────────────────────
+        function renumberRows() {
+            document.querySelectorAll('#proj-list .proj-row').forEach((r, i) => {
+                r.querySelector('.proj-num').textContent = String(i + 1).padStart(2, '0');
+            });
+        }
+
         // Init
+        renumberRows();
         applyFilters();
     </script>
 

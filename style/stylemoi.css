@@ -162,9 +162,7 @@ html, body {
     object-fit: cover;
     object-position: center top;
     display: block;
-    filter: brightness(0.65) contrast(1.1) grayscale(15%);
-    -webkit-mask-image: linear-gradient(to right, black 55%, transparent 100%);
-    mask-image: linear-gradient(to right, black 55%, transparent 100%);
+    filter: brightness(0.65) contrast(1.1) grayscale(15%) sepia(1) hue-rotate(210deg) saturate(2);
 }
 
 .portrait-label {
@@ -221,7 +219,7 @@ html, body {
 
 .section:last-child {
     border-bottom: none;
-    padding-bottom: 2rem;
+    padding-bottom: 8rem;
 }
 
 .s-num {
@@ -239,6 +237,7 @@ html, body {
 }
 
 .s-head {
+    
     display: flex;
     align-items: baseline;
     gap: 1.2rem;
@@ -460,9 +459,11 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    
 }
 
 .contact-link {
+    
     display: flex;
     align-items: center;
     gap: 1.2rem;
