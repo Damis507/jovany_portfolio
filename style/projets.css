@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden;
     cursor: none;
     color: #f5f5f7;
     background-color: #000000;
@@ -12,6 +13,61 @@ html, body {
         radial-gradient(at 50% 45%, rgba(48, 199, 168, 0.04) 0px, transparent 60%);
 }
 
+/* ─── LOADER ─────────────────────────────────────────────────── */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  transition: opacity .5s ease;
+}
+
+#loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-wrap {
+  position: relative;
+  width: 86px;
+  height: 124px;
+}
+
+
+
+@keyframes slideF {
+  0%, 100% { opacity: 0.2; transform: translateY(4px); }
+  50%       { opacity: 1;   transform: translateY(0px); }
+}
+
+.bar-track {
+  width: 40px;
+  height: 1px;
+  background: #222;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #a78bfa;
+  animation: sweep 2.4s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%   { left: -100%; }
+  50%  { left: 0%; }
+  100% { left: 100%; }
+}
 /* ─── FONTS ─────────────────────────────────────────────────── */
 @font-face {
     font-family: 'Noir';

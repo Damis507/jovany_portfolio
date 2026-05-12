@@ -23,6 +23,26 @@
 </head>
 <body>
 
+    <div id="loader">
+        <div class="logo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+            <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
+            <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation:isolate">
+                <g transform="translate(-7008 -9208)">
+                <text id="anim-j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir, Georgia, serif"><tspan x="0" y="0">j</tspan></text>
+                <text id="anim-f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir, Georgia, serif"><tspan x="0" y="0">f</tspan></text>
+                <path d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
+                <path d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
+                </g>
+            </g>
+            </svg>
+        </div>
+
+        <div class="bar-track">
+            <div class="bar-fill"></div>
+        </div>
+    </div>
+
     <div class="background-noise"></div>
 
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -89,8 +109,8 @@
                 </div>
 
                 <p class="bio liter-regular">
-                    Développeur web full stack & communication digitale, basé à Montbéliard.
-                    Je conçois des expériences numériques et du design à la mise en production.
+                    Dans un monde où tout va plus vite, je crée plus vite et mieux. <strong class="vert">Designer</strong>, <strong class="vert">développeur</strong> et <strong class="vert">créateur audiovisuel</strong>, 
+                    je combine chaque discipline pour produire des projets digitaux sans compromis.
                     <br><br>
                     Actuellement en <a href="https://stgi.umlp.fr/">Master 1 TI-PSM à l'UFR STGI</a>,
                     je recherche une <strong>alternance</strong> pour mettre mes compétences au service d'un projet ambitieux.
@@ -99,9 +119,9 @@
                 <div class="chips">
                     <span class="chip chip-green">Alternance</span>
                     <span class="chip">Montbéliard — 25200</span>
-                    <span class="chip">22 ans</span>
+                    <span class="chip">23 ans</span>
                     <span class="chip">Permis B</span>
-                    <span class="chip">Anglais B1</span>
+                    <span class="chip">Anglais B2</span>
                 </div>
 
                 <span class="sub-label liter-regular">EXPÉRIENCES</span>
@@ -179,6 +199,8 @@
                             <span class="stag liter-regular">Adobe XD</span>
                             <span class="stag liter-regular">Photoshop</span>
                             <span class="stag liter-regular">Affinity</span>
+                            <span class="stag liter-regular">ILLUSTRATOR</span>
+
                         </div>
                     </div>
                     <div class="skill-group">
@@ -196,6 +218,7 @@
                             <span class="stag liter-regular">After Effects</span>
                             <span class="stag liter-regular">DaVinci Resolve</span>
                             <span class="stag liter-regular">Blender</span>
+                            <span class="stag liter-regular">Premiere Pro</span>
                         </div>
                     </div>
                     <div class="skill-group">
@@ -305,6 +328,10 @@
     </div>
 
     <script>
+        window.addEventListener('load', () => {
+            document.getElementById('loader')
+                .classList.add('hide');
+        });
         // ── Activités récentes ─────────────────────────────────
         function renderActivities(data) {
             const adminActs = (() => {
