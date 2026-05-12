@@ -23,6 +23,7 @@ html, body {
     src: url('../font/Noir-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    
 }
 
 @font-face {
@@ -76,7 +77,7 @@ html, body {
 }
 
 .text {
-    z-index: 9;
+    z-index: 99;
     position: fixed;
     pointer-events: none;
     font-size: 1.8em;
@@ -91,29 +92,27 @@ html, body {
 }
 
 /* ─── LOGO ──────────────────────────────────────────────────── */
-.logo {
-    position: fixed;
+.nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    margin-left: 1.8rem;
-    margin-top: 1.2rem;
-    width: 50px;
-    height: 72px;
+    width: 100%;
+    background-color: #060606;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    padding: 1rem;
+    border-bottom: solid #1f023c;
+}
+.logo {
+    width: 25px;
+    height: 36px;
     transition: all 0.25s ease;
     user-select: none;
-    z-index: 10;
 }
 
-.logo svg {
-    width: 100%;
-    height: 100%;
-}
-
-.logo:hover {
-    width: 66px;
-    height: 96px;
-}
-
+.logo svg { width: 100%; height: 100%; }
+.logo:hover { width: 66px; height: 96px; }
 .logo svg:hover #j { fill: #30C7A8; transition: 0.4s ease; }
 .logo svg:hover #f { fill: #f5f5f7; }
 
@@ -130,7 +129,7 @@ html, body {
 
 .info p {
     color: #f5f5f7;
-    font-size: 11px;
+    font-size: 20px;
     opacity: 0.15;
     margin: 0;
     letter-spacing: 0.04em;
@@ -175,10 +174,10 @@ html, body {
 }
 
 .portrait-label span {
-    font-size: 0.6rem;
+    font-size: 2rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(245, 245, 247, 0.35);
+    color: rgb(245, 245, 247);
 }
 
 .portrait-label .available {
@@ -260,10 +259,10 @@ html, body {
 
 /* ─── BIO ───────────────────────────────────────────────────── */
 .bio {
-    font-size: 0.88rem;
+    font-size: 20px;
     line-height: 1.75;
-    color: #86868b;
-    max-width: 480px;
+    color: #e8e8e8;
+    max-width: 880px;
     margin: 0 0 1.5rem 0;
 }
 
@@ -293,12 +292,12 @@ html, body {
 }
 
 .chip {
-    font-size: 0.58rem;
+    font-size: 1rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     padding: 0.28rem 0.65rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #6e6e73;
+    color: #e8e8e8;
     font-family: "Liter", serif;
 }
 
@@ -313,7 +312,7 @@ html, body {
     font-size: 0.58rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: #6e6e73;
+    color: #e8e8e8;
     margin-bottom: 0.8rem;
     padding-bottom: 0.6rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -346,32 +345,32 @@ html, body {
 }
 
 .xp-year {
-    font-size: 0.68rem;
+    font-size: 1rem;
     color: #30C7A8;
     letter-spacing: 0.05em;
 }
 
 .xp-duration {
-    font-size: 0.58rem;
-    color: #3a3a3e;
+    font-size: 1rem;
+    color: #6e6e73;
     margin-top: 0.2rem;
 }
 
 .xp-role {
-    font-size: 0.95rem;
+    font-size: 2rem;
     color: #f5f5f7;
     margin-bottom: 0.2rem;
 }
 
 .xp-company {
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: #6e6e73;
     letter-spacing: 0.02em;
 }
 
 .xp-desc {
-    font-size: 0.78rem;
-    color: #86868b;
+    font-size: 1rem;
+    color: #e8e8e8;
     line-height: 1.55;
     margin: 0.5rem 0 0 0;
 }
@@ -409,12 +408,12 @@ html, body {
 }
 
 .stag {
-    font-size: 0.63rem;
+    font-size: 2rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.28rem 0.6rem;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    color: #86868b;
+    color: #e8e8e8;
     transition: all 0.18s ease;
     cursor: default;
 }
@@ -484,9 +483,9 @@ html, body {
 }
 
 .contact-link i {
-    font-size: 0.85rem;
+    font-size: 2rem;
     min-width: 1rem;
-    color: #3a3a3e;
+    color: #bbff86;
     transition: color 0.2s;
 }
 
@@ -505,7 +504,7 @@ html, body {
 .contact-link small {
     font-size: 0.6rem;
     letter-spacing: 0.04em;
-    color: #3a3a3e;
+    color: #6e6e73;
     transition: color 0.2s;
 }
 
@@ -535,6 +534,99 @@ a:hover {
     }
 }
 
+/* ─── ACTIVITÉS RÉCENTES ────────────────────────────────── */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.act-loading {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6e6e73;
+}
+
+.act-card {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.015);
+    transition: border-color 0.2s, background 0.2s;
+    align-items: flex-start;
+}
+
+.act-card:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.act-icon {
+    flex-shrink: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    margin-top: 0.1rem;
+    color: #6e6e73;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.act-card--green  .act-icon { color: #30C7A8; border-color: rgba(48,199,168,0.25); }
+.act-card--blue   .act-icon { color: #6da8f0; border-color: rgba(109,168,240,0.25); }
+.act-card--amber  .act-icon { color: #f0b347; border-color: rgba(240,179,71,0.25); }
+.act-card--purple .act-icon { color: #a78bfa; border-color: rgba(167,139,250,0.25); }
+.act-card--pink   .act-icon { color: #f472b6; border-color: rgba(244,114,182,0.25); }
+
+.act-card--green:hover  { border-color: rgba(48,199,168,0.2); }
+.act-card--blue:hover   { border-color: rgba(109,168,240,0.2); }
+.act-card--amber:hover  { border-color: rgba(240,179,71,0.2); }
+.act-card--purple:hover { border-color: rgba(167,139,250,0.2); }
+.act-card--pink:hover   { border-color: rgba(244,114,182,0.2); }
+
+.act-img-wrap {
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.act-img-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.act-body { flex: 1; min-width: 0; }
+
+.act-header { margin-bottom: 0.3rem; }
+
+.act-date {
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6e6e73;
+}
+
+.act-title {
+    font-size: 0.78rem;
+    color: #f5f5f7;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+}
+
+.act-text {
+    font-size: 0.68rem;
+    color: #86868b;
+    line-height: 1.55;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 640px) {
     body, html {
         overflow-y: auto;
@@ -597,5 +689,9 @@ a:hover {
 
     .info {
         display: none;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
     }
 }

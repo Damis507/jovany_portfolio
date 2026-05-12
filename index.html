@@ -37,6 +37,7 @@
     </head>
     <body>
 
+        <!-- ── GLOBAL FIXED ────────────────────────────────── -->
         <div class="background-noise"></div>
 
         <div class="cursor-dot" aria-hidden="true"></div>
@@ -55,136 +56,227 @@
             let timeout;
             document.addEventListener("mousemove", e => {
                 dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                gsap.to(".text", {
-                    x: e.clientX,
-                    y: e.clientY,
-                    stagger: -0.06
-                });
+                gsap.to(".text", { x: e.clientX, y: e.clientY, stagger: -0.06 });
                 clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    gsap.to(".cursor", { opacity: 0.4 });
-                }, 2000);
+                timeout = setTimeout(() => gsap.to(".cursor", { opacity: 0.4 }), 2000);
             });
-            document.addEventListener("mouseout", e => {
-                clearTimeout(timeout);
-                gsap.to(".cursor", { opacity: 1 });
-            });
+            document.addEventListener("mouseout", () => { clearTimeout(timeout); gsap.to(".cursor", { opacity: 1 }); });
             document.addEventListener("mouseleave", () => dot.style.opacity = "0");
             document.addEventListener("mouseenter", () => dot.style.opacity = "1");
         </script>
 
-        <div class="logo">
-            <a href="index.html">
-                <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
-                    <defs>
-                        <clipPath id="clip-path">
-                            <rect y="13" width="86" height="124" fill="none"/>
-                        </clipPath>
-                    </defs>
-                    <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                        <g transform="translate(-7008 -9208)">
-                            <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                            <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
-                            <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
-                            <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
+        <div class="nav">
+
+            <div class="logo">
+                <a href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+                        <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
+                        <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation:isolate">
+                            <g transform="translate(-7008 -9208)">
+                                <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                                <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                                <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
+                                <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </a>
-        </div>
-
-        <div class="info">
-            <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés.</p>
-        </div>
-
-        <div class="portrait-wrap" aria-hidden="true">
-            <img class="portrait" src="img/Portrait.png" alt="Jovany Feltre">
-        </div>
-
-        <main itemscope itemtype="https://schema.org/CreativeWork">
-            <article itemscope itemtype="https://schema.org/Article">
-                <h2 class="headline" itemprop="headline">Jovany Feltre – Développeur & Designer Web</h2>
-                <div class="container-img">
-                    <img class="photo" src="img/logoname.png" alt="Jovany Feltre typographie developpeur web designer web" width="100%" itemprop="image">
-                    <div class="textd">
-                        <h1 class="text1 liter-regular" itemprop="articleBody">Développement |<br> Web design |<br> Communication Digitale |</h1>
-                        <p class="text2 liter-regular" itemprop="author">| Jovany stanley thomas <br> | 2003</p>
-                    </div>
-                </div>
-            </article>
-        </main>
-
-        <div class="ticker" aria-hidden="true">
-            <div class="ticker-track">
-                <div class="ticker-inner">
-                    DÉVELOPPEUR FULL STACK <span class="sep">·</span>
-                    WEB DESIGNER <span class="sep">·</span>
-                    <span class="avail">DISPONIBLE</span> <span class="sep">·</span>
-                    HTML <span class="sep">·</span>
-                    CSS <span class="sep">·</span>
-                    JAVASCRIPT <span class="sep">·</span>
-                    PHP <span class="sep">·</span>
-                    POSTGRESQL <span class="sep">·</span>
-                    FIGMA <span class="sep">·</span>
-                    ADOBE XD <span class="sep">·</span>
-                    MOTION DESIGN <span class="sep">·</span>
-                    BLENDER <span class="sep">·</span>
-                    BOOTSTRAP <span class="sep">·</span>
-                    TAILWIND <span class="sep">·</span>
-                    COMMUNICATION DIGITALE <span class="sep">·</span>
-                    MASTER 1 STGI <span class="sep">·</span>
-                    WORDPRESS <span class="sep">·</span>
-                    GITHUB <span class="sep">·</span>
-                    <span class="avail">OUVERT AUX OPPORTUNITÉS</span> <span class="sep">·</span> &nbsp;&nbsp;&nbsp;
-                </div>
-                <div class="ticker-inner" aria-hidden="true">
-                    DÉVELOPPEUR FULL STACK <span class="sep">·</span>
-                    WEB DESIGNER <span class="sep">·</span>
-                    <span class="avail">DISPONIBLE</span> <span class="sep">·</span>
-                    HTML <span class="sep">·</span>
-                    CSS <span class="sep">·</span>
-                    JAVASCRIPT <span class="sep">·</span>
-                    PHP <span class="sep">·</span>
-                    POSTGRESQL <span class="sep">·</span>
-                    FIGMA <span class="sep">·</span>
-                    ADOBE XD <span class="sep">·</span>
-                    MOTION DESIGN <span class="sep">·</span>
-                    BLENDER <span class="sep">·</span>
-                    BOOTSTRAP <span class="sep">·</span>
-                    TAILWIND <span class="sep">·</span>
-                    COMMUNICATION DIGITALE <span class="sep">·</span>
-                    MASTER 1 STGI <span class="sep">·</span>
-                    WORDPRESS <span class="sep">·</span>
-                    GITHUB <span class="sep">·</span>
-                    <span class="avail">OUVERT AUX OPPORTUNITÉS</span> <span class="sep">·</span> &nbsp;&nbsp;&nbsp;
-                </div>
+                    </svg>
+                </a>
             </div>
         </div>
 
-        <nav class="menu">
-            <div class="menu-item-container">
-                <div class="menu-item">
-                    <div class="menu-item-wrapper">
-                        <div class="menu-arrow">
-                            <i class="fa-regular fa-user"></i>
-                        </div>
-                        <div class="menu-text">
-                            <a class="profil texte-khmer" href="moi.html">Profil</a>
-                        </div>
+        <!-- ── HERO (sticky, 100vh) ────────────────────────── -->
+        <section class="hero-section" id="hero">
+
+            <div class="info">
+                <p class="liter-bold">© 2025 Jovany Feltre | Tous droits réservés.</p>
+            </div>
+
+            <div class="portrait-wrap" aria-hidden="true">
+                <video class="video" autoplay muted playsinline>
+                    <source src="/video/Composition_REENC2.webm" type="video/webm">
+                </video>
+            </div>
+
+            <main itemscope itemtype="https://schema.org/CreativeWork">
+                <article itemscope itemtype="https://schema.org/Article">
+                    <h2 class="headline" itemprop="headline">Jovany Feltre – Développeur & Designer Web</h2>
+                    <div class="container-img">
+                        <img class="photo" src="img/logoname.png" alt="Jovany Feltre typographie developpeur web designer web" width="100%" itemprop="image">
                     </div>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-wrapper">
-                        <div class="menu-arrow">
-                            <i class="fa-solid fa-diagram-project"></i>
-                        </div>
-                        <div class="menu-text">
-                            <a href="projets.html" class="texte-khmer">Projets</a>
-                        </div>
+                </article>
+            </main>
+
+            <div class="ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <div class="ticker-inner">
+                        DÉVELOPPEUR FULL STACK <span class="sep">·</span>
+                        WEB DESIGNER <span class="sep">·</span>
+                        <span class="avail">DISPONIBLE</span> <span class="sep">·</span>
+                        HTML <span class="sep">·</span> CSS <span class="sep">·</span> JAVASCRIPT <span class="sep">·</span>
+                        PHP <span class="sep">·</span> POSTGRESQL <span class="sep">·</span>
+                        FIGMA <span class="sep">·</span> ADOBE XD <span class="sep">·</span>
+                        MOTION DESIGN <span class="sep">·</span> BLENDER <span class="sep">·</span>
+                        BOOTSTRAP <span class="sep">·</span> TAILWIND <span class="sep">·</span>
+                        COMMUNICATION DIGITALE <span class="sep">·</span> MASTER 1 STGI <span class="sep">·</span>
+                        WORDPRESS <span class="sep">·</span> GITHUB <span class="sep">·</span>
+                        <span class="avail">OUVERT AUX OPPORTUNITÉS</span> <span class="sep">·</span> &nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="ticker-inner" aria-hidden="true">
+                        DÉVELOPPEUR FULL STACK <span class="sep">·</span>
+                        WEB DESIGNER <span class="sep">·</span>
+                        <span class="avail">DISPONIBLE</span> <span class="sep">·</span>
+                        HTML <span class="sep">·</span> CSS <span class="sep">·</span> JAVASCRIPT <span class="sep">·</span>
+                        PHP <span class="sep">·</span> POSTGRESQL <span class="sep">·</span>
+                        FIGMA <span class="sep">·</span> ADOBE XD <span class="sep">·</span>
+                        MOTION DESIGN <span class="sep">·</span> BLENDER <span class="sep">·</span>
+                        BOOTSTRAP <span class="sep">·</span> TAILWIND <span class="sep">·</span>
+                        COMMUNICATION DIGITALE <span class="sep">·</span> MASTER 1 STGI <span class="sep">·</span>
+                        WORDPRESS <span class="sep">·</span> GITHUB <span class="sep">·</span>
+                        <span class="avail">OUVERT AUX OPPORTUNITÉS</span> <span class="sep">·</span> &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             </div>
-        </nav>
+
+            <nav class="menu">
+                <div class="menu-item-container">
+                    <div class="menu-item">
+                        <div class="menu-item-wrapper">
+                            <div class="menu-arrow"><i class="fa-regular fa-user"></i></div>
+                            <div class="menu-text"><a class="profil texte-khmer" href="moi.html">Profil</a></div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-wrapper">
+                            <div class="menu-arrow"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div class="menu-text"><a href="projets.html" class="texte-khmer">Projets</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Scroll hint -->
+            <div class="scroll-hint" aria-hidden="true">
+                <span class="liter-regular">DÉFILER</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+        </section>
+
+        <!-- ── ACTIVITÉS RÉCENTES ─────────────────────────── -->
+        <section class="acts-section" id="recent">
+            <div class="acts-inner">
+                <div class="acts-head">
+                    <span class="acts-label liter-regular">02 / RÉCENT</span>
+                    <h2 class="acts-title liter-bold">.ACTU</h2>
+                </div>
+                <div class="acts-list" id="acts-list">
+                    <!-- injected by JS -->
+                </div>
+                <a href="moi.html" class="acts-more liter-regular">
+                    <span>VOIR LE PROFIL COMPLET</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ── RÉSEAUX / LIENS ────────────────────────────── -->
+        <section class="social-section" id="liens">
+            <div class="social-inner">
+                <div class="social-head">
+                    <span class="social-label liter-regular">03 / CONTACT</span>
+                    <h2 class="social-title liter-bold">.LIENS</h2>
+                </div>
+                <nav class="social-links">
+                    <a class="sl-item" href="mailto:Jovanyfeltre971@gmail.com">
+                        <span class="sl-num liter-regular">01</span>
+                        <i class="sl-icon fa-solid fa-envelope"></i>
+                        <span class="sl-name liter-bold">MAIL</span>
+                        <span class="sl-handle liter-regular">Jovanyfeltre971@gmail.com</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="sl-item" href="tel:+33613041123">
+                        <span class="sl-num liter-regular">02</span>
+                        <i class="sl-icon fa-solid fa-phone"></i>
+                        <span class="sl-name liter-bold">TÉLÉPHONE</span>
+                        <span class="sl-handle liter-regular">+33 06 13 04 11 23</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="sl-item" href="https://www.linkedin.com/in/jovany-feltre-247a7028a/" target="_blank" rel="noopener">
+                        <span class="sl-num liter-regular">03</span>
+                        <i class="sl-icon fa-brands fa-linkedin"></i>
+                        <span class="sl-name liter-bold">LINKEDIN</span>
+                        <span class="sl-handle liter-regular">/in/jovany-feltre</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="sl-item" href="https://github.com/Damis507" target="_blank" rel="noopener">
+                        <span class="sl-num liter-regular">04</span>
+                        <i class="sl-icon fa-brands fa-github"></i>
+                        <span class="sl-name liter-bold">GITHUB</span>
+                        <span class="sl-handle liter-regular">/Damis507</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="sl-item" href="pdf/cv_compressed.pdf" download>
+                        <span class="sl-num liter-regular">05</span>
+                        <i class="sl-icon fa-solid fa-download"></i>
+                        <span class="sl-name liter-bold">CURRICULUM VITAE</span>
+                        <span class="sl-handle liter-regular">Télécharger PDF</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="sl-item" href="pdf/Portfolio.pdf" download>
+                        <span class="sl-num liter-regular">06</span>
+                        <i class="sl-icon fa-regular fa-file"></i>
+                        <span class="sl-name liter-bold">PORTFOLIO DESIGN</span>
+                        <span class="sl-handle liter-regular">Télécharger PDF</span>
+                        <i class="sl-arr fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </nav>
+                <footer class="site-footer">
+                    <span class="liter-regular">© 2025 Jovany Feltre — Tous droits réservés</span>
+                    <span class="liter-regular">Portfolio v3 · 2026</span>
+                </footer>
+            </div>
+        </section>
+
+        <!-- ── JS ACTIVITÉS ───────────────────────────────── -->
+        <script>
+            const ACCENT = { green: '#30C7A8', blue: '#6da8f0', amber: '#f0b347', purple: '#a78bfa', pink: '#f472b6' };
+
+            function renderActs(jsonActs) {
+                const adminActs = (() => {
+                    try { return JSON.parse(localStorage.getItem('jf_admin_activities') || '[]'); }
+                    catch { return []; }
+                })();
+                const all = [...adminActs, ...jsonActs].slice(0, 3);
+                const list = document.getElementById('acts-list');
+
+                list.innerHTML = all.map((act, i) => {
+                    const color = ACCENT[act.accent] || '#30C7A8';
+                    return `<div class="act-row" style="transition-delay:${i * 0.13}s">
+                        <span class="ar-num liter-regular">0${i + 1}</span>
+                        <span class="ar-icon" style="color:${color}">
+                            ${act.image
+                                ? `<img src="${act.image}" alt="" class="ar-img">`
+                                : `<i class="${act.icon || 'fa-solid fa-circle-dot'}"></i>`}
+                        </span>
+                        <div class="ar-body">
+                            <p class="ar-title liter-bold">${act.titre}</p>
+                            <p class="ar-text liter-regular">${act.texte}</p>
+                        </div>
+                        <span class="ar-date liter-regular">${act.date || ''}</span>
+                    </div>`;
+                }).join('');
+
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+                }, { threshold: 0.15 });
+                document.querySelectorAll('.act-row').forEach(r => obs.observe(r));
+            }
+
+            fetch('data/activites.json')
+                .then(r => r.json())
+                .then(renderActs)
+                .catch(() => renderActs([]));
+        </script>
 
     </body>
 </html>

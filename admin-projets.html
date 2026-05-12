@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Projets</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Liter&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:      #080808;
+            --surface: #0f0f0f;
+            --border:  rgba(255,255,255,0.07);
+            --accent:  #30C7A8;
+            --text:    #f5f5f7;
+            --muted:   #86868b;
+            --danger:  #e05c5c;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Liter", serif;
+            min-height: 100vh;
+        }
+
+        /* ── LOGIN ─────────────────────────────────────── */
+        #login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 360px;
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            background: var(--surface);
+        }
+
+        .login-box h1 {
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .login-box p {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            font-size: 0.58rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        input, select, textarea {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.7rem 0.9rem;
+            font-family: "Liter", serif;
+            font-size: 0.78rem;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent);
+        }
+
+        textarea { resize: vertical; min-height: 80px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: "Liter", serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-accent { border-color: var(--accent); color: var(--accent); }
+        .btn-accent:hover { background: rgba(48,199,168,0.08); }
+        .btn-danger { border-color: rgba(224,92,92,0.4); color: var(--danger); }
+        .btn-danger:hover { background: rgba(224,92,92,0.08); border-color: var(--danger); }
+        .btn-full { width: 100%; justify-content: center; }
+
+        .error-msg {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--danger);
+            margin-top: 0.6rem;
+            display: none;
+        }
+
+        /* ── ADMIN SHELL ───────────────────────────────── */
+        #admin-screen { display: none; }
+
+        .admin-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 10;
+        }
+
+        .admin-topbar h1 {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .topbar-right { display: flex; gap: 0.6rem; align-items: center; }
+
+        .admin-main { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+        .admin-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            flex: 1;
+            border: 1px solid var(--border);
+            padding: 1.2rem 1.4rem;
+            background: var(--surface);
+        }
+
+        .stat-card .stat-num {
+            font-size: 2rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.3rem;
+        }
+
+        /* ── PROJECTS TABLE ────────────────────────────── */
+        .section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-head h2 {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .proj-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .proj-table th {
+            font-size: 0.52rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: left;
+            padding: 0.5rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .proj-table td {
+            font-size: 0.72rem;
+            padding: 0.9rem 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            vertical-align: middle;
+        }
+
+        .proj-table tr:hover td { background: rgba(255,255,255,0.015); }
+
+        .td-code { color: var(--accent); font-size: 0.65rem; letter-spacing: 0.1em; }
+        .td-name { color: var(--text); }
+        .td-meta { color: var(--muted); font-size: 0.62rem; }
+        .td-actions { display: flex; gap: 0.4rem; }
+
+        .tag-pill {
+            display: inline-block;
+            font-size: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.45rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--muted);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px dashed var(--border);
+        }
+
+        /* ── MODAL ─────────────────────────────────────── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open { display: flex; }
+
+        .modal-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+        }
+
+        .modal-head h2 {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .modal-body { padding: 1.5rem; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group { margin-bottom: 1rem; }
+
+        .modal-footer {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: flex-end;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── TOAST ─────────────────────────────────────── */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.75rem 1.2rem;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.25s ease;
+            pointer-events: none;
+        }
+
+        .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        /* ── SECTION SEPARATOR ─────────────────────────────── */
+        .section-sep {
+            margin: 3rem 0 0;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── ACT IMAGE PREVIEW ──────────────────────────────── */
+        .act-img-preview {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+            margin-top: 0.4rem;
+            border: 1px solid var(--border);
+            background: #0a0a0a;
+        }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .admin-stats { flex-direction: column; }
+            .admin-topbar { padding: 0.8rem 1rem; }
+            .admin-main { padding: 1rem; }
+            .proj-table th:nth-child(3),
+            .proj-table td:nth-child(3) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── LOGIN ──────────────────────────────────────────────── -->
+<div id="login-screen">
+    <div class="login-box">
+        <h1>Admin</h1>
+        <p>Gestion des projets</p>
+        <div class="field">
+            <label for="login-user">Identifiant</label>
+            <input type="text" id="login-user" autocomplete="username" placeholder="admin">
+        </div>
+        <div class="field">
+            <label for="login-pass">Mot de passe</label>
+            <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <p class="error-msg" id="login-error">Identifiants incorrects.</p>
+        <button class="btn btn-accent btn-full" onclick="doLogin()" style="margin-top:0.5rem">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> CONNEXION
+        </button>
+    </div>
+</div>
+
+<!-- ── ADMIN SCREEN ────────────────────────────────────────── -->
+<div id="admin-screen">
+
+    <div class="admin-topbar">
+        <h1><i class="fa-solid fa-layer-group" style="margin-right:0.5rem"></i>Admin — Projets</h1>
+        <div class="topbar-right">
+            <button class="btn" onclick="exportJSON()">
+                <i class="fa-solid fa-download"></i> EXPORTER JSON
+            </button>
+            <button class="btn btn-danger" onclick="doLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i> DÉCONNEXION
+            </button>
+        </div>
+    </div>
+
+    <div class="admin-main">
+
+        <!-- Stats -->
+        <div class="admin-stats" id="admin-stats">
+            <div class="stat-card">
+                <div class="stat-num" id="stat-total">0</div>
+                <div class="stat-label">Projets ajoutés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-years">—</div>
+                <div class="stat-label">Années couvertes</div>
+            </div>
+        </div>
+
+        <!-- Projects list -->
+        <div class="section-head">
+            <h2>Projets</h2>
+            <button class="btn btn-accent" onclick="openAddModal()">
+                <i class="fa-solid fa-plus"></i> AJOUTER
+            </button>
+        </div>
+
+        <div id="proj-table-wrap">
+            <div class="empty-state" id="empty-state">Aucun projet ajouté — cliquez sur Ajouter.</div>
+            <table class="proj-table" id="proj-table" style="display:none">
+                <thead>
+                    <tr>
+                        <th>CODE</th>
+                        <th>NOM</th>
+                        <th>CATÉGORIE</th>
+                        <th>ANNÉE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="proj-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Export info -->
+        <div style="margin-top:2.5rem; padding:1.2rem 1.5rem; border:1px solid var(--border); background:var(--surface)">
+            <p style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem">Info export</p>
+            <p style="font-size:0.7rem; color:var(--muted); line-height:1.6">
+                Les projets sont stockés dans le navigateur (localStorage). Le bouton <strong style="color:var(--text)">Exporter JSON</strong>
+                télécharge un fichier <code style="color:var(--accent)">projets.json</code> à placer dans <code style="color:var(--accent)">data/</code> de votre dépôt.
+                Les projets ajoutés ici apparaissent automatiquement sur <a href="projets.html" style="color:var(--accent)">projets.html</a>.
+            </p>
+        </div>
+
+        <!-- ── ACTIVITÉS ──────────────────────────────────────── -->
+        <div class="section-sep">
+            <div class="section-head">
+                <h2>Activités récentes</h2>
+                <div style="display:flex;gap:0.5rem">
+                    <button class="btn" onclick="exportActivitiesJSON()">
+                        <i class="fa-solid fa-download"></i> EXPORTER JSON
+                    </button>
+                    <button class="btn btn-accent" onclick="openAddActModal()">
+                        <i class="fa-solid fa-plus"></i> AJOUTER
+                    </button>
+                </div>
+            </div>
+
+            <div id="act-table-wrap">
+                <div class="empty-state" id="act-empty-state">Aucune activité ajoutée — cliquez sur Ajouter.</div>
+                <table class="proj-table" id="act-table" style="display:none">
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>TITRE</th>
+                            <th>IMAGE</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="act-tbody"></tbody>
+                </table>
+            </div>
+
+            <div style="margin-top:1.5rem; padding:1.2rem 1.5rem; border:1px solid var(--border); background:var(--surface)">
+                <p style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:0.5rem">Info</p>
+                <p style="font-size:0.7rem; color:var(--muted); line-height:1.6">
+                    Les activités ajoutées ici s'affichent en priorité sur
+                    <a href="moi.html" style="color:var(--accent)">moi.html</a> (section .ACTU) et en bas à droite de
+                    <a href="index.html" style="color:var(--accent)">index.html</a> (3 plus récentes).
+                    Exportez <code style="color:var(--accent)">activites.json</code> pour le placer dans <code style="color:var(--accent)">data/</code>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ── MODAL ───────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+        <div class="modal-head">
+            <h2 id="modal-title">AJOUTER UN PROJET</h2>
+            <button class="btn" onclick="closeModal()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="edit-id">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="f-code">Code (ex: .APP)</label>
+                    <input type="text" id="f-code" placeholder=".APP" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label for="f-name">Nom du projet</label>
+                    <input type="text" id="f-name" placeholder="Mon Projet">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="f-subtitle">Sous-titre (court)</label>
+                <input type="text" id="f-subtitle" placeholder="Application mobile de suivi...">
+            </div>
+
+            <div class="form-group">
+                <label for="f-desc">Description longue</label>
+                <textarea id="f-desc" placeholder="Décrivez le projet en détail..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="f-category">Catégorie</label>
+                    <select id="f-category">
+                        <option value="web">Web</option>
+                        <option value="developpement">Développement</option>
+                        <option value="communication">Communication</option>
+                        <option value="stage">Stage</option>
+                        <option value="web,developpement">Web + Dev</option>
+                        <option value="web,communication">Web + Comm</option>
+                        <option value="communication,stage">Comm + Stage</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="f-year">Année</label>
+                    <input type="number" id="f-year" placeholder="2026" min="2018" max="2035">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="f-meta">Meta (ex: PERSONNEL · 2026)</label>
+                    <input type="text" id="f-meta" placeholder="PERSONNEL · 2026">
+                </div>
+                <div class="form-group">
+                    <label for="f-accent">Couleur accent</label>
+                    <select id="f-accent">
+                        <option value="green">Vert</option>
+                        <option value="blue">Bleu</option>
+                        <option value="amber">Ambre</option>
+                        <option value="purple">Violet</option>
+                        <option value="pink">Rose</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="f-tags">Tags (séparés par des virgules)</label>
+                <input type="text" id="f-tags" placeholder="Flutter, Firebase, Figma">
+            </div>
+
+            <div class="form-group">
+                <label for="f-stack">Stack (ex: FLUTTER · DART · FIREBASE)</label>
+                <input type="text" id="f-stack" placeholder="HTML · CSS · JS">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="f-lien">Lien (optionnel)</label>
+                    <input type="url" id="f-lien" placeholder="https://github.com/...">
+                </div>
+                <div class="form-group">
+                    <label for="f-lien-label">Label du lien</label>
+                    <input type="text" id="f-lien-label" placeholder="VOIR SUR GITHUB">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="f-preview">Image de prévisualisation (URL)</label>
+                <input type="text" id="f-preview" placeholder="img/monprojet.png">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" onclick="closeModal()">ANNULER</button>
+            <button class="btn btn-accent" onclick="saveProject()">
+                <i class="fa-solid fa-floppy-disk"></i> ENREGISTRER
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ── MODAL ACTIVITÉ ──────────────────────────────────────── -->
+<div class="modal-overlay" id="act-modal" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+        <div class="modal-head">
+            <h2 id="act-modal-title">AJOUTER UNE ACTIVITÉ</h2>
+            <button class="btn" onclick="closeActModal()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="act-edit-id">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="af-titre">Titre (requis)</label>
+                    <input type="text" id="af-titre" placeholder="Projet Blender terminé">
+                </div>
+                <div class="form-group">
+                    <label for="af-date">Date (ex: Mai 2026)</label>
+                    <input type="text" id="af-date" placeholder="Mai 2026">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="af-texte">Description courte</label>
+                <textarea id="af-texte" placeholder="2-3 lignes de description..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="af-icon">Icône Font Awesome</label>
+                    <select id="af-icon">
+                        <option value="fa-solid fa-palette">🎨 Design / UI</option>
+                        <option value="fa-solid fa-cube">📦 3D / Blender</option>
+                        <option value="fa-solid fa-video">🎬 Vidéo</option>
+                        <option value="fa-solid fa-mobile-screen-button">📱 Mobile / Flutter</option>
+                        <option value="fa-solid fa-code">💻 Code / Dev</option>
+                        <option value="fa-solid fa-globe">🌐 Web</option>
+                        <option value="fa-solid fa-film">🎞 Motion</option>
+                        <option value="fa-solid fa-wand-magic-sparkles">✨ Créatif</option>
+                        <option value="fa-solid fa-trophy">🏆 Récompense</option>
+                        <option value="fa-solid fa-file-lines">📄 Document</option>
+                        <option value="fa-solid fa-lock">🔒 Prototype</option>
+                        <option value="fa-solid fa-sliders">🎛 Post-prod</option>
+                        <option value="fa-solid fa-download">⬇ Mise à jour</option>
+                        <option value="fa-brands fa-linkedin">🔗 LinkedIn</option>
+                        <option value="fa-brands fa-github">🐙 GitHub</option>
+                        <option value="fa-solid fa-play-circle">▶ Vidéo / Remotion</option>
+                        <option value="fa-solid fa-circle-dot">● Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="af-accent">Couleur accent</label>
+                    <select id="af-accent">
+                        <option value="green">Vert</option>
+                        <option value="blue">Bleu</option>
+                        <option value="amber">Ambre</option>
+                        <option value="purple">Violet</option>
+                        <option value="pink">Rose</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="af-image">Image (URL, optionnel)</label>
+                <input type="text" id="af-image" placeholder="img/monactivite.jpg"
+                       oninput="previewActImg(this.value)">
+                <img id="af-img-preview" class="act-img-preview" src="" alt="" style="display:none">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" onclick="closeActModal()">ANNULER</button>
+            <button class="btn btn-accent" onclick="saveActivity()">
+                <i class="fa-solid fa-floppy-disk"></i> ENREGISTRER
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ── TOAST ───────────────────────────────────────────────── -->
+<div class="toast" id="toast"></div>
+
+<script>
+    const STORAGE_KEY = 'jf_admin_projects';
+    const AUTH_KEY    = 'jf_admin_auth';
+    const CREDENTIALS = { user: 'admin', pass: 'monportfolio2026' };
+
+    // ── Auth ────────────────────────────────────────────────
+    function checkAuth() {
+        if (sessionStorage.getItem(AUTH_KEY) === '1') {
+            showAdmin();
+        }
+    }
+
+    function doLogin() {
+        const u = document.getElementById('login-user').value.trim();
+        const p = document.getElementById('login-pass').value;
+        if (u === CREDENTIALS.user && p === CREDENTIALS.pass) {
+            sessionStorage.setItem(AUTH_KEY, '1');
+            showAdmin();
+        } else {
+            document.getElementById('login-error').style.display = 'block';
+        }
+    }
+
+    function doLogout() {
+        sessionStorage.removeItem(AUTH_KEY);
+        document.getElementById('admin-screen').style.display = 'none';
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('login-user').value = '';
+        document.getElementById('login-pass').value = '';
+    }
+
+    document.getElementById('login-pass').addEventListener('keydown', e => {
+        if (e.key === 'Enter') doLogin();
+    });
+
+    function showAdmin() {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('admin-screen').style.display = 'block';
+        renderTable();
+        renderActTable();
+    }
+
+    // ── Storage ─────────────────────────────────────────────
+    function getProjects() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        } catch { return []; }
+    }
+
+    function saveProjects(projects) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+    }
+
+    function escHtml(str) {
+        return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Table render ─────────────────────────────────────────
+    function renderTable() {
+        const projects = getProjects();
+        const tbody = document.getElementById('proj-tbody');
+        const table = document.getElementById('proj-table');
+        const empty = document.getElementById('empty-state');
+
+        document.getElementById('stat-total').textContent = projects.length;
+        if (projects.length) {
+            const years = [...new Set(projects.map(p => p.year))].sort();
+            document.getElementById('stat-years').textContent = years.length > 1
+                ? `${years[0]}–${years[years.length - 1]}`
+                : years[0] || '—';
+        } else {
+            document.getElementById('stat-years').textContent = '—';
+        }
+
+        if (!projects.length) {
+            empty.style.display = 'block';
+            table.style.display = 'none';
+            return;
+        }
+
+        empty.style.display = 'none';
+        table.style.display = 'table';
+
+        tbody.innerHTML = projects.map(p => `
+            <tr>
+                <td class="td-code">${escHtml(p.code)}</td>
+                <td class="td-name">
+                    <strong>${escHtml(p.name)}</strong>
+                    <br><span style="color:var(--muted);font-size:0.62rem">${escHtml(p.subtitle)}</span>
+                </td>
+                <td class="td-meta">${escHtml(p.category)}</td>
+                <td class="td-meta">${escHtml(String(p.year))}</td>
+                <td class="td-actions">
+                    <button class="btn" onclick="openEditModal('${escHtml(p.id)}')">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="btn btn-danger" onclick="deleteProject('${escHtml(p.id)}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    // ── Modal ────────────────────────────────────────────────
+    function openAddModal() {
+        clearForm();
+        document.getElementById('modal-title').textContent = 'AJOUTER UN PROJET';
+        document.getElementById('edit-id').value = '';
+        document.getElementById('modal').classList.add('open');
+    }
+
+    function openEditModal(id) {
+        const project = getProjects().find(p => p.id === id);
+        if (!project) return;
+
+        document.getElementById('modal-title').textContent = 'MODIFIER LE PROJET';
+        document.getElementById('edit-id').value = id;
+
+        document.getElementById('f-code').value     = project.code || '';
+        document.getElementById('f-name').value     = project.name || '';
+        document.getElementById('f-subtitle').value = project.subtitle || '';
+        document.getElementById('f-desc').value     = project.description || '';
+        document.getElementById('f-category').value = project.category || 'web';
+        document.getElementById('f-year').value     = project.year || new Date().getFullYear();
+        document.getElementById('f-meta').value     = project.meta || '';
+        document.getElementById('f-accent').value   = project.accent || 'green';
+        document.getElementById('f-tags').value     = (project.tags || []).join(', ');
+        document.getElementById('f-stack').value    = project.stack || '';
+        document.getElementById('f-lien').value     = project.lien || '';
+        document.getElementById('f-lien-label').value = project.lien_label || '';
+        document.getElementById('f-preview').value  = project.preview || '';
+
+        document.getElementById('modal').classList.add('open');
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.remove('open');
+    }
+
+    function clearForm() {
+        ['f-code','f-name','f-subtitle','f-desc','f-year','f-meta',
+         'f-tags','f-stack','f-lien','f-lien-label','f-preview'].forEach(id => {
+            document.getElementById(id).value = '';
+        });
+        document.getElementById('f-category').value = 'web';
+        document.getElementById('f-accent').value   = 'green';
+    }
+
+    function saveProject() {
+        const code  = document.getElementById('f-code').value.trim();
+        const name  = document.getElementById('f-name').value.trim();
+        if (!code || !name) {
+            showToast('Remplissez le code et le nom.', true);
+            return;
+        }
+
+        const editId = document.getElementById('edit-id').value;
+        const project = {
+            id:          editId || 'admin-' + Date.now(),
+            code:        code,
+            name:        name,
+            subtitle:    document.getElementById('f-subtitle').value.trim(),
+            description: document.getElementById('f-desc').value.trim(),
+            category:    document.getElementById('f-category').value,
+            year:        parseInt(document.getElementById('f-year').value) || new Date().getFullYear(),
+            meta:        document.getElementById('f-meta').value.trim(),
+            accent:      document.getElementById('f-accent').value,
+            tags:        document.getElementById('f-tags').value.split(',').map(t => t.trim()).filter(Boolean),
+            stack:       document.getElementById('f-stack').value.trim(),
+            lien:        document.getElementById('f-lien').value.trim(),
+            lien_label:  document.getElementById('f-lien-label').value.trim(),
+            preview:     document.getElementById('f-preview').value.trim(),
+        };
+
+        let projects = getProjects();
+        if (editId) {
+            const idx = projects.findIndex(p => p.id === editId);
+            if (idx !== -1) projects[idx] = project;
+        } else {
+            projects.push(project);
+        }
+        saveProjects(projects);
+        renderTable();
+        closeModal();
+        showToast(editId ? 'Projet modifié.' : 'Projet ajouté.');
+    }
+
+    function deleteProject(id) {
+        if (!confirm('Supprimer ce projet ?')) return;
+        const projects = getProjects().filter(p => p.id !== id);
+        saveProjects(projects);
+        renderTable();
+        showToast('Projet supprimé.');
+    }
+
+    // ── Export ───────────────────────────────────────────────
+    function exportJSON() {
+        const projects = getProjects();
+        const blob = new Blob([JSON.stringify(projects, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'projets.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        showToast('Fichier téléchargé.');
+    }
+
+    // ── Toast ────────────────────────────────────────────────
+    let toastTimer;
+    function showToast(msg, isError = false) {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.style.borderColor = isError ? 'var(--danger)' : 'var(--accent)';
+        el.style.color       = isError ? 'var(--danger)' : 'var(--accent)';
+        el.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+    }
+
+    // ── Close modal on outside click / Escape ────────────────
+    document.getElementById('modal').addEventListener('click', e => {
+        if (e.target === document.getElementById('modal')) closeModal();
+    });
+    document.getElementById('act-modal').addEventListener('click', e => {
+        if (e.target === document.getElementById('act-modal')) closeActModal();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { closeModal(); closeActModal(); }
+    });
+
+    // ── Activities storage ───────────────────────────────────
+    const ACT_KEY = 'jf_admin_activities';
+
+    function getActivities() {
+        try { return JSON.parse(localStorage.getItem(ACT_KEY) || '[]'); }
+        catch { return []; }
+    }
+
+    function saveActivities(acts) {
+        localStorage.setItem(ACT_KEY, JSON.stringify(acts));
+    }
+
+    // ── Activities table render ──────────────────────────────
+    function renderActTable() {
+        const acts   = getActivities();
+        const tbody  = document.getElementById('act-tbody');
+        const table  = document.getElementById('act-table');
+        const empty  = document.getElementById('act-empty-state');
+
+        if (!acts.length) {
+            empty.style.display = 'block';
+            table.style.display = 'none';
+            return;
+        }
+        empty.style.display = 'none';
+        table.style.display = 'table';
+
+        tbody.innerHTML = acts.map(a => `
+            <tr>
+                <td class="td-meta">${escHtml(a.date || '—')}</td>
+                <td class="td-name">
+                    <strong>${escHtml(a.titre)}</strong>
+                    <br><span style="color:var(--muted);font-size:0.62rem">${escHtml((a.texte || '').slice(0,60))}…</span>
+                </td>
+                <td>${a.image
+                    ? `<img src="${escHtml(a.image)}" style="width:60px;height:40px;object-fit:cover;border:1px solid var(--border)">`
+                    : `<span style="color:var(--muted);font-size:0.6rem">—</span>`}</td>
+                <td class="td-actions">
+                    <button class="btn" onclick="openEditActModal('${escHtml(a.id)}')">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="btn btn-danger" onclick="deleteActivity('${escHtml(a.id)}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>`).join('');
+    }
+
+    // ── Activities modal ─────────────────────────────────────
+    function openAddActModal() {
+        clearActForm();
+        document.getElementById('act-modal-title').textContent = 'AJOUTER UNE ACTIVITÉ';
+        document.getElementById('act-edit-id').value = '';
+        document.getElementById('act-modal').classList.add('open');
+    }
+
+    function openEditActModal(id) {
+        const act = getActivities().find(a => a.id === id);
+        if (!act) return;
+        document.getElementById('act-modal-title').textContent = 'MODIFIER L\'ACTIVITÉ';
+        document.getElementById('act-edit-id').value = id;
+        document.getElementById('af-titre').value  = act.titre  || '';
+        document.getElementById('af-date').value   = act.date   || '';
+        document.getElementById('af-texte').value  = act.texte  || '';
+        document.getElementById('af-icon').value   = act.icon   || 'fa-solid fa-circle-dot';
+        document.getElementById('af-accent').value = act.accent || 'green';
+        document.getElementById('af-image').value  = act.image  || '';
+        previewActImg(act.image || '');
+        document.getElementById('act-modal').classList.add('open');
+    }
+
+    function closeActModal() {
+        document.getElementById('act-modal').classList.remove('open');
+    }
+
+    function clearActForm() {
+        ['af-titre','af-date','af-texte','af-image'].forEach(id => {
+            document.getElementById(id).value = '';
+        });
+        document.getElementById('af-icon').value   = 'fa-solid fa-circle-dot';
+        document.getElementById('af-accent').value = 'green';
+        previewActImg('');
+    }
+
+    function previewActImg(src) {
+        const preview = document.getElementById('af-img-preview');
+        if (src) {
+            preview.src = src;
+            preview.style.display = 'block';
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    }
+
+    function saveActivity() {
+        const titre = document.getElementById('af-titre').value.trim();
+        if (!titre) { showToast('Le titre est requis.', true); return; }
+
+        const editId = document.getElementById('act-edit-id').value;
+        const act = {
+            id:     editId || 'act-' + Date.now(),
+            titre,
+            date:   document.getElementById('af-date').value.trim(),
+            texte:  document.getElementById('af-texte').value.trim(),
+            icon:   document.getElementById('af-icon').value,
+            accent: document.getElementById('af-accent').value,
+            image:  document.getElementById('af-image').value.trim(),
+        };
+
+        let acts = getActivities();
+        if (editId) {
+            const idx = acts.findIndex(a => a.id === editId);
+            if (idx !== -1) acts[idx] = act; else acts.unshift(act);
+        } else {
+            acts.unshift(act);
+        }
+        saveActivities(acts);
+        renderActTable();
+        closeActModal();
+        showToast(editId ? 'Activité modifiée.' : 'Activité ajoutée.');
+    }
+
+    function deleteActivity(id) {
+        if (!confirm('Supprimer cette activité ?')) return;
+        saveActivities(getActivities().filter(a => a.id !== id));
+        renderActTable();
+        showToast('Activité supprimée.');
+    }
+
+    function exportActivitiesJSON() {
+        const blob = new Blob([JSON.stringify(getActivities(), null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'activites.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        showToast('Fichier téléchargé.');
+    }
+
+    // ── Init ─────────────────────────────────────────────────
+    checkAuth();
+</script>
+
+</body>
+</html>

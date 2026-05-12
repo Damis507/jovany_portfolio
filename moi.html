@@ -52,20 +52,23 @@
         document.addEventListener("mouseenter", () => dot.style.opacity = "1");
     </script>
 
-    <div class="logo">
-        <a href="index.html">
-            <svg id="logojf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
-                <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
-                <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation: isolate">
-                    <g transform="translate(-7008 -9208)">
-                        <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
-                        <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
-                        <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
-                        <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
+    <div class="nav">
+
+        <div class="logo">
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="124" viewBox="0 0 86 124">
+                    <defs><clipPath id="clip-path"><rect y="13" width="86" height="124" fill="none"/></clipPath></defs>
+                    <g transform="translate(0 -13)" clip-path="url(#clip-path)" style="isolation:isolate">
+                        <g transform="translate(-7008 -9208)">
+                            <text id="j" transform="translate(7008 9343)" fill="#f5f5f7" font-size="100" font-family="Noir-Regular, Noir"><tspan x="0" y="0">j</tspan></text>
+                            <text id="f" transform="translate(7008 9311)" fill="#a78bfa" font-size="98" font-family="Noir-Regular, Noir"><tspan x="0" y="0">f</tspan></text>
+                            <path id="Tracé_6" d="M7028.069,9299.455s.978,11.232,1.07,11.59a8.172,8.172,0,0,0-1.315,0Z" fill="#a78bfa"/>
+                            <path id="Tracé_7" d="M7013.5,9310.982s1.885,7.215,2.194,7.459c-.26-.7-1.835-7.248-1.608-7.459C7013.811,9311,7013.5,9310.982,7013.5,9310.982Z" fill="#f5f5f7"/>
+                        </g>
                     </g>
-                </g>
-            </svg>
-        </a>
+                </svg>
+            </a>
+        </div>
     </div>
 
     <div class="info">
@@ -74,13 +77,6 @@
 
     <div class="page-wrap">
 
-        <div class="portrait-col">
-            <img src="img/Portrait.png" alt="Jovany Feltre portrait">
-            <div class="portrait-label">
-                <span class="liter-regular">JOVANY FELTRE</span>
-                <span class="liter-regular available">DISPONIBLE</span>
-            </div>
-        </div>
 
         <div class="content-col">
 
@@ -94,7 +90,7 @@
 
                 <p class="bio liter-regular">
                     Développeur web full stack & communication digitale, basé à Montbéliard.
-                    Je conçois des expériences numériques — du design à la mise en production.
+                    Je conçois des expériences numériques et du design à la mise en production.
                     <br><br>
                     Actuellement en <a href="https://stgi.umlp.fr/">Master 1 TI-PSM à l'UFR STGI</a>,
                     je recherche une <strong>alternance</strong> pour mettre mes compétences au service d'un projet ambitieux.
@@ -129,7 +125,7 @@
                         <div class="xp-body">
                             <div class="xp-role liter-bold">Stagiaire Développeur Web</div>
                             <div class="xp-company liter-regular">Les persévérants — Guadeloupe</div>
-                            <p class="xp-desc liter-regular">Migration PHP 5 → PHP 8, refactorisation du code legacy. Amélioration des performances de <span class="highlight">+40%</span>.</p>
+                            <p class="xp-desc liter-regular">Migration PHP 5 → PHP 8, refactorisation du code legacy. Amélioration des performances.</p>
                         </div>
                     </div>
                     <div class="xp-item">
@@ -293,8 +289,49 @@
                 </div>
             </section>
 
+            <!-- 05 — ACTIVITÉS RÉCENTES -->
+            <section class="section">
+                <span class="s-num" aria-hidden="true">05</span>
+                <div class="s-head">
+                    <span class="s-label liter-regular">RÉCENT</span>
+                    <h1 class="s-title liter-bold">.ACTU</h1>
+                </div>
+                <div class="activities-grid" id="activities-grid">
+                    <div class="act-loading liter-regular">Chargement…</div>
+                </div>
+            </section>
+
         </div>
     </div>
+
+    <script>
+        // ── Activités récentes ─────────────────────────────────
+        function renderActivities(data) {
+            const adminActs = (() => {
+                try { return JSON.parse(localStorage.getItem('jf_admin_activities') || '[]'); }
+                catch { return []; }
+            })();
+            const all = [...adminActs, ...data];
+            document.getElementById('activities-grid').innerHTML = all.map(act => `
+                <div class="act-card act-card--${act.accent || 'green'}">
+                    ${act.image
+                        ? `<div class="act-img-wrap"><img src="${act.image}" alt="" class="act-img-thumb"></div>`
+                        : `<div class="act-icon"><i class="${act.icon || 'fa-solid fa-circle-dot'}"></i></div>`}
+                    <div class="act-body">
+                        <div class="act-header">
+                            <span class="act-date liter-regular">${act.date || ''}</span>
+                        </div>
+                        <p class="act-title liter-bold">${act.titre}</p>
+                        <p class="act-text liter-regular">${act.texte}</p>
+                    </div>
+                </div>`).join('');
+        }
+
+        fetch('data/activites.json')
+            .then(r => r.json())
+            .then(renderActivities)
+            .catch(() => renderActivities([]));
+    </script>
 
 </body>
 </html>

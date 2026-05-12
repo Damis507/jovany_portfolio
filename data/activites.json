@@ -1,0 +1,122 @@
+[
+  {
+    "id": "act1",
+    "date": "Mai 2026",
+    "icon": "fa-solid fa-palette",
+    "accent": "pink",
+    "titre": "Design system FRAC terminé",
+    "texte": "Création d'un design system complet pour le projet FRAC Franche-Comté — typographie, couleurs, composants réutilisables et prototype navigable sur Figma."
+  },
+  {
+    "id": "act2",
+    "date": "Avr 2026",
+    "icon": "fa-solid fa-mobile-screen-button",
+    "accent": "blue",
+    "titre": "Surl — sprint objectifs finalisé",
+    "texte": "Finalisation du module objectifs hebdomadaires avec reset automatique chaque lundi et barre de progression animée. Architecture Riverpod mise à jour."
+  },
+  {
+    "id": "act3",
+    "date": "Avr 2026",
+    "icon": "fa-solid fa-cube",
+    "accent": "amber",
+    "titre": "Rendu Blender — lumière volumétrique",
+    "texte": "Exploration de la lumière volumétrique sur Blender 4.x. Test de rendu architectural avec HDRI et post-process dans DaVinci Resolve."
+  },
+  {
+    "id": "act4",
+    "date": "Avr 2026",
+    "icon": "fa-solid fa-globe",
+    "accent": "green",
+    "titre": "Portfolio v3 mis en ligne",
+    "texte": "Refonte complète du portfolio avec animations CSS, design system sombre et identité typographique Noir + Liter. Optimisation des performances."
+  },
+  {
+    "id": "act5",
+    "date": "Mar 2026",
+    "icon": "fa-solid fa-video",
+    "accent": "green",
+    "titre": "Stage Uhouse — vidéo promo livrée",
+    "texte": "Vidéo promotionnelle finale validée par le client. Modélisation 3D Blender, animation After Effects et montage DaVinci Resolve. Diffusée sur LinkedIn."
+  },
+  {
+    "id": "act6",
+    "date": "Mar 2026",
+    "icon": "fa-solid fa-lock",
+    "accent": "amber",
+    "titre": "Ubarda — prototype NFC validé",
+    "texte": "Tests du cadenas prototype ESP32 + NFC PN532 en conditions réelles. Déverrouillage sans contact validé, intégration Supabase opérationnelle."
+  },
+  {
+    "id": "act7",
+    "date": "Fév 2026",
+    "icon": "fa-solid fa-code",
+    "accent": "blue",
+    "titre": "Formation Next.js — SSR maîtrisé",
+    "texte": "Approfondissement du rendu côté serveur avec Next.js 14. App Router, Server Components et stratégies d'hydratation client explorés."
+  },
+  {
+    "id": "act8",
+    "date": "Fév 2026",
+    "icon": "fa-solid fa-wand-magic-sparkles",
+    "accent": "purple",
+    "titre": "Exploration Three.js — particules WebGL",
+    "texte": "Création d'une scène interactive avec système de particules GPU et shaders GLSL. Test d'intégration dans un site portfolio one-page."
+  },
+  {
+    "id": "act9",
+    "date": "Jan 2026",
+    "icon": "fa-solid fa-file-lines",
+    "accent": "green",
+    "titre": "Rapport Surl soumis — Master 1",
+    "texte": "Rendu du rapport technique complet de l'application Surl. Cahier des charges, architecture technique, tests unitaires et bilan de projet."
+  },
+  {
+    "id": "act10",
+    "date": "Jan 2026",
+    "icon": "fa-solid fa-film",
+    "accent": "amber",
+    "titre": "Motion design Inventor Race terminé",
+    "texte": "Finalisation de la campagne visuelle du jeu — posters, mockup smartphone 3D animé sous After Effects et vidéo motion design livrable."
+  },
+  {
+    "id": "act11",
+    "date": "Déc 2025",
+    "icon": "fa-solid fa-play-circle",
+    "accent": "purple",
+    "titre": "Découverte Remotion — vidéo React",
+    "texte": "Création de vidéos programmatiques avec Remotion. Animations timeline pilotées par React, exportation MP4 et intégration dans workflow vidéo."
+  },
+  {
+    "id": "act12",
+    "date": "Déc 2025",
+    "icon": "fa-solid fa-sliders",
+    "accent": "amber",
+    "titre": "Color grading — DaVinci Resolve",
+    "texte": "Session de color grading sur rushes vidéo tournés en Guadeloupe. Utilisation des noeuds de correction et LUT personnalisée créée."
+  },
+  {
+    "id": "act13",
+    "date": "Nov 2025",
+    "icon": "fa-solid fa-download",
+    "accent": "green",
+    "titre": "CV & portfolio PDF mis à jour",
+    "texte": "Révision complète du CV avec typographie Liter et mise en page minimaliste. Nouvelle version du PDF portfolio design synchronisée."
+  },
+  {
+    "id": "act14",
+    "date": "Oct 2025",
+    "icon": "fa-solid fa-trophy",
+    "accent": "pink",
+    "titre": "Hackathon Sainte-Rose — Top 3",
+    "texte": "Participation au hackathon de Sainte-Rose (Guadeloupe). Prototype d'aide aux étudiants conçu en 48h. Classement top 3 parmi 12 équipes."
+  },
+  {
+    "id": "act15",
+    "date": "Sep 2025",
+    "icon": "fa-brands fa-linkedin",
+    "accent": "blue",
+    "titre": "LinkedIn actualisé — projets 2026",
+    "texte": "Profil mis à jour avec les projets Surl, Ubarda et FRAC. Nouvelles compétences Flutter, Vue.js et Design System ajoutées. +130 abonnés."
+  }
+]
